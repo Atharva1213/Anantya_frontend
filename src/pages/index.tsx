@@ -66,8 +66,7 @@ export default function PreviewPage() {
                         <line x1="8" y1="2" x2="8" y2="6"></line>
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                       </svg>
-                      <span className="text-white">17-20 Feb</span>
-                    </div>
+        <span className="text-white">17-20 Feb</span>
                     <div className="flex  space-x-2">
                       <svg
                         className="w-6 h-6 text-white"
@@ -81,9 +80,7 @@ export default function PreviewPage() {
                         <path d="M12 2 C7.03 2 3 6.03 3 11 C3 16.55 12 22 12 22 C12 22 21 16.55 21 11 C21 6.03 16.97 2 12 2 Z"></path>
                         <circle cx="12" cy="11" r="4"></circle>
                       </svg>
-                      <span className="text-white">
-                        Pimpri Chinchwad College Of Engineering 
-                      </span>
+                      <span className="text-white">Pimpri Chinchwad College of Engineering</span>
                     </div>
                   </div>
                 </div>

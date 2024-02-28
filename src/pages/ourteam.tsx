@@ -1,5 +1,5 @@
 import React from 'react'
-import {  mehfooz, munavvar, thanay, profile,mash } from '../images/team'
+import {atharvaLende,tarunRathod} from '../images/team'
 import Image from 'next/image'
 import { instagram, linkedin, github } from '../images/icons';
 import NavMenu from '@/components/NavMenu';
@@ -9,66 +9,20 @@ import { useRouter } from 'next/router';
 const teamDetails = [
     {
         name: 'Atharva Lende',
-        image: munavvar,
+        image: atharvaLende,
         year: "3rd year CSE",
-        linkedin: 'https://www.linkedin.com/atharva_lende',
+        linkedin: 'https://www.linkedin.com/in/atharva-lende/',
         github: 'https://github.com/Atharva1213',
-        instagram: 'https://www.instagram.com',
-
+        instagram: 'https://www.instagram.com/_shreelende_/',
     },
     {
         name: 'Tarun Rathod',
-        image: thanay,
+        image: tarunRathod,
         year: "3rd year CSE",
-        linkedin: 'https://www.linkedin.com/in/',
-        github: 'https://github.com/',
-        twitter: 'https://twitter.com/',
-        instagram: 'https://www.instagram.com/_.tarunnn.rathoddd._',
-
+        linkedin: 'https://www.linkedin.com/in/atharva-lende/',
+        github: 'https://github.com/Atharva1213',
+        instagram: 'https://www.instagram.com/_shreelende_/',
     },
-    {
-        name: 'Vithesh',
-        image: mash,
-        year: "4'th year CSE",
-        linkedin: 'https://www.linkedin.com/in/',
-        github: 'https://github.com/',
-        twitter: 'https://twitter.com/',
-        instagram: 'https://www.instagram.com/',
-
-    },
-    {
-        name: 'Mehfooz',
-        image: mehfooz,
-        year: "4'th year CSE",
-
-        linkedin: 'https://www.linkedin.com/in/',
-        github: 'https://github.com/',
-        twitter: 'https://twitter.com/',
-        instagram: 'https://www.instagram.com/',
-
-    },
-    {
-        name: 'Vikas',
-        image: profile,
-        year: "4'th year CSE",
-
-        linkedin: 'https://www.linkedin.com/in/',
-        github: 'https://github.com/',
-        twitter: 'https://twitter.com/',
-        instagram: 'https://www.instagram.com/',
-
-    },
-    {
-        name: 'Vishal',
-        image: profile,
-        year: "4'th year CSE",
-        linkedin: 'https://www.linkedin.com/in/',
-        github: 'https://github.com/',
-        twitter: 'https://twitter.com/',
-        instagram: 'https://www.instagram.com/',
-
-    },
-
 ]
 const Ourteam = () => {
     const router = useRouter();
@@ -79,7 +33,8 @@ const Ourteam = () => {
                 <NavMenu />
             )}
             <div className="flex justify-center">
-                <div className="   md:px-12 xl:px-6">          <div className="relative pt-36 ">
+                <div className="   md:px-12 xl:px-6"> 
+                    <div className="relative pt-36 ">
                     <div className="lg:w-2/3 text-center  mx-auto">
                         <h1 className="text-white font-bold text-4xl md:text-6xl xl:text-7xl">OUR <span className="text-primary text-[#EACD69]">TEAM.</span></h1>
 
