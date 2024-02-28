@@ -6,7 +6,6 @@ import { events } from '../eventDetails';
 import NavMenu from '@/components/NavMenu';
 
 const Events = ({ headerShown }: { headerShown: any }) => {
-    // const [showAllEvents, setShowAllEvents] = React.useState(false)
     const router = useRouter();
     const showAllEvents = router.query.allEvents === "true";
     let showNav = router.query.showNav;
@@ -23,10 +22,6 @@ const Events = ({ headerShown }: { headerShown: any }) => {
             window.removeEventListener('popstate', handlePopstate);
         };
     }, []);
-
-    // Determine the value of showNav
-
-    // Determine whether to show the NavMenu component
     const shouldShowNavMenu = headerShown && isShowNav;
 
 
