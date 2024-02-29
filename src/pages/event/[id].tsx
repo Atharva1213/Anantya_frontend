@@ -1,38 +1,102 @@
-import { useRouter, } from "next/router";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { use, useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { events } from "../../eventDetails";
 import Image from "next/image";
+import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
 
 const EventDetails = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [users,setusers]=useState(null);
   const event = events.find((event) => event.alias === id);
   if (!event) {
     return <div>Event not found</div>;
   }
+  const [registerUser, setregisterUser] = useState(false);
+  const [paymentmode, setpaymentmode] = useState(false);
+  const [users, setUsers] = useState([
+    {
+      email: "sxscdvfgbfvgbd@pccoepune.org",
+      firstName: "item.firstName",
+      lastName: "item.lastName",
+      contactNumber: "014394334",
+      dept: "item.dept",
+      college: "item.college",
+    },
+  ]);
 
-  const handleButtonClick = async() => {
-      const result=await axios.post("http://localhost:9190/api/register/registerevent",{
-          event:event,
-          users:users
-      })
-      if(result.data != "401")
-      {
-        toast.success(result.data.message, {
-          autoClose: 30000,
-          position: "top-center",
-        });
-      }
-      toast.success(result.data.message, {
-        autoClose: 30000,
+  const isPCCOEEmail = (email) => {
+    const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
+    return emailRegex.test(email);
+  };
+
+  const registerEventApiCall = async (users) => {
+    try {
+      const result = await axios.post(
+        "http://localhost:9190/api/register/registerevent",
+        {
+          user: users,
+          eventId: 1,
+          type: "PCCOE",
+        }
+      );
+      handleApiResponse(result.data);
+    } catch (error) {
+      handleApiError();
+    }
+  };
+
+  const handleApiResponse = (data) => {
+    if (data.message !== "401") {
+      setregisterUser(true);
+      setTimeout(() => {
+        setregisterUser(false);
+      }, 2000);
+      toast.success(data.message, {
+        autoClose: 2000,
         position: "top-center",
       });
+    } else {
+      toast.error(data.title, {
+        autoClose: 6000,
+        position: "top-center",
+      });
+    }
   };
+
+  const handleApiError = () => {
+    toast.error("An error occurred while processing your request", {
+      autoClose: 6000,
+      position: "top-center",
+    });
+  };
+
+  const handleButtonClick = async () => {
+    if (!users || users.length === 0) {
+      toast.warning("No users to check", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return;
+    }
+
+    const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user.email));
+    if (areAllPCCOEEmails) {
+      registerEventApiCall(users);
+    } else {
+      setpaymentmode(true);
+    }
+  };
+
+  const closeHanlder = () => {
+    setUsers(users)
+    setregisterUser(false);
+    setpaymentmode(false);
+  };
+
   return (
     <>
       <NavMenu />
@@ -45,7 +109,6 @@ const EventDetails = () => {
                 {event.name}
                 <span className="text-primary text-[#EACD69]">.</span>
               </h1>
-
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2 space-x-2 text-lg">
                   <p className="m-0 text-lg md:text-xl">{event.alias}</p>
@@ -133,8 +196,7 @@ const EventDetails = () => {
             </div>
           </div>
         </article>
-        <div
-          className="mx-auto flex flex-col gap-3 text-center w-82 p-4 rounded-xl ring-2 ring-offset-2 hover:ring-offset-4">
+        <div className="mx-auto flex flex-col gap-3 text-center w-82 p-4 rounded-xl ring-2 ring-offset-2 hover:ring-offset-4">
           <div className="flex flex-col gap-3">
             <div className="w-100 flex flex-col gap-1">
               <h2 className="text-1xl font-bold font-headings md:text-2xl">
@@ -186,6 +248,54 @@ const EventDetails = () => {
             </div>
           </div>
         </div>
+        {registerUser && (
+          <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+            <LottieAnimation />
+          </div>
+        )}
+        {paymentmode && (
+          <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+            <div
+              className="w-1/2 h-1/2 bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+              style={{
+                display: "flex",
+                gap: "2vh",
+                padding: "1vh 0.4vh",
+                flexDirection: "column",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <div style={{ width: "90%" }}>
+                  <h2 className="text-center font-bold">PAYMENT MODE</h2>
+                </div>
+                <span className="text-right" onClick={closeHanlder}>
+                  <span className="material-symbols-outlined">close</span>
+                </span>
+              </div>
+              <div
+                className="text-center"
+                style={{ width: "100%", height: "70%", backgroundColor: "red" }}
+              >
+                Qr
+              </div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <button
+                  type="button"
+                  onClick={handleButtonClick}
+                  className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                >
+                  Register Her
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
