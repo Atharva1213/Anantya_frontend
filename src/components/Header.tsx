@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logo from "../images/logo.png";
-import logo_compressed from "../images/logo_compressed.png";
+import logo1 from "../images/logo1.svg";
+import bglogo1 from "../images/bglogo1.png";
 import logoText from "../images/logo_text.png";
 
 const Header = () => {
@@ -25,19 +25,20 @@ const Header = () => {
             <source src="/backgroundvideo.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center" >
           <div className="relative w-full max-w-screen-md md:mt-0 sm:mt-10">
                         <div className="relative h-0 pb-[100%] mt-[100px] md:-mt-10 ">
-                            <Image src={logo_compressed} alt="logo" className="absolute inset-0 w-full h-full object-contain" />
+                            <div>
+                            <Image src={bglogo1} alt="logo" className="absolute inset-0 w-full h-full object-contain opacity-50" />
+                            </div>
+                            <div>
+                            <Image src={logo1} alt="logo" className="absolute inset-0 w-full h-full object-contain" />
+                            </div>
                         </div>
                         <div className="relative h-0">
-                            <Image src={logoText} alt="logo text" className="mx-auto w-full h-auto object-contain -mt-[100px] sm:-mt-[10px] md:-mt-[250px] lg:-mt-[300px]" />
+                        <Image src={logoText} alt="logo text" className="mx-auto w-full h-auto object-contain -mt-[100px] sm:-mt-[10px] md:-mt-[250px] lg:-mt-[300px]" />
                         </div>
-                    </div>
-
-          {/* <div className="relative w-full max-w-screen-md md:mt-0 sm:mt-10 h-screen flex justify-center items-center">
-            <h1 className="text-3xl font-bold text-center text-white py-4">Anantya</h1>
-          </div> */}
+          </div>
         </div>
       </header>
     </>
