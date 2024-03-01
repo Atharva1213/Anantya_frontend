@@ -22,7 +22,7 @@ const Header = () => {
               opacity: 0.3,
             }}
           >
-            <source src="/backgroundvideo.mp4" type="video/mp4" />
+            <source src="/bgvideo1.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="flex items-center justify-center">
@@ -32,7 +32,7 @@ const Header = () => {
                 <Image
                   src={bglogo1}
                   alt="logo"
-                  className="absolute inset-0 w-full h-full object-contain opacity-50"
+                  className="absolute inset-0 w-full h-full object-contain opacity-50 animate-spin-slow"
                 />
               </div>
               <div>
