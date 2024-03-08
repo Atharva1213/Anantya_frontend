@@ -20,6 +20,7 @@ const NavItem = ({ href, text }: { href: any, text: string }) => {
       </span>
 
     </NextLink>
+    
   );
 };
 

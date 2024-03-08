@@ -95,6 +95,7 @@ const Gallery = () => {
           ))}
         </div>
       </section>
+      
     </>
   );
 };

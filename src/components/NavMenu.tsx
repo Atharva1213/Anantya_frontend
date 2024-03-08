@@ -49,7 +49,7 @@ const NavMenu = () => {
         <div className="-my-2 -mr-2 lg:hidden" onClick={() => handleClick()}>
           <MobileMenu />
         </div>
-        <nav className="hidden space-x-6 text-lg justify-center   lg:flex ">
+        <nav className="hidden space-x-6 text-lg justify-center lg:flex ">
           {navItems.map(({ href, text }, index) => (
             <NavItem href={href} text={text} />
           ))}
@@ -92,7 +92,7 @@ const NavMenu = () => {
                       query: { showNav: text !== "Home" ? true : false },
                     }}
                   >
-                    <p className="hover:text-lightGreen dark:hover:text-emerald-500">
+                    <p className="hover:text-lightGreen dark:hover:text-yellow-500">
                       {text}
                     </p>
                   </NextLink>
