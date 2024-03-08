@@ -59,16 +59,9 @@ const Header = () => {
           
         </div>
       </header>
+      <div style={{paddingBottom:"5vh"}}>
       <CountdownTimer />
-
-      {/* <div className="text-white p-5 justify-center items-center ml-12">hello</div> */}
-      {/* <div className="flex h-50 w-100 bg-yellow-300 ">
-      <div className="text-white text-6xl justify-center p-10 items-center ml-20" ref={ref}>{count}</div>
-      <div className="text-white text-6xl justify-center p-10 items-center ml-20" ref={ref}>{count}</div>
-      <div className="text-white text-6xl justify-center p-10 items-center ml-20" ref={ref}>{count}</div>
-      <div className="text-white text-6xl justify-center p-10 items-center ml-20" ref={ref}>{count}</div>
-      <div className="text-white text-6xl justify-center p-10 items-center ml-20" ref={ref}>{count}</div>
-      </div> */}
+      </div>
     </>
 
 );
