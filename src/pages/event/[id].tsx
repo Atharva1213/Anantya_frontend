@@ -8,15 +8,7 @@ import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
 
-
-
-
-  
-
 const EventDetails = () => {
-
-
-
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
@@ -100,19 +92,16 @@ const EventDetails = () => {
   };
 
   const closeHanlder = () => {
-    setUsers(users)
+    setUsers(users);
     setregisterUser(false);
     setpaymentmode(false);
   };
-
 
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
-
-
 
   return (
     <>
@@ -316,86 +305,60 @@ const EventDetails = () => {
       </div>
 
       {showPopup && (
-        <div className="popup">
-          <div className="popup-content" >
-            <div className='login-box'>
-
-            <h2>Event Registration</h2>
-            <br />
-            <form>
-               <div>
-               <label>
-                Name:
-              </label>
-                <input type="text" className="form-control" name="name" />
-               </div>
-              
-              <div>
-              <label>
-                Email:</label>
-                <input type="email" className="form-control" name="email" />
-              </div>
-            
-              <div>
-              <label>
-                Division:  </label>
-                <select className="form-control" name="division">
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                  <option value="E">E</option>
-                </select>
-              </div>
-              
-            <div>
-            <label>
-                Department: </label>
-                <select className="form-control" name="department">
-                  <option value="Computer">Computer</option>
-                  <option value="IT">IT</option>
-                  <option value="Mechanical">Mechanical</option>
-                  <option value="ENTC">ENTC</option>
-                  <option value="Civil">Civil</option>
-                </select>
-            </div>
-              
-             <div>
-             <label>
-                Year:</label>
-                <select className="form-control" name="year">
-                  <option value="1st">1st</option>
-                  <option value="2nd">2nd</option>
-                  <option value="3rd">3rd</option>
-                  <option value="4th">4th</option>
-                </select>
-             </div>
-             
-              
-              
-             <div className="form-flexbtn">
-                <a href="#">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      Submit
-                  </a>
-                  <button className="btn closebtn "  onClick={togglePopup}>
+        <div className="popup backdrop-blur-lg bg-opacity-50 z-50 ">
+          <div className="popup-content">
+            <div className="login-box">
+              <h2>Event Registration</h2>
+              <br />
+              <form>
+                <div>
+                  <label>Name:</label>
+                  <input type="text" className="form-control" name="name" />
+                </div>
+                <div>
+                  <label>Email:</label>
+                  <input type="email" className="form-control" name="email" />
+                </div>
+                <div>
+                  <label>Division: </label>
+                  <select className="form-control" name="division">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Department: </label>
+                  <select className="form-control" name="department">
+                    <option value="Computer">Computer</option>
+                    <option value="IT">IT</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="ENTC">ENTC</option>
+                    <option value="Civil">Civil</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Year:</label>
+                  <select className="form-control" name="year">
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                  </select>
+                </div>
+                <div className="form-flexbtn">
+                  <a href="">Submit</a>   
+                  <button className="btn closebtn " onClick={togglePopup}>
                     Close
-                </button>
-             </div>
-             
-            </form>
-            
-
-
+                  </button>
+                </div>
+              </form>
             </div>
-            
           </div>
         </div>
       )}
-
     </>
   );
 };
