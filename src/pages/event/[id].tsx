@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { use, useState } from "react";
+import React, {useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +7,9 @@ import { events } from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
+import close from "../../images/close.svg";
+import Qr from "../../images/QR.jpeg";
+import whatslink from "../../images/whatslink.jpeg";
 
 const EventDetails = () => {
   const router = useRouter();
@@ -16,15 +19,17 @@ const EventDetails = () => {
     return <div>Event not found</div>;
   }
   const [registerUser, setregisterUser] = useState(false);
+  const [paymentStep, setpaymentStep] = useState(1);
+  const [loading, setloading] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
   const [users, setUsers] = useState([
     {
-      email: "sxscdvfgbfvgbd@pccoepune.org",
-      firstName: "item.firstName",
-      lastName: "item.lastName",
-      contactNumber: "014394334",
-      dept: "item.dept",
-      college: "item.college",
+      email: "dilip.lende21@gmail.com",
+      firstName: "Chhaya",
+      lastName: "lende",
+      contactNumber: "9168582807",
+      dept: "Computer Engineering",
+      college: "PCCOE",
     },
   ]);
 
@@ -33,16 +38,22 @@ const EventDetails = () => {
     return emailRegex.test(email);
   };
 
-  const registerEventApiCall = async (users) => {
+  const registerEventApiCall = async () => {
     try {
+      setloading(true);
       const result = await axios.post(
         "http://localhost:9190/api/register/registerevent",
         {
           user: users,
-          eventId: 1,
-          type: "PCCOE",
+          eventId: event.id,
+          type: users.every((user) => isPCCOEEmail(user.email))
+            ? "PCCOE"
+            : "Other",
+          ownermail: "lendeatharva30@gmail.com",
+          ownerpassword: "gafr smei xpte xbsn",
         }
       );
+      closeHanlder();
       handleApiResponse(result.data);
     } catch (error) {
       handleApiError();
@@ -50,10 +61,12 @@ const EventDetails = () => {
   };
 
   const handleApiResponse = (data) => {
+    setloading(false);
     if (data.message !== "401") {
       setregisterUser(true);
       setTimeout(() => {
         setregisterUser(false);
+        window.location.href = "/";
       }, 2000);
       toast.success(data.message, {
         autoClose: 2000,
@@ -85,16 +98,17 @@ const EventDetails = () => {
 
     const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user.email));
     if (areAllPCCOEEmails) {
-      registerEventApiCall(users);
+      registerEventApiCall();
     } else {
       setpaymentmode(true);
     }
   };
 
   const closeHanlder = () => {
-    setUsers(users)
+    setUsers(users);
     setregisterUser(false);
     setpaymentmode(false);
+    setpaymentStep(1);
   };
 
   return (
@@ -221,7 +235,7 @@ const EventDetails = () => {
             </div>
             <div className="w-full flex gap-1.7 text-center items-center justify-evenly">
               <div>
-                <h4 className="text-1xl font-bold font-headings md:text-2xl">
+                <h4 className="text-1xl font-bold font-headings sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                   Student Coordinators
                 </h4>
                 <div className="space-y-2 mt-3">
@@ -256,7 +270,7 @@ const EventDetails = () => {
         {paymentmode && (
           <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
             <div
-              className="w-1/2 h-1/2 bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+              className="wholpayment bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
               style={{
                 display: "flex",
                 gap: "2vh",
@@ -275,23 +289,106 @@ const EventDetails = () => {
                   <h2 className="text-center font-bold">PAYMENT MODE</h2>
                 </div>
                 <span className="text-right" onClick={closeHanlder}>
-                  <span className="material-symbols-outlined">close</span>
+                  <Image src={close} alt="error" />
                 </span>
               </div>
-              <div
-                className="text-center"
-                style={{ width: "100%", height: "70%", backgroundColor: "red" }}
-              >
-                Qr
-              </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <button
-                  type="button"
-                  onClick={handleButtonClick}
-                  className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                >
-                  Register Her
-                </button>
+              {paymentStep === 1 && (
+                <div className="paymentFormStep">
+                  <div className="paymentform">
+                    <h2 className="font-bold">Payment Instruction</h2>
+                    <p>Payment Process include three Step Process:</p>
+                    <p>
+                      <span className="font-bold">Step -1 : </span>Scan The QR -
+                      (For Payment)
+                    </p>
+                    <p>
+                      <span className="font-bold">Step -2 : </span>Send The
+                      ScreenShot of Successfully Payment on Give whataspp Link
+                      follows the give template for whats app message{" "}
+                    </p>
+                    <p>
+                      <span className="font-bold">Step -3 : </span>Click on
+                      payment compelete button for registeation and after its
+                      you recicve mail of payment initaztion and after compinete
+                      verficaton done by anatya24 team then you recview payment
+                      Successfully mail.
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setpaymentStep(2);
+                      }}
+                      className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                    >
+                      Way To Payment
+                    </button>
+                  </div>
+                  <div className="paymentform">
+                    <h2 className="font-bold">Whatsapp Message : </h2>
+                    <pre>
+                      EventName - (event name) <br />
+                      Name - (payment holder) <br />
+                      Amount -(amount) <br />
+                      Screenshot - (photo) <br />
+                    </pre>
+                  </div>
+                </div>
+              )}
+              {paymentStep === 2 && (
+                <div className="paymentFormStep">
+                  <div className="paymentQR">
+                    <h3>Payment QR</h3>
+                    <Image src={Qr} alt="error" className="QrImage" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setpaymentStep(3);
+                      }}
+                      className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                    >
+                      Payment Complete
+                    </button>
+                  </div>
+                </div>
+              )}
+              {paymentStep === 3 && (
+                <div className="paymentFormStep">
+                  <div>
+                    <div className="paymentQR">
+                      <h3>Whatsapp Message</h3>
+                      <Image src={whatslink} alt="error" className="QrImage" />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          registerEventApiCall();
+                        }}
+                        className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                      >
+                        Regsiter Here
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+        {loading && (
+          <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+            <div
+              className="Loadingdiv bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+              style={{
+                display: "flex",
+                gap: "1vh",
+                padding: "1vh 0.4vh",
+                flexDirection: "column",
+              }}
+            >
+              <div className="LoadingDiv">
+                <div className="loader"></div>
+                <h2 className="text-center font-bold">Please Wait : Loading</h2>
               </div>
             </div>
           </div>

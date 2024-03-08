@@ -108,10 +108,37 @@ section .container > * {
     opacity: 0;
 }
 
+.Loadingdiv
+{
+   width:40%;
+   height:60%;
+}
+
+.LoadingDiv
+{
+    width:100%;
+    height:80%;
+    display:flex;
+    flex-direction:column;
+}
+
+.wholpayment
+{ 
+    width:50%;
+    height:80%;
+}
 @media (max-width: 850px) {
     section .container {
         grid-template-columns: 1fr;
     }
+   .Loadingdiv 
+   {
+     width:90%;
+   }
+   .wholpayment
+{ 
+    width:90%;
+}
 }
 
 .grid-wrapper > div {
@@ -142,6 +169,64 @@ section .container > * {
 .grid-wrapper .big {
     grid-column: span 2;
     grid-row: span 2;
+}
+
+.paymentform
+{
+      width:100%;
+      padding:1.5vh 3vh;
+      display:flex;
+      flex-direction:column;
+      text-align:left;
+       gap:1.4vh;
+}
+
+
+.loadercomp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader {
+  border: 1vh solid #f3f3f3;
+  border-top: 1vh solid #22c55e;
+  border-radius: 50%;
+  width: 20vh;
+  height:20vh;
+  margin: auto;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.paymentQR
+{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    gap:1.5vh;
+    align-content:center;
+    align-items:center;
+}
+
+.QrImage
+{
+   width:70%;
+   height:60vh;
+}
+.paymentFormStep
+{
+     width:100%;
+     height:100%;
 }
 @media screen and (max-width: 600px) {
     .grid-wrapper {
