@@ -34,7 +34,7 @@ const Events = ({ headerShown }: { headerShown: any }) => {
           <div className="relative pt-36 ">
             <div className="lg:w-2/3 text-center  mx-auto">
               <h1 className="text-white font-bold text-4xl md:text-6xl xl:text-7xl">
-                Events<span className="text-primary text-green-700">.</span>
+                Events<span className="text-primary text-yellow-600">.</span>
               </h1>
             </div>
           </div>
@@ -70,7 +70,7 @@ const Events = ({ headerShown }: { headerShown: any }) => {
             >
               <button
                 type="button"
-                className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-yellow-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
               >
                 More Events
               </button>
