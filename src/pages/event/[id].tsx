@@ -3,20 +3,21 @@ import React, { use, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { events } from "../../eventDetails";
+import eventDetails, { events } from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
+import ReactDOM from 'react-dom'
 
 
+import { ImCross } from "react-icons/im";
 
 
-  
 
 const EventDetails = () => {
 
 
-
+  const [currentParticipant, setCurrentParticipant] = useState(0)
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
@@ -111,9 +112,9 @@ const EventDetails = () => {
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
+  const nextpage = (num: number) => {
 
-
-
+  }
   return (
     <>
       <NavMenu />
@@ -164,6 +165,7 @@ const EventDetails = () => {
                     ></path>{" "}
                   </svg>
                   {event.schedule.day}
+
                 </p>
                 <p className="flex items-center text-gray-500">
                   <svg
@@ -201,6 +203,7 @@ const EventDetails = () => {
               </div>
               <div className="lg:w-2/3 md:text-center mx-auto flex justify-center mt-7">
                 <a>
+
                   <button
                     type="button"
                     onClick={togglePopup}
@@ -307,7 +310,7 @@ const EventDetails = () => {
                   onClick={handleButtonClick}
                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                 >
-                  Register Her
+                  Register Here
                 </button>
               </div>
             </div>
@@ -316,82 +319,150 @@ const EventDetails = () => {
       </div>
 
       {showPopup && (
+
+
         <div className="popup">
           <div className="popup-content" >
             <div className='login-box'>
-
-            <h2>Event Registration</h2>
-            <br />
-            <form>
-               <div>
-               <label>
-                Name:
-              </label>
-                <input type="text" className="form-control" name="name" />
-               </div>
+           
               
-              <div>
-              <label>
-                Email:</label>
-                <input type="email" className="form-control" name="email" />
+    
+              <div className="text-white">
+              <div className="cross">
+              <h1>Event Registration</h1>
+              <ImCross onClick={togglePopup}/>
               </div>
-            
+              <br />
               <div>
-              <label>
-                Division:  </label>
-                <select className="form-control" name="division">
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                  <option value="E">E</option>
-                </select>
+              Member: {currentParticipant+1}
               </div>
               
-            <div>
-            <label>
-                Department: </label>
-                <select className="form-control" name="department">
-                  <option value="Computer">Computer</option>
-                  <option value="IT">IT</option>
-                  <option value="Mechanical">Mechanical</option>
-                  <option value="ENTC">ENTC</option>
-                  <option value="Civil">Civil</option>
-                </select>
-            </div>
-              
-             <div>
-             <label>
-                Year:</label>
-                <select className="form-control" name="year">
-                  <option value="1st">1st</option>
-                  <option value="2nd">2nd</option>
-                  <option value="3rd">3rd</option>
-                  <option value="4th">4th</option>
-                </select>
-             </div>
-             
-              
-              
-             <div className="form-flexbtn">
-                <a href="#">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      Submit
-                  </a>
-                  <button className="btn closebtn "  onClick={togglePopup}>
-                    Close
-                </button>
-             </div>
-             
-            </form>
-            
+                
+              </div>
+              <br />
+              <form>
+                <div>
+                  <label>
+                    Name:
+                  </label>
+                  <input type="text" className="form-control" name="name" />
+                </div>
+
+                <div>
+                  <label>
+                    Email:</label>
+                  <input type="email" className="form-control" name="email" />
+                </div>
+                <div>
+                <label>
+                    Contact Number</label>
+                  <input type="number" className="form-control" name="contact" />
+                </div>
+                <div>
+                <label>
+                    College Name:</label>
+                  <input type="text" className="form-control" name="collegename" />
+                </div>
+                <div>
+                  <label>
+                    Division:  </label>
+                  <select className="form-control" name="division">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label>
+                    Department: </label>
+                  <select className="form-control" name="department">
+                    <option value="Computer">Computer</option>
+                    <option value="IT">IT</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="ENTC">ENTC</option>
+                    <option value="Civil">Civil</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label>
+                    Year:</label>
+                  <select className="form-control" name="year">
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                  </select>
+                </div>
 
 
+
+                <div className="form-flexbtn">
+
+                  {(events[0].participantno == 1 || events[0].participantno === currentParticipant) ?
+                    <>
+                      {
+                        currentParticipant != 0 &&
+                        <a href="#" onClick={() => {
+                          setCurrentParticipant(Math.max(currentParticipant - 1, 0))
+                        }}>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Back
+                        </a>
+                      }
+                      <a href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Submit
+                      </a>
+
+                    </>
+                    : <>
+                      
+                      {
+                        currentParticipant != 0 &&
+                        <a href="#" onClick={() => {
+                          setCurrentParticipant(Math.max(currentParticipant - 1, 0))
+                        }}>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Back
+                        </a>
+                      }
+                    
+                      
+                      <a href="#" onClick={() => {
+                        setCurrentParticipant(Math.min(currentParticipant + 1, events[0].participantno ?? 0))
+                      }}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Next
+                      </a>
+                    
+                      
+                    </>
+                  }
+
+                </div>
+
+              </form>
+
+
+
             </div>
-            
+
           </div>
         </div>
       )}
