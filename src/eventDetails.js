@@ -4,26 +4,25 @@ import eventposter from "./images/poster/eventposter.jpeg";
 
 export const events = [
   {
-    "name": "Film Frenzy Fest",
+    "name": "Codigo",
     "id":"1",
     "alias": "Reel Making",
     "image": eventposter,
-    "aboutEvent": "CAPTURING FROM REAL TO REEL! Reels have surely become a means for the youth of today to exhibit their creativity and bring in the best trends on social media in this digital era. As a result, we've chosen to use this expressive platform to recognize the students' inventiveness. To explore the creative side of the students, we bring to you The Reel Making Competition",
-    "participantno":1,
+    "aboutEvent": "Ready to code your way to the top? Join CODIGO, the ultimate coding extravaganza open to all! Unleash your skills, conquer challenges, and grab exciting surprises along the way. Register now and let the coding frenzy begin!",
     "coordinators": {
       "students": [
-        { "name": "Ashiq", "phone": "9902774200" },
-        { "name": "Sawad", "phone": "7259137283" }
+        { "name": "Atharva Bardapurkar", "phone": "9359472421" },
+        { "name": "Mithilesh Rajput", "phone": "9579283970" }
       ],
-      "faculty": ["Raj Kiran Shetty", "Rakshith Shetty"]
+      "faculty": ["Rahul Pitale", ]
     },
     "schedule": {
-      "day": "19th May",
+      "day": "19th March",
       "venue": "G16",
-      "time": "9:30 AM"
+      "time": "9 AM"
     },
-    "Amount":"100",
-    "RulebookLink":"http://link.com",
+    "Amount":" Rs. 100 registration fee for non-PCCOEian after getting selected for round 1",
+    "RulebookLink":"https://drive.google.com/file/d/19Aiwcbz0wO5lmiaJ1rberwSQkmo6aCHc/view?usp=sharing",
     "WebsiteLink":"http://www.google.com"
   },
   {

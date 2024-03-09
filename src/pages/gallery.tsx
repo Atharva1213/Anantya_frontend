@@ -1,51 +1,62 @@
 import React, { useEffect, useState } from "react";
-import { gallery1 } from "../images/gallery";
+import  CODIGO from "../images/gallery/CODIGO.png";
+import ALPHA_BYTE from "../images/gallery/ALPHA_BYTE.png";
+import CAT from "../images/gallery/CAT.png";
+import IPL_AUCTION from "../images/gallery/IPL_AUCTION.png";
+import ACTION_REPLAY from "../images/gallery/ACTION_REPLY.png";
+import CODE_IN_THE_DARK from "../images/gallery/CODE_IN_THE_DARK.png";
+import MIND_MATRIX from "../images/gallery/MIND_MATRIX.png";
+import PROJECT_COMPETITION from "../images/gallery/PROJECT_COMPLETION.png";
+import POSTER_PRESENTATION from "../images/gallery/POSTER_PRESENTATION.png";
+import CHRONOCLASH from "../images/gallery/CHRONOCLASH.png";
+import BYTE_ME from "../images/gallery/BYTE_ME.png";
+import SHERLOCK from "../images/gallery/SHERLOCK.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import NavMenu from "@/components/NavMenu";
 const images = [
   {
-    image: gallery1,
+    image: CODIGO,
     className: "",
   },
   {
-    image: gallery1,
+    image: ALPHA_BYTE,
     className: "",
   },
   {
-    image: gallery1,
+    image: CAT,
     className: "",
   },
   {
-    image: gallery1,
+    image: IPL_AUCTION,
     className: "",
   },
   {
-    image: gallery1,
+    image: ACTION_REPLAY,
     className: "",
   },
   {
-    image: gallery1,
+    image: CODE_IN_THE_DARK,
     className: "",
   },
   {
-    image: gallery1,
+    image: MIND_MATRIX,
     className: "",
   },
   {
-    image: gallery1,
+    image: PROJECT_COMPETITION,
     className: "",
   },
   {
-    image: gallery1,
+    image: POSTER_PRESENTATION,
     className: "",
   },
   {
-    image: gallery1,
+    image: CHRONOCLASH,
     className: "",
   },
   {
-    image: gallery1,
+    image: BYTE_ME,
     className: "",
   },
 ];
