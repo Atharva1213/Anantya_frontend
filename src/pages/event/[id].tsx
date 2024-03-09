@@ -13,6 +13,15 @@ import { ImCross } from "react-icons/im";
 
 const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
+  const [currentParticipantData, setCurrentParticipantData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    collegeName: "",
+    division: "A", // Assuming default value
+    department: "Computer", // Assuming default value
+    year: "1st", // Assuming default value
+  });
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
@@ -21,16 +30,7 @@ const EventDetails = () => {
   }
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([
-    {
-      email: "sxscdvfgbfvgbd@pccoepune.org",
-      firstName: "item.firstName",
-      lastName: "item.lastName",
-      contactNumber: "014394334",
-      dept: "item.dept",
-      college: "item.college",
-    },
-  ]);
+  const [users, setUsers] = useState([]);
 
   const isPCCOEEmail = (email) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
@@ -106,7 +106,44 @@ const EventDetails = () => {
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
-  const nextpage = (num: number) => {};
+
+  const validateParticipantData = () => {
+    const isAllFieldsFilled = Object.values(currentParticipantData).every(
+      (value) => value.trim() !== ""
+    );
+    if (!isAllFieldsFilled) {
+      alert("Please fill all the fields before proceeding.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleNextOrSubmit = () => {
+    const isValid = validateParticipantData();
+    if (!isValid) {
+      return;
+    }
+    if (currentParticipant + 1 <= event.participantno) {
+      console.log(currentParticipantData);
+      setUsers([...users, currentParticipantData]);
+    }
+
+    if (currentParticipant + 1 < event.participantno) {
+      setCurrentParticipant(currentParticipant + 1);
+      setCurrentParticipantData({
+        name: "",
+        email: "",
+        contact: "",
+        collegeName: "",
+        division: "A",
+        department: "Computer",
+        year: "1st",
+      });
+    } else {
+      console.log("Submitting", users);
+    }
+  };
+
   return (
     <>
       <NavMenu />
@@ -309,7 +346,7 @@ const EventDetails = () => {
       </div>
 
       {showPopup && (
-        <div className="popup bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg">
+        <div className="popup">
           <div className="popup-content">
             <div className="login-box">
               <div className="text-white">
@@ -321,15 +358,40 @@ const EventDetails = () => {
                 <div>Member: {currentParticipant + 1}</div>
               </div>
               <br />
+
               <form>
                 <div>
                   <label>Name:</label>
-                  <input type="text" className="form-control" name="name" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="name"
+                    value={currentParticipantData.name}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        name: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
 
                 <div>
                   <label>Email:</label>
-                  <input type="email" className="form-control" name="email" />
+                  <input
+                    type="email"
+                    className="form-control"
+                    name="email"
+                    value={currentParticipantData.email}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        email: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
                 <div>
                   <label>Contact Number</label>
@@ -337,6 +399,14 @@ const EventDetails = () => {
                     type="number"
                     className="form-control"
                     name="contact"
+                    value={currentParticipantData.contact}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        contact: e.target.value,
+                      })
+                    }
+                    required
                   />
                 </div>
                 <div>
@@ -345,11 +415,30 @@ const EventDetails = () => {
                     type="text"
                     className="form-control"
                     name="collegename"
+                    value={currentParticipantData.collegeName}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        collegeName: e.target.value,
+                      })
+                    }
+                    required
                   />
                 </div>
                 <div>
                   <label>Division: </label>
-                  <select className="form-control" name="division">
+                  <select
+                    className="form-control"
+                    name="division"
+                    value={currentParticipantData.division}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        division: e.target.value,
+                      })
+                    }
+                    required
+                  >
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
@@ -360,7 +449,18 @@ const EventDetails = () => {
 
                 <div>
                   <label>Department: </label>
-                  <select className="form-control" name="department">
+                  <select
+                    className="form-control"
+                    name="department"
+                    value={currentParticipantData.department}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        department: e.target.value,
+                      })
+                    }
+                    required
+                  >
                     <option value="Computer">Computer</option>
                     <option value="IT">IT</option>
                     <option value="Mechanical">Mechanical</option>
@@ -371,7 +471,18 @@ const EventDetails = () => {
 
                 <div>
                   <label>Year:</label>
-                  <select className="form-control" name="year">
+                  <select
+                    className="form-control"
+                    name="year"
+                    value={currentParticipantData.year}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        year: e.target.value,
+                      })
+                    }
+                    required
+                  >
                     <option value="1st">1st</option>
                     <option value="2nd">2nd</option>
                     <option value="3rd">3rd</option>
@@ -381,25 +492,9 @@ const EventDetails = () => {
 
                 <div className="form-flexbtn">
                   {events[0].participantno == 1 ||
-                  events[0].participantno === currentParticipant ? (
+                  events[0].participantno === currentParticipant + 1 ? (
                     <>
-                      {currentParticipant != 0 && (
-                        <a
-                          href="#"
-                          onClick={() => {
-                            setCurrentParticipant(
-                              Math.max(currentParticipant - 1, 0)
-                            );
-                          }}
-                        >
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          Back
-                        </a>
-                      )}
-                      <a href="#">
+                      <a href="#" onClick={handleNextOrSubmit}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -409,32 +504,10 @@ const EventDetails = () => {
                     </>
                   ) : (
                     <>
-                      {currentParticipant != 0 && (
-                        <a
-                          href="#"
-                          onClick={() => {
-                            setCurrentParticipant(
-                              Math.max(currentParticipant - 1, 0)
-                            );
-                          }}
-                        >
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          Back
-                        </a>
-                      )}
                       <a
                         href="#"
-                        style={{backgroundColor:"orange"}}
                         onClick={() => {
-                          setCurrentParticipant(
-                            Math.min(
-                              currentParticipant + 1,
-                              events[0].participantno ?? 0
-                            )
-                          );
+                          handleNextOrSubmit();
                         }}
                       >
                         <span></span>

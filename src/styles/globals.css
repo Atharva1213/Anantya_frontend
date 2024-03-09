@@ -245,6 +245,11 @@ section .container > * {
     border-radius: 10px;
     overflow-y: scroll;
   }
+  .login-box::-webkit-scrollbar 
+  {
+    display: none; /* Hide scrollbar for webkit (Chrome, Safari, etc.) */ 
+  }
+  
   
   .login-box h2 {
     margin: 0 0 30px;
