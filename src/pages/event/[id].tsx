@@ -13,14 +13,18 @@ import { ImCross } from "react-icons/im";
 
 const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
+  const [registerUser, setregisterUser] = useState(false);
+  const [paymentmode, setpaymentmode] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
   const [currentParticipantData, setCurrentParticipantData] = useState({
     name: "",
     email: "",
     contact: "",
     collegeName: "",
-    division: "A", // Assuming default value
-    department: "Computer", // Assuming default value
-    year: "1st", // Assuming default value
+    division: "A", 
+    department: "Computer", 
+    year: "1st",
   });
   const router = useRouter();
   const { id } = router.query;
@@ -28,10 +32,6 @@ const EventDetails = () => {
   if (!event) {
     return <div>Event not found</div>;
   }
-  const [registerUser, setregisterUser] = useState(false);
-  const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([]);
-
   const isPCCOEEmail = (email) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
     return emailRegex.test(email);
@@ -101,48 +101,96 @@ const EventDetails = () => {
     setpaymentmode(false);
   };
 
-  const [showPopup, setShowPopup] = useState(false);
-
   const togglePopup = () => {
     setShowPopup(!showPopup);
+    setCurrentParticipant(0);
+    setCurrentParticipantData({
+      name: "",
+      email: "",
+      contact: "",
+      collegeName: "",
+      division: "A",
+      department: "Computer",
+      year: "1st",
+    });
+    setUsers([]);
   };
 
   const validateParticipantData = () => {
     const isAllFieldsFilled = Object.values(currentParticipantData).every(
-      (value) => value.trim() !== ""
+        (value) => value.trim() !== ""
     );
+
     if (!isAllFieldsFilled) {
-      alert("Please fill all the fields before proceeding.");
-      return false;
+        toast.warning("Please fill all the fields before proceeding.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
     }
+
+    const nameRegex = /^[A-Za-z\s]{1,}$/;
+    if (!nameRegex.test(currentParticipantData.name)) {
+        toast.warning("Please enter a valid name.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(currentParticipantData.email)) {
+        toast.warning("Please enter a valid email address.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(currentParticipantData.contact)) {
+        toast.warning("Please enter a valid 10-digit phone number.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+    if (!nameRegex.test(currentParticipantData.collegeName)) {
+        toast.warning("Please enter a valid College name.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+
     return true;
-  };
+};
+
+
 
   const handleNextOrSubmit = () => {
+    console.log("entering");
     const isValid = validateParticipantData();
     if (!isValid) {
-      return;
+        return;
     }
     if (currentParticipant + 1 <= event.participantno) {
-      console.log(currentParticipantData);
-      setUsers([...users, currentParticipantData]);
+        setCurrentParticipant(currentParticipant + 1);
+        setUsers([...users, currentParticipantData]);
+        setCurrentParticipantData({
+          name: "",
+          email: "",
+          contact: "",
+          collegeName: "",
+          division: "A",
+          department: "Computer",
+          year: "1st",
+        });
     }
+    if (currentParticipant + 1 === event.participantno) {
+        console.log("Submitting", users);
+    }
+};
 
-    if (currentParticipant + 1 < event.participantno) {
-      setCurrentParticipant(currentParticipant + 1);
-      setCurrentParticipantData({
-        name: "",
-        email: "",
-        contact: "",
-        collegeName: "",
-        division: "A",
-        department: "Computer",
-        year: "1st",
-      });
-    } else {
-      console.log("Submitting", users);
-    }
-  };
 
   return (
     <>
@@ -491,8 +539,8 @@ const EventDetails = () => {
                 </div>
 
                 <div className="form-flexbtn">
-                  {events[0].participantno == 1 ||
-                  events[0].participantno === currentParticipant + 1 ? (
+                  {event.participantno == 1 ||
+                  event.participantno === currentParticipant + 1 ? (
                     <>
                       <a href="#" onClick={handleNextOrSubmit}>
                         <span></span>
