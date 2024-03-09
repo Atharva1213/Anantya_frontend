@@ -5,6 +5,7 @@ import eventposter from "./images/poster/eventposter.jpeg";
 export const events = [
   {
     "name": "Film Frenzy Fest",
+     "id":"1",
     "alias": "Reel Making",
     "image": eventposter,
     "aboutEvent": "CAPTURING FROM REAL TO REEL! Reels have surely become a means for the youth of today to exhibit their creativity and bring in the best trends on social media in this digital era. As a result, we've chosen to use this expressive platform to recognize the students' inventiveness. To explore the creative side of the students, we bring to you The Reel Making Competition",

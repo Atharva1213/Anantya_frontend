@@ -33,7 +33,7 @@ const sponsors = () => {
             {showNav && <NavMenu />}
             <div className='bg-[#151515] pb-10'>
                 <div className="   md:px-12 xl:px-6 ">         
-                    <div className="relative pt-36 ">
+                    <div className="relative pt-6">
                     <div className="lg:w-2/3 text-center  mx-auto">
                         <h1 className="text-white font-bold  text-4xl md:text-6xl xl:text-7xl">Sponsors<span className="text-primary text-green-700">.</span></h1>
 
