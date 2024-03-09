@@ -3,12 +3,16 @@ import React, { use, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { events } from "../../eventDetails";
+import eventDetails, { events } from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
+import ReactDOM from "react-dom";
+
+import { ImCross } from "react-icons/im";
 
 const EventDetails = () => {
+  const [currentParticipant, setCurrentParticipant] = useState(0);
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
@@ -102,7 +106,7 @@ const EventDetails = () => {
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
-
+  const nextpage = (num: number) => {};
   return (
     <>
       <NavMenu />
@@ -296,7 +300,7 @@ const EventDetails = () => {
                   onClick={handleButtonClick}
                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                 >
-                  Register Her
+                  Register Here
                 </button>
               </div>
             </div>
@@ -305,19 +309,43 @@ const EventDetails = () => {
       </div>
 
       {showPopup && (
-        <div className="popup backdrop-blur-lg bg-opacity-50 z-50 ">
+        <div className="popup bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg">
           <div className="popup-content">
             <div className="login-box">
-              <h2>Event Registration</h2>
+              <div className="text-white">
+                <div className="cross">
+                  <h1>Event Registration</h1>
+                  <ImCross onClick={togglePopup} />
+                </div>
+                <br />
+                <div>Member: {currentParticipant + 1}</div>
+              </div>
               <br />
               <form>
                 <div>
                   <label>Name:</label>
                   <input type="text" className="form-control" name="name" />
                 </div>
+
                 <div>
                   <label>Email:</label>
                   <input type="email" className="form-control" name="email" />
+                </div>
+                <div>
+                  <label>Contact Number</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    name="contact"
+                  />
+                </div>
+                <div>
+                  <label>College Name:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="collegename"
+                  />
                 </div>
                 <div>
                   <label>Division: </label>
@@ -329,6 +357,7 @@ const EventDetails = () => {
                     <option value="E">E</option>
                   </select>
                 </div>
+
                 <div>
                   <label>Department: </label>
                   <select className="form-control" name="department">
@@ -339,6 +368,7 @@ const EventDetails = () => {
                     <option value="Civil">Civil</option>
                   </select>
                 </div>
+
                 <div>
                   <label>Year:</label>
                   <select className="form-control" name="year">
@@ -348,11 +378,73 @@ const EventDetails = () => {
                     <option value="4th">4th</option>
                   </select>
                 </div>
+
                 <div className="form-flexbtn">
-                  <a href="">Submit</a>   
-                  <button className="btn closebtn " onClick={togglePopup}>
-                    Close
-                  </button>
+                  {events[0].participantno == 1 ||
+                  events[0].participantno === currentParticipant ? (
+                    <>
+                      {currentParticipant != 0 && (
+                        <a
+                          href="#"
+                          onClick={() => {
+                            setCurrentParticipant(
+                              Math.max(currentParticipant - 1, 0)
+                            );
+                          }}
+                        >
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Back
+                        </a>
+                      )}
+                      <a href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Submit
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      {currentParticipant != 0 && (
+                        <a
+                          href="#"
+                          onClick={() => {
+                            setCurrentParticipant(
+                              Math.max(currentParticipant - 1, 0)
+                            );
+                          }}
+                        >
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Back
+                        </a>
+                      )}
+                      <a
+                        href="#"
+                        style={{backgroundColor:"orange"}}
+                        onClick={() => {
+                          setCurrentParticipant(
+                            Math.min(
+                              currentParticipant + 1,
+                              events[0].participantno ?? 0
+                            )
+                          );
+                        }}
+                      >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Next
+                      </a>
+                    </>
+                  )}
                 </div>
               </form>
             </div>

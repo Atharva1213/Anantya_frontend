@@ -226,10 +226,10 @@ section .container > * {
   
   .form-flexbtn{
     display: flex;
-    justify-content:space-evenly;
-    background-color:red;
-    align-items:center;
+    justify-content:center;
+    padding-bottom:5vh;
   }
+  
   .login-box {
     position: absolute;
     top: 50%;
@@ -243,6 +243,7 @@ section .container > * {
     box-sizing: border-box;
     box-shadow: 0 6px 20px 0 rgba(113, 113, 113, 0.6);
     border-radius: 10px;
+    overflow-y: scroll;
   }
   
   .login-box h2 {
@@ -392,4 +393,7 @@ section .container > * {
       bottom: 100%;
     }
   }
-  
+  .cross{
+    display: flex;
+    justify-content: space-between;
+  }
