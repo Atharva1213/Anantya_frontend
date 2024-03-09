@@ -186,7 +186,7 @@ const events = [
       { "name": "Asmita Mahamuni", "phone": "9561674756" },
       { "name": "Ronak Dagale", "phone": "9561307404" }
     ],
-    "rulebook": "",
+    "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
     "Amount": "N.A.",
     "participantno": "4 (max)",
   },  
