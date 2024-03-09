@@ -1,32 +1,35 @@
 import { useRouter } from "next/router";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import eventDetails, { events } from "../../eventDetails";
+import { events } from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
-import ReactDOM from "react-dom";
 import { ImCross } from "react-icons/im";
 import close from "../../images/close.svg";
 import Qr from "../../images/QR.jpeg";
 import whatslink from "../../images/whatslink.jpeg";
 
-
 const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([{
+    name:"Atharva lende"
+  }]);
+  const [paymentStep, setpaymentStep] = useState(1);
+  const [loading, setloading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [finalResult, setfinalResut] = useState(true);
   const [currentParticipantData, setCurrentParticipantData] = useState({
     name: "",
     email: "",
     contact: "",
     collegeName: "",
-    division: "A", 
-    department: "Computer", 
+    division: "A",
+    department: "Computer",
     year: "1st",
   });
   const router = useRouter();
@@ -35,26 +38,10 @@ const EventDetails = () => {
   if (!event) {
     return <div>Event not found</div>;
   }
-  const [registerUser, setregisterUser] = useState(false);
-  const [paymentStep, setpaymentStep] = useState(1);
-  const [loading, setloading] = useState(false);
-  const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([
-    {
-      email: "dilip.lende21@gmail.com",
-      firstName: "Chhaya",
-      lastName: "lende",
-      contactNumber: "9168582807",
-      dept: "Computer Engineering",
-      college: "PCCOE",
-    },
-  ]);
-  
   const isPCCOEEmail = (email) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
     return emailRegex.test(email);
   };
-
   const registerEventApiCall = async () => {
     try {
       setloading(true);
@@ -76,7 +63,6 @@ const EventDetails = () => {
       handleApiError();
     }
   };
-
   const handleApiResponse = (data) => {
     setloading(false);
     if (data.message !== "401") {
@@ -96,14 +82,12 @@ const EventDetails = () => {
       });
     }
   };
-
   const handleApiError = () => {
     toast.error("An error occurred while processing your request", {
       autoClose: 6000,
       position: "top-center",
     });
   };
-
   const handleButtonClick = async () => {
     if (!users || users.length === 0) {
       toast.warning("No users to check", {
@@ -112,7 +96,7 @@ const EventDetails = () => {
       });
       return;
     }
-
+    setfinalResut(false);
     const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user.email));
     if (areAllPCCOEEmails) {
       registerEventApiCall();
@@ -120,14 +104,22 @@ const EventDetails = () => {
       setpaymentmode(true);
     }
   };
-
   const closeHanlder = () => {
-    setUsers(users);
+    setUsers([]);
     setregisterUser(false);
     setpaymentmode(false);
     setpaymentStep(1);
+    setCurrentParticipant(0);
+    setCurrentParticipantData({
+      name: "",
+      email: "",
+      contact: "",
+      collegeName: "",
+      division: "A",
+      department: "Computer",
+      year: "1st",
+    });
   };
-
   const togglePopup = () => {
     setShowPopup(!showPopup);
     setCurrentParticipant(0);
@@ -142,82 +134,92 @@ const EventDetails = () => {
     });
     setUsers([]);
   };
-
   const validateParticipantData = () => {
     const isAllFieldsFilled = Object.values(currentParticipantData).every(
-        (value) => value.trim() !== ""
+      (value) => value.trim() !== ""
     );
 
     if (!isAllFieldsFilled) {
-        toast.warning("Please fill all the fields before proceeding.", {
-            autoClose: 6000,
-            position: "top-center",
-        });
-        return false;
+      toast.warning("Please fill all the fields before proceeding.", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return false;
     }
 
     const nameRegex = /^[A-Za-z\s]{1,}$/;
     if (!nameRegex.test(currentParticipantData.name)) {
-        toast.warning("Please enter a valid name.", {
-            autoClose: 6000,
-            position: "top-center",
-        });
-        return false;
+      toast.warning("Please enter a valid name.", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return false;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(currentParticipantData.email)) {
-        toast.warning("Please enter a valid email address.", {
-            autoClose: 6000,
-            position: "top-center",
-        });
-        return false;
+      toast.warning("Please enter a valid email address.", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return false;
     }
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(currentParticipantData.contact)) {
-        toast.warning("Please enter a valid 10-digit phone number.", {
-            autoClose: 6000,
-            position: "top-center",
-        });
-        return false;
+      toast.warning("Please enter a valid 10-digit phone number.", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return false;
     }
     if (!nameRegex.test(currentParticipantData.collegeName)) {
-        toast.warning("Please enter a valid College name.", {
-            autoClose: 6000,
-            position: "top-center",
-        });
-        return false;
+      toast.warning("Please enter a valid College name.", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return false;
     }
 
     return true;
-};
-
-
-
+  };
   const handleNextOrSubmit = () => {
-    console.log("entering");
     const isValid = validateParticipantData();
     if (!isValid) {
-        return;
+      return;
     }
     if (currentParticipant + 1 <= event.participantno) {
-        setCurrentParticipant(currentParticipant + 1);
-        setUsers([...users, currentParticipantData]);
-        setCurrentParticipantData({
-          name: "",
-          email: "",
-          contact: "",
-          collegeName: "",
-          division: "A",
-          department: "Computer",
-          year: "1st",
-        });
+      setCurrentParticipant(currentParticipant + 1);
+      setUsers([...users, currentParticipantData]);
+      setCurrentParticipantData({
+        name: "",
+        email: "",
+        contact: "",
+        collegeName: "",
+        division: "A",
+        department: "Computer",
+        year: "1st",
+      });
     }
     if (currentParticipant + 1 === event.participantno) {
-        console.log("Submitting", users);
+      setfinalResut(true);
+      setShowPopup(false);
     }
-};
+  };
 
+  const closeRegsitrationHanlder = () => {
+    setfinalResut(false);
+    setCurrentParticipant(0);
+    setCurrentParticipantData({
+      name: "",
+      email: "",
+      contact: "",
+      collegeName: "",
+      division: "A",
+      department: "Computer",
+      year: "1st",
+    });
+    setUsers([]);
+  };
 
   return (
     <>
@@ -343,7 +345,7 @@ const EventDetails = () => {
             </div>
             <div className="w-full flex gap-1.7 text-center items-center justify-evenly">
               <div>
-                <h4 className="text-1xl font-bold font-headings sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+                <h4 className="text-1xl font-bold font-headings sm:text-xl md:text-2xl">
                   Student Coordinators
                 </h4>
                 <div className="space-y-2 mt-3">
@@ -447,7 +449,10 @@ const EventDetails = () => {
               {paymentStep === 2 && (
                 <div className="paymentFormStep">
                   <div className="paymentQR">
-                    <h3>Payment QR</h3>
+                    <span>
+                      Rs. {event.Amount} - Registration fee for non-PCCOEian to
+                      Practicated{" "}
+                    </span>
                     <Image src={Qr} alt="error" className="QrImage" />
                     <button
                       type="button"
@@ -501,10 +506,51 @@ const EventDetails = () => {
             </div>
           </div>
         )}
+        {finalResult && (
+          <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+            <div
+              className="Loadingdiv bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+              style={{
+                display: "flex",
+                gap: "1vh",
+                padding: "1vh 0.4vh",
+                flexDirection: "column",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <div style={{ width: "90%" }}>
+                  <h2 className="text-center font-bold">Final Confiramtion </h2>
+                </div>
+                <span className="text-right" onClick={closeRegsitrationHanlder}>
+                  <Image src={close} alt="error" />
+                </span>
+              </div>
+              <div className="LoadingDiv">
+                <div className="FinalDiv">
+                  <p>Practiced link :</p>
+                  {users.map(
+                    (item,index) =>
+                      item && (
+                        <div key={index}>
+                          <p>{item.name}</p>
+                        </div>
+                      )
+                  )}
+                </div>
+                <button onClick={handleButtonClick}>way to registration</button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
       {showPopup && (
-        <div className="popup">
+        <div className="popup bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg">
           <div className="popup-content">
             <div className="login-box">
               <div className="text-white">
@@ -516,7 +562,6 @@ const EventDetails = () => {
                 <div>Member: {currentParticipant + 1}</div>
               </div>
               <br />
-
               <form>
                 <div>
                   <label>Name:</label>
@@ -534,7 +579,6 @@ const EventDetails = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label>Email:</label>
                   <input
@@ -604,7 +648,6 @@ const EventDetails = () => {
                     <option value="E">E</option>
                   </select>
                 </div>
-
                 <div>
                   <label>Department: </label>
                   <select

@@ -127,20 +127,6 @@ section .container > * {
     width:50%;
     height:80%;
 }
-@media (max-width: 850px) {
-    section .container {
-        grid-template-columns: 1fr;
-    }
-   .Loadingdiv 
-   {
-     width:90%;
-   }
-   .wholpayment
-{ 
-    width:90%;
-}
-}
-
 .grid-wrapper > div {
     display: flex;
     justify-content: center;
@@ -254,12 +240,10 @@ section .container > * {
   }
   
   .popup-content {
-    /* background: #fff; */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     width: 400px;
-
   }
   
   
@@ -487,3 +471,24 @@ section .container > * {
     display: flex;
     justify-content: space-between;
   }
+  @media (max-width: 1000px) {
+    section .container {
+        grid-template-columns: 1fr;
+    }
+   .Loadingdiv 
+   {
+     width:90%;
+   }
+   .wholpayment
+{ 
+    width:90%;
+}
+.login-box {
+  width:90%;
+  height:90vh;
+  margin-bottom:20px;
+}
+.popup-content {
+  width:100%;
+}
+}

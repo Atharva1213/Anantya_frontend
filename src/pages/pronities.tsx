@@ -2,6 +2,7 @@ import React from "react";
 import { Slide, Fade } from "react-awesome-reveal";
 import Image, { StaticImageData } from "next/image";
 import { gallery1 } from "../images/gallery";
+import Link from "next/link";
 import eventposter from "../images/poster/eventposter.jpeg";
 
 interface CardData {
@@ -9,6 +10,7 @@ interface CardData {
   img: StaticImageData;
   title: string;
   desc: string;
+  alias:string;
 }
 
 const CardsData: CardData[] = [
@@ -16,18 +18,21 @@ const CardsData: CardData[] = [
     id: 1,
     img: eventposter,
     title: "Codigo",
+    alias: "Reel Making",
     desc: "Each character will appear one by one",
   },
   {
     id: 2,
     img: eventposter,
     title: "Webbit",
+    alias: "Reel Making",
     desc: "Each character will appear one by one",
   },
   {
     id: 3,
     img: eventposter,
     title: "Movie Trivia",
+    alias: "Reel Making",
     desc: "Each character will appear one by one",
   },
 ];
@@ -47,7 +52,7 @@ const Pronities: React.FC = () => {
       </div>
       <div className="flex justify-center p-10">
         <div className="w-[95%] grid grid-cols-1 md:grid-cols-3 gap-10 p-5">
-          {CardsData.map(({ id, img, title, desc }) => {
+          {CardsData.map(({ id, img, title, desc,alias}) => {
             return (
               <div key={id} className="bg-slate-100 p-3 rounded-3xl m-4">
                 <div className="relative group overflow-hidden rounded-lg">
@@ -66,9 +71,11 @@ const Pronities: React.FC = () => {
                           {desc}
                         </Fade>
                         <div>
+                        <Link href={{ pathname: `/event/${alias}` }}>
                           <button className="px-4 py-2 rounded-lg hover:bg-black/20 duration-100 ">
                             View
                           </button>
+                          </Link>
                         </div>
                       </Slide>
                     </div>
@@ -78,31 +85,6 @@ const Pronities: React.FC = () => {
                   {title}
                 </h5>
               </div>
-              //   <div
-              //     key={id}
-              //     className="text-white shadow-md rounded-lg overflow-hidden relative group"
-              //   >
-              //     <img
-              //       src={img.src}
-              //       alt=""
-              //       className="w-full max-w-[300px] max-h-[350px] rounded-lg"
-              //     />
-              //     <div className="absolute left-0 top-[-100%] opacity-0 group-hover:opacity-100 group-hover:top-[0] p-4 w-full h-full bg-black/60 group-hover:backdrop-blur-sm duration-500">
-              //       <div className="space-y-4">
-              //         <Slide cascade>
-              //           <h1 className="text-3xl font-bold">{title}</h1>
-              //           <Fade cascade damping={0.05}>
-              //             {desc}
-              //           </Fade>
-              //           <div>
-              //             <button className="px-4 py-2 rounded-lg hover:bg-black/20 duration-300 ">
-              //               View
-              //             </button>
-              //           </div>
-              //         </Slide>
-              //       </div>
-              //     </div>
-              //   </div>
             );
           })}
         </div>
