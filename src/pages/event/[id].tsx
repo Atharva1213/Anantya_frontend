@@ -18,6 +18,15 @@ const EventDetails = () => {
 
 
   const [currentParticipant, setCurrentParticipant] = useState(0)
+  const [currentParticipantData, setCurrentParticipantData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    collegeName: "",
+    division: "A", // Assuming default value
+    department: "Computer", // Assuming default value
+    year: "1st", // Assuming default value
+  });
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
@@ -26,16 +35,7 @@ const EventDetails = () => {
   }
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([
-    {
-      email: "sxscdvfgbfvgbd@pccoepune.org",
-      firstName: "item.firstName",
-      lastName: "item.lastName",
-      contactNumber: "014394334",
-      dept: "item.dept",
-      college: "item.college",
-    },
-  ]);
+  const [users, setUsers] = useState([]);
 
   const isPCCOEEmail = (email) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
@@ -112,9 +112,44 @@ const EventDetails = () => {
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
-  const nextpage = (num: number) => {
 
-  }
+
+  const validateParticipantData = () => {
+    // Check if any of the values in currentParticipantData is empty
+    const isAllFieldsFilled = Object.values(currentParticipantData).every(value => value.trim() !== "");
+    if (!isAllFieldsFilled) {
+      // Not all fields are filled, so display an alert and return false
+      alert("Please fill all the fields before proceeding.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleNextOrSubmit = () => {
+    // Validate the form data
+    const isValid = validateParticipantData();
+    if (!isValid) {
+      // If validation fails, stop the function execution
+      return;
+    }
+
+    // Update the users array with the current participant data
+    if (currentParticipant + 1 <= event.participantno) {
+      console.log(currentParticipantData)
+      setUsers([...users, currentParticipantData]);
+    }
+
+    if (currentParticipant + 1 < event.participantno) {
+      // If there are more participants to add, move to the next one and clear the form
+      setCurrentParticipant(currentParticipant + 1);
+      setCurrentParticipantData({ name: "", email: "", contact: "", collegeName: "", division: "A", department: "Computer", year: "1st" });
+    } else {
+      // All participants have been added, proceed with your submission logic
+      console.log("Submitting", users);
+      // Optionally, you can clear the form or show a success message here
+    }
+  };
+
   return (
     <>
       <NavMenu />
@@ -324,61 +359,105 @@ const EventDetails = () => {
         <div className="popup">
           <div className="popup-content" >
             <div className='login-box'>
-           
-              
-    
+
+
+
               <div className="text-white">
-              <div className="cross">
-              <h1>Event Registration</h1>
-              <ImCross onClick={togglePopup}/>
+                <div className="cross">
+                  <h1>Event Registration</h1>
+                  <ImCross onClick={togglePopup} />
+                </div>
+                <br />
+                <div>
+                  Member: {currentParticipant + 1}
+                </div>
+
+
               </div>
               <br />
-              <div>
-              Member: {currentParticipant+1}
-              </div>
-              
-                
-              </div>
-              <br />
+
+
               <form>
                 <div>
                   <label>
                     Name:
                   </label>
-                  <input type="text" className="form-control" name="name" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="name"
+                    value={currentParticipantData.name}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, name: e.target.value })}
+                    required
+                  />
                 </div>
 
                 <div>
                   <label>
                     Email:</label>
-                  <input type="email" className="form-control" name="email" />
+                  <input
+                    type="email"
+                    className="form-control"
+                    name="email"
+                    value={currentParticipantData.email}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, email: e.target.value })}
+                    required
+                  />
+
                 </div>
                 <div>
-                <label>
+                  <label>
                     Contact Number</label>
-                  <input type="number" className="form-control" name="contact" />
+                  <input
+                    type="number"
+                    className="form-control"
+                    name="contact"
+                    value={currentParticipantData.contact}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, contact: e.target.value })}
+                    required
+                  />
                 </div>
                 <div>
-                <label>
+                  <label>
                     College Name:</label>
-                  <input type="text" className="form-control" name="collegename" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="collegename"
+                    value={currentParticipantData.collegeName}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, collegeName: e.target.value })}
+                    required
+                  />
                 </div>
                 <div>
                   <label>
                     Division:  </label>
-                  <select className="form-control" name="division">
+                  <select
+                    className="form-control"
+                    name="division"
+                    value={currentParticipantData.division}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, division: e.target.value })}
+                    required
+                  >
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
                     <option value="D">D</option>
                     <option value="E">E</option>
                   </select>
+
                 </div>
 
                 <div>
                   <label>
                     Department: </label>
-                  <select className="form-control" name="department">
+                  <select
+                    className="form-control"
+                    name="department"
+                    value={currentParticipantData.department}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, department: e.target.value })}
+                    required
+                  >
                     <option value="Computer">Computer</option>
                     <option value="IT">IT</option>
                     <option value="Mechanical">Mechanical</option>
@@ -390,7 +469,13 @@ const EventDetails = () => {
                 <div>
                   <label>
                     Year:</label>
-                  <select className="form-control" name="year">
+                  <select
+                    className="form-control"
+                    name="year"
+                    value={currentParticipantData.year}
+                    onChange={(e) => setCurrentParticipantData({ ...currentParticipantData, year: e.target.value })}
+                    required
+                  >
                     <option value="1st">1st</option>
                     <option value="2nd">2nd</option>
                     <option value="3rd">3rd</option>
@@ -402,9 +487,9 @@ const EventDetails = () => {
 
                 <div className="form-flexbtn">
 
-                  {(events[0].participantno == 1 || events[0].participantno === currentParticipant) ?
+                  {(events[0].participantno == 1 || events[0].participantno === currentParticipant + 1) ?
                     <>
-                      {
+                      {/* {
                         currentParticipant != 0 &&
                         <a href="#" onClick={() => {
                           setCurrentParticipant(Math.max(currentParticipant - 1, 0))
@@ -415,8 +500,8 @@ const EventDetails = () => {
                           <span></span>
                           Back
                         </a>
-                      }
-                      <a href="#">
+                      } */}
+                      <a href="#" onClick={handleNextOrSubmit}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -426,8 +511,8 @@ const EventDetails = () => {
 
                     </>
                     : <>
-                      
-                      {
+
+                      {/* {
                         currentParticipant != 0 &&
                         <a href="#" onClick={() => {
                           setCurrentParticipant(Math.max(currentParticipant - 1, 0))
@@ -438,11 +523,12 @@ const EventDetails = () => {
                           <span></span>
                           Back
                         </a>
-                      }
-                    
-                      
+                      } */}
+
+
                       <a href="#" onClick={() => {
-                        setCurrentParticipant(Math.min(currentParticipant + 1, events[0].participantno ?? 0))
+
+                        handleNextOrSubmit()
                       }}>
                         <span></span>
                         <span></span>
@@ -450,8 +536,8 @@ const EventDetails = () => {
                         <span></span>
                         Next
                       </a>
-                    
-                      
+
+
                     </>
                   }
 
