@@ -1,5 +1,6 @@
 import React from 'react'
-import {atharvaLende,tarunRathod} from '../images/team'
+import {atharvaLende,tarunRathod,Kriti,wafiya} from '../images/team'
+
 import Image from 'next/image'
 import { instagram, linkedin, github } from '../images/icons';
 import NavMenu from '@/components/NavMenu';
@@ -18,6 +19,22 @@ const teamDetails = [
     {
         name: 'Tarun Rathod',
         image: tarunRathod,
+        year: "3rd year CSE",
+        linkedin: 'https://www.linkedin.com/in/atharva-lende/',
+        github: 'https://github.com/Atharva1213',
+        instagram: 'https://www.instagram.com/_shreelende_/',
+    },
+    {
+        name: 'Wafiya Mulla',
+        image: wafiya,
+        year: "3rd year CSE",
+        linkedin: 'https://www.linkedin.com/in/atharva-lende/',
+        github: 'https://github.com/Atharva1213',
+        instagram: 'https://www.instagram.com/_shreelende_/',
+    },
+    {
+        name: 'Kriti Verma',
+        image: Kriti,
         year: "3rd year CSE",
         linkedin: 'https://www.linkedin.com/in/atharva-lende/',
         github: 'https://github.com/Atharva1213',

@@ -3,15 +3,32 @@ import React, {useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { events } from "../../eventDetails";
+import eventDetails, { events } from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
+import ReactDOM from "react-dom";
+import { ImCross } from "react-icons/im";
 import close from "../../images/close.svg";
 import Qr from "../../images/QR.jpeg";
 import whatslink from "../../images/whatslink.jpeg";
 
+
 const EventDetails = () => {
+  const [currentParticipant, setCurrentParticipant] = useState(0);
+  const [registerUser, setregisterUser] = useState(false);
+  const [paymentmode, setpaymentmode] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+  const [currentParticipantData, setCurrentParticipantData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    collegeName: "",
+    division: "A", 
+    department: "Computer", 
+    year: "1st",
+  });
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
@@ -32,7 +49,7 @@ const EventDetails = () => {
       college: "PCCOE",
     },
   ]);
-
+  
   const isPCCOEEmail = (email) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
     return emailRegex.test(email);
@@ -110,6 +127,97 @@ const EventDetails = () => {
     setpaymentmode(false);
     setpaymentStep(1);
   };
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+    setCurrentParticipant(0);
+    setCurrentParticipantData({
+      name: "",
+      email: "",
+      contact: "",
+      collegeName: "",
+      division: "A",
+      department: "Computer",
+      year: "1st",
+    });
+    setUsers([]);
+  };
+
+  const validateParticipantData = () => {
+    const isAllFieldsFilled = Object.values(currentParticipantData).every(
+        (value) => value.trim() !== ""
+    );
+
+    if (!isAllFieldsFilled) {
+        toast.warning("Please fill all the fields before proceeding.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+
+    const nameRegex = /^[A-Za-z\s]{1,}$/;
+    if (!nameRegex.test(currentParticipantData.name)) {
+        toast.warning("Please enter a valid name.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(currentParticipantData.email)) {
+        toast.warning("Please enter a valid email address.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(currentParticipantData.contact)) {
+        toast.warning("Please enter a valid 10-digit phone number.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+    if (!nameRegex.test(currentParticipantData.collegeName)) {
+        toast.warning("Please enter a valid College name.", {
+            autoClose: 6000,
+            position: "top-center",
+        });
+        return false;
+    }
+
+    return true;
+};
+
+
+
+  const handleNextOrSubmit = () => {
+    console.log("entering");
+    const isValid = validateParticipantData();
+    if (!isValid) {
+        return;
+    }
+    if (currentParticipant + 1 <= event.participantno) {
+        setCurrentParticipant(currentParticipant + 1);
+        setUsers([...users, currentParticipantData]);
+        setCurrentParticipantData({
+          name: "",
+          email: "",
+          contact: "",
+          collegeName: "",
+          division: "A",
+          department: "Computer",
+          year: "1st",
+        });
+    }
+    if (currentParticipant + 1 === event.participantno) {
+        console.log("Submitting", users);
+    }
+};
+
 
   return (
     <>
@@ -200,7 +308,7 @@ const EventDetails = () => {
                 <a>
                   <button
                     type="button"
-                    onClick={handleButtonClick}
+                    onClick={togglePopup}
                     className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                   >
                     Register Here
@@ -394,6 +502,186 @@ const EventDetails = () => {
           </div>
         )}
       </div>
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <div className="login-box">
+              <div className="text-white">
+                <div className="cross">
+                  <h1>Event Registration</h1>
+                  <ImCross onClick={togglePopup} />
+                </div>
+                <br />
+                <div>Member: {currentParticipant + 1}</div>
+              </div>
+              <br />
+
+              <form>
+                <div>
+                  <label>Name:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="name"
+                    value={currentParticipantData.name}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        name: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label>Email:</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    name="email"
+                    value={currentParticipantData.email}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        email: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Contact Number</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    name="contact"
+                    value={currentParticipantData.contact}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        contact: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div>
+                  <label>College Name:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="collegename"
+                    value={currentParticipantData.collegeName}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        collegeName: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Division: </label>
+                  <select
+                    className="form-control"
+                    name="division"
+                    value={currentParticipantData.division}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        division: e.target.value,
+                      })
+                    }
+                    required
+                  >
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label>Department: </label>
+                  <select
+                    className="form-control"
+                    name="department"
+                    value={currentParticipantData.department}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        department: e.target.value,
+                      })
+                    }
+                    required
+                  >
+                    <option value="Computer">Computer</option>
+                    <option value="IT">IT</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="ENTC">ENTC</option>
+                    <option value="Civil">Civil</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label>Year:</label>
+                  <select
+                    className="form-control"
+                    name="year"
+                    value={currentParticipantData.year}
+                    onChange={(e) =>
+                      setCurrentParticipantData({
+                        ...currentParticipantData,
+                        year: e.target.value,
+                      })
+                    }
+                    required
+                  >
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                  </select>
+                </div>
+
+                <div className="form-flexbtn">
+                  {event.participantno == 1 ||
+                  event.participantno === currentParticipant + 1 ? (
+                    <>
+                      <a href="#" onClick={handleNextOrSubmit}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Submit
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a
+                        href="#"
+                        onClick={() => {
+                          handleNextOrSubmit();
+                        }}
+                      >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Next
+                      </a>
+                    </>
+                  )}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

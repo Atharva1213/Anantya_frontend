@@ -14,6 +14,7 @@ export const events = [
       "Any act of indiscipline by participants, calls for cancellation of registration.",
       "Topic - *Splash Vibes*"
     ],
+    "participantno":2,
     "rules": [
       "Record and edit multi-clip videos on the given topic with audio, effects and creative tools.",
       "Each participant is allowed to submit only one reel.",
