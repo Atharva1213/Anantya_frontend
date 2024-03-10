@@ -11,18 +11,14 @@ import chronoclash from "./images/poster/10_CHRONOCLASH.png";
 import byteMe from "./images/poster/11_BYTE_ME.png";
 import sherlock from "./images/poster/12_SHERLOCK.png";
 
-//change all descriptions
-
 const events = [
   {
 
     "name": "Codigo",
     "alias": "Codigo",
     "id": "1",
-    "alias": "Codigo",
     "image": codigo,
     "aboutEvent": "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
-    
     "participantno": 2,
     "coordinators": {
       "students": [

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { events } from "../../eventDetails";
+import events from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
@@ -15,7 +15,7 @@ import whatslink from "../../images/whatslink.jpeg";
 const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
-  const [paymentmode, setpaymentmode] = useState(true);
+  const [paymentmode, setpaymentmode] = useState(false);
   const [users, setUsers] = useState([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
@@ -227,7 +227,7 @@ const EventDetails = () => {
         <article className="col-span-9 mt-12 justify-center flex">
           <div className="">
             <div>
-              <h1 className="text-white font-bold text-4xl md:text-5xl xl:text-6xl">
+              <h1 className="text-white text-center font-bold text-4xl md:text-5xl xl:text-6xl">
                 {event.name}
                 <span className="text-primary text-[#EACD69]">.</span>
               </h1>
@@ -247,7 +247,7 @@ const EventDetails = () => {
                 alt={"article cover"}
                 priority
               />
-              <div className="mt-6 flex justify-between ">
+              {/* <div className="mt-6 flex justify-between ">
                 <p className="flex items-center  text-gray-500">
                   <svg
                     style={{ color: "white", marginRight: 10 }}
@@ -303,7 +303,7 @@ const EventDetails = () => {
                   </svg>
                   {event.schedule.venue}
                 </p>
-              </div>
+              </div> */}
               <div className="lg:w-2/3 md:text-center mx-auto flex justify-center mt-7">
                 <a>
                   <button
@@ -332,7 +332,9 @@ const EventDetails = () => {
               <h4 className="text-1xl font-bold font-headings md:text-2xl">
                 Rules and Regulations
               </h4>
-              <a>
+              <a 
+                href={event.RulebookLink} target="_blank" rel="noopener noreferrer"v
+              >
                 <button
                   type="button"
                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-3 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
@@ -360,7 +362,7 @@ const EventDetails = () => {
                   Faculty Coordinators
                 </h4>
                 <div className="space-y-2 mt-3">
-                  {event.coordinators.faculty.map((item, index) => (
+                  {event.coordinators.faculty && event.coordinators.faculty.map((item, index) => (
                     <p className="lg:p-2 text-justify lg:ml-10" key={index}>
                       Prof. {item}
                     </p>
