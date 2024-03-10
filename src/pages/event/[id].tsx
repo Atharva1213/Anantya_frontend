@@ -15,14 +15,12 @@ import whatslink from "../../images/whatslink.jpeg";
 const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
-  const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([{
-    name:"Atharva lende"
-  }]);
+  const [paymentmode, setpaymentmode] = useState(true);
+  const [users, setUsers] = useState([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [finalResult, setfinalResut] = useState(true);
+  const [finalResult, setfinalResut] = useState(false);
   const [currentParticipantData, setCurrentParticipantData] = useState({
     name: "",
     email: "",
@@ -384,7 +382,7 @@ const EventDetails = () => {
               style={{
                 display: "flex",
                 gap: "2vh",
-                padding: "1vh 0.4vh",
+                padding: "1vh 2vh",
                 flexDirection: "column",
               }}
             >
@@ -393,6 +391,7 @@ const EventDetails = () => {
                   width: "100%",
                   display: "flex",
                   justifyContent: "flex-end",
+                  padding:"1vh"
                 }}
               >
                 <div style={{ width: "90%" }}>
@@ -403,87 +402,87 @@ const EventDetails = () => {
                 </span>
               </div>
               {paymentStep === 1 && (
-                <div className="paymentFormStep">
-                  <div className="paymentform">
-                    <h2 className="font-bold">Payment Instruction</h2>
-                    <p>Payment Process include three Step Process:</p>
-                    <p>
-                      <span className="font-bold">Step -1 : </span>Scan The QR -
-                      (For Payment)
-                    </p>
-                    <p>
-                      <span className="font-bold">Step -2 : </span>Send The
-                      ScreenShot of Successfully Payment on Give whataspp Link
-                      follows the give template for whats app message{" "}
-                    </p>
-                    <p>
-                      <span className="font-bold">Step -3 : </span>Click on
-                      payment compelete button for registeation and after its
-                      you recicve mail of payment initaztion and after compinete
-                      verficaton done by anatya24 team then you recview payment
-                      Successfully mail.
-                    </p>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setpaymentStep(2);
-                      }}
-                      className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                    >
-                      Way To Payment
-                    </button>
-                  </div>
-                  <div className="paymentform">
-                    <h2 className="font-bold">Whatsapp Message : </h2>
-                    <pre>
-                      EventName - (event name) <br />
-                      Name - (payment holder) <br />
-                      Amount -(amount) <br />
-                      Screenshot - (photo) <br />
-                    </pre>
-                  </div>
-                </div>
+             <div className="paymentFormStep">
+             <div className="paymentform">
+               <h2 className="font-bold">Payment Instructions</h2>
+               <p>Payment process includes a three-step process:</p>
+               <p>
+                 <span className="font-bold">Step - 1: </span>Scan the QR code (for payment).
+               </p>
+               <p>
+                 <span className="font-bold">Step - 2: </span>Send the screenshot of
+                 successful payment to the given WhatsApp link following the provided
+                 template for the WhatsApp message.
+               </p>
+               <p>
+                 <span className="font-bold">Step - 3: </span>Click on the "Payment Complete"
+                 button for registration. After that, you will receive an email for payment
+                 initiation. Once the verification is completed by the Anatya24 team, you
+                 will receive a payment successful email.
+               </p>
+             </div>
+             <div style={{ display: "flex", justifyContent: "center" }}>
+               <button
+                 type="button"
+                 onClick={() => {
+                   setpaymentStep(2);
+                 }}
+                 className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+               >
+                 Way To Payment
+               </button>
+             </div>
+             <div className="paymentform">
+               <h2 className="font-bold">WhatsApp Message:</h2>
+               <pre>
+                 EventName - (event name) <br />
+                 Name - (payment holder) <br />
+                 Amount - (amount) <br />
+                 Screenshot - (photo) <br />
+               </pre>
+             </div>
+           </div>
+           
               )}
               {paymentStep === 2 && (
-                <div className="paymentFormStep">
-                  <div className="paymentQR">
-                    <span>
-                      Rs. {event.Amount} - Registration fee for non-PCCOEian to
-                      Practicated{" "}
-                    </span>
-                    <Image src={Qr} alt="error" className="QrImage" />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setpaymentStep(3);
-                      }}
-                      className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                    >
-                      Payment Complete
-                    </button>
-                  </div>
-                </div>
+               <div className="paymentFormStep">
+               <div className="paymentQR">
+                 <span>
+                   Rs. {event.Amount} - Registration fee for non-PCCOEian to Practicate
+                 </span>
+                 <Image src={Qr} alt="error" className="QrImage" />
+                 <button
+                   type="button"
+                   onClick={() => {
+                     setpaymentStep(3);
+                   }}
+                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                 >
+                   Payment Complete
+                 </button>
+               </div>
+             </div>
+             
               )}
               {paymentStep === 3 && (
                 <div className="paymentFormStep">
-                  <div>
-                    <div className="paymentQR">
-                      <h3>Whatsapp Message</h3>
-                      <Image src={whatslink} alt="error" className="QrImage" />
-                      <button
-                        type="button"
-                        onClick={() => {
-                          registerEventApiCall();
-                        }}
-                        className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                      >
-                        Regsiter Here
-                      </button>
-                    </div>
+                <div>
+                  <div className="paymentQR">
+                    <h3>WhatsApp Message</h3>
+                    <Image src={whatslink} alt="error" className="QrImage" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        registerEventApiCall();
+                      }}
+                      className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                    >
+                      Register Here
+                    </button>
                   </div>
                 </div>
+              </div>
+              
               )}
             </div>
           </div>
@@ -507,46 +506,56 @@ const EventDetails = () => {
           </div>
         )}
         {finalResult && (
-          <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
-            <div
-              className="Loadingdiv bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
-              style={{
-                display: "flex",
-                gap: "1vh",
-                padding: "1vh 0.4vh",
-                flexDirection: "column",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <div style={{ width: "90%" }}>
-                  <h2 className="text-center font-bold">Final Confiramtion </h2>
-                </div>
-                <span className="text-right" onClick={closeRegsitrationHanlder}>
-                  <Image src={close} alt="error" />
-                </span>
-              </div>
-              <div className="LoadingDiv">
-                <div className="FinalDiv">
-                  <p>Practiced link :</p>
-                  {users.map(
-                    (item,index) =>
-                      item && (
-                        <div key={index}>
-                          <p>{item.name}</p>
-                        </div>
-                      )
-                  )}
-                </div>
-                <button onClick={handleButtonClick}>way to registration</button>
-              </div>
-            </div>
-          </div>
+         <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+         <div
+           className="Loadingdiv bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+           style={{
+             display: "flex",
+             gap: "1vh",
+             padding: "1vh 0.4vh",
+             flexDirection: "column",
+           }}
+         >
+           <div
+             style={{
+               width: "100%",
+               display: "flex",
+               justifyContent: "flex-end",
+             }}
+           >
+             <div style={{ width: "90%" }}>
+               <h2 className="text-center font-bold">Final Confirmation </h2>
+             </div>
+             <span className="text-right" onClick={closeRegsitrationHanlder}>
+               <Image src={close} alt="error" />
+             </span>
+           </div>
+           <div className="LoadingDiv">
+             <div className="FinalDiv">
+               <p>Team List :</p>
+               {users &&
+                 users.map((item, index) =>
+                   item ? (
+                     <div key={index} className="liststype">
+                       <span>{item.name}</span>
+                       <span>{item.collegeName}</span>
+                     </div>
+                   ) : null
+                 )}
+             </div>
+             <div className="text-center">
+               <button
+                 type="button"
+                 className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                 onClick={handleButtonClick}
+               >
+                 Way to Registration
+               </button>
+             </div>
+           </div>
+         </div>
+       </div>
+       
         )}
       </div>
       {showPopup && (
@@ -559,7 +568,7 @@ const EventDetails = () => {
                   <ImCross onClick={togglePopup} />
                 </div>
                 <br />
-                <div>Member: {currentParticipant + 1}</div>
+                {currentParticipant + 1 === 1   ? <div>Group Leader </div>  : <div>Member: {currentParticipant + 1} </div>}
               </div>
               <br />
               <form>

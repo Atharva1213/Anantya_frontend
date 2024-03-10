@@ -15,6 +15,7 @@ import sherlock from "./images/poster/12_SHERLOCK.png";
 
 const events = [
   {
+
     "name": "Codigo",
     "alias": "Codigo",
     "id": "1",
