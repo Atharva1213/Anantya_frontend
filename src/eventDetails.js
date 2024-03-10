@@ -180,7 +180,7 @@ const events = [
     "aboutEvent": "Poster Presentation is an opportunity for students to showcase their research, creativity, and communication skills through visually engaging posters. Participants will present their posters on a wide range of topics, spanning technology, science, engineering, and more. Join us for an inspiring display of innovation and discovery.",
     "schedule": {
       "round1": [{ "date": "9th - 15th March", "time": "9:00 AM - 5:00 PM", "venue": "Offline" }],
-      "round2": [{ "date": "19th March", "time": "2:00 PM - 5:00 PM", "venue": "labs" }],
+      "round2": [{ "date": "19th March", "time": "2:00 PM - 5:00 PM", "venue": "" }],
     },
     "coordinators": [
       { "name": "Asmita Mahamuni", "phone": "9561674756" },
