@@ -1,5 +1,5 @@
 import React from 'react'
-import {atharvaLende,tarunRathod,Kriti,wafiya} from '../images/team'
+import {atharvaLende,tarunRathod,Kriti,wafiya, omkar} from '../images/team'
 
 import Image from 'next/image'
 import { instagram, linkedin, github } from '../images/icons';
@@ -39,6 +39,14 @@ const teamDetails = [
         linkedin: 'https://www.linkedin.com/in/atharva-lende/',
         github: 'https://github.com/Atharva1213',
         instagram: 'https://www.instagram.com/_shreelende_/',
+    },
+    {
+        name: 'Omkar Kulkarni',
+        image: omkar,
+        year: "3rd year CSE",
+        linkedin: 'https://www.linkedin.com/in/omkarkulkarni7/',
+        github: 'https://github.com/Omkarkulkarni7',
+        instagram: 'https://www.instagram.com/omkarcoolkarni7',
     },
 ]
 const Ourteam = () => {

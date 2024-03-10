@@ -25,6 +25,7 @@ const events = [
         { "name": "Mithilesh Rajput", "phone": "9579283970 " },
         { "name": "Atharva Bardapurkar", "phone": "9359472421" }
       ],
+      "faculty": ["Mr. Rahul Pitale"]
     },
     "schedule": {
       "round1": [
@@ -38,7 +39,7 @@ const events = [
       ]
     },
     "Amount": "₹100/-",
-    "RulebookLink": "https://drive.google.com/file/d/19Aiwcbz0wO5lmiaJ1rberwSQkmo6aCHc/view?usp=sharing",
+    "rulebook": "https://drive.google.com/file/d/19Aiwcbz0wO5lmiaJ1rberwSQkmo6aCHc/view?usp=sharing",
   },
 
   {
@@ -52,14 +53,19 @@ const events = [
       "round1": [{ "date": "15th March - 17th March", "time": " 15th March (11:55 PM) - 17th March (12:00 PM)", "venue": "online" }],
       "round2": [{ "date": "20th March", "time": "8:00 AM - 8:00 PM", "venue": "PCCOE Campus" }],
     },
-    "coordinators": [
+    "coordinators": {
+      students: [
       { "name": "Vinayak Shete", "phone": "7249629692" },
       { "name": "Darpan Neve", "phone": "9175738441" }
-    ],
+      ],
+      faculty: ["Mr. Ganesh Deshmukh", "Mr. Pankaj Devre"]
 
-    "rulebook": "https://alphabyte2024.tech/",
+    },
+
+    "rulebook": "https://drive.google.com/drive/folders/1IJ6fgqE-DhG306Vi65KkJ6Qfz4Hi02tU",
     "Amount": "₹50/- ( per head )",
     "participantno": "4 (max)",
+    "website": "https://alphabyte2024.tech/"
   },
 
   {
@@ -75,10 +81,14 @@ const events = [
       "round3": [{ "date": "20th March", "time": "12:00 PM - 1:00 PM", "venue": "6009" }],
     },
 
-    "coordinators": [
+    "coordinators": {
+      students: [
       { "name": "Yash Deshmane", "phone": "9112764111" },
       { "name": "Aditya Agre", "phone": "7378555854" }
-    ],
+      ],
+      faculty: ["Mr. Kapil Tajane"]
+
+  },
 
     "rulebook": "https://drive.google.com/file/d/1xIqe1hGl92WI4LVcz2zaxIqdLdOHEx9y/view?usp=sharing",
     "Amount": "₹50/-",
@@ -97,10 +107,18 @@ const events = [
       "round2": [{ "date": "18th March", "time": "2:00 PM - 4:00 PM", "venue": "Offline" }],
       "round3": [{ "date": "19th March", "time": "9:00 AM - 6:00 PM", "venue": "Offline" }],
     },
-    "coordinators": [
+  
+
+    "coordinators": {
+      students: [
       { "name": "Nitin Pandita", "phone": "9667026988" },
       { "name": "Aditya Singh", "phone": "9527961108" }
-    ],
+      ],
+      faculty: ["Mr. Atul Pawar"]
+
+    },
+
+
     "rulebook": "https://drive.google.com/file/d/1BHY54sRmMKCkUhbWhQ3f3q8R9eogTuzJ/view?usp=sharing",
     "Amount": "₹160/-",
     "participantno": "4",
@@ -119,10 +137,17 @@ const events = [
       "round3": [{ "date": "20th March", "time": "1:00 PM - 3:00 PM", "venue": "6208, 6209" }],
       "round4": [{ "date": "20th March", "time": "3:00 PM - 5:00 PM", "venue": "6208, 6209" }],
     },
-    "coordinators": [
+    
+
+    "coordinators": {
+      students: [
       { "name": "Ankita Anarase", "phone": "8446786510" },
       { "name": "Madhur Burghate", "phone": "8208442402" }
-    ],
+      ],
+      faculty: ["Ms. Madhuri Suryavanshi"]
+
+    },
+
     "rulebook": "https://drive.google.com/drive/folders/1XlOtpxs0xfe6FjvrQW4pD8PqBFgQOURy?usp=sharing",
     "Amount": "₹60/-",
     "participantno": "2 (for Round 1,4) 4(for Round 2,3)",
@@ -138,10 +163,16 @@ const events = [
     "schedule": {
       "round1": [{ "date": "20th March", "time": "", "venue": "" }],
     },
-    "coordinators": [
+  
+
+    "coordinators": {
+      students: [
       { "name": "Omkar Late", "phone": "9130113290" },
       { "name": "Sourav Narvekar", "phone": "9834144155" }
-    ],
+      ],
+      faculty: [ "Mr. Pankaj Devre"]
+
+    },
     "rulebook": " ",
     "Amount": "₹50/-",
     "participantno": "2",
@@ -160,10 +191,17 @@ const events = [
       "round3": [{ "date": "20th March", "time": "2:00 PM - 4:00 PM", "venue": "6103 (Computer Dept. Passage)" }],
     },
 
-    "coordinators": [
+    
+
+    "coordinators": {
+      students: [
       { "name": "Trupti Gunjal", "phone": "7558574338" },
       { "name": "Kanak Agrawal", "phone": "8446098764" }
-    ],
+      ],
+      faculty: ["Dr. Aparna Joshi"]
+
+    },
+
     "rulebook": "https://drive.google.com/file/d/1-sxvfIxuFr_lbAHU0zHFXMXzneJopKRA/view?usp=drivesdk",
     "Amount": "₹50/- (25 per participant)",
     "participantno": "2",
@@ -179,10 +217,17 @@ const events = [
       "round1": [{ "date": "9th - 15th March", "time": "9:00 AM - 5:00 PM", "venue": "Offline" }],
       "round2": [{ "date": "19th March", "time": "2:00 PM - 5:00 PM", "venue": "" }],
     },
-    "coordinators": [
+    
+
+    "coordinators": {
+      students: [
       { "name": "Asmita Mahamuni", "phone": "9561674756" },
       { "name": "Ronak Dagale", "phone": "9561307404" }
-    ],
+      ],
+      faculty: ["Mrs. S. Vispute", "Mrs. M. Pathan"]
+
+    },
+
     "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
     "Amount": "N.A.",
     "participantno": "4 (max)",
@@ -198,10 +243,17 @@ const events = [
       "round1": [{ "date": "20th March", "time": "9:00 PM - 5:00 PM", "venue": "PCCOE Reading Hall" }],
       
     },
-    "coordinators": [
+  
+
+    "coordinators": {
+      students: [
       { "name": "Sejal Rokade", "phone": "8625814185" },
       { "name": "Anushka Pardeshi", "phone": "9404737603" }
-    ],
+      ],
+      faculty: ["Mrs. Tanya Shruti"]
+
+    },
+
     "rulebook": "https://docs.google.com/document/d/1QqLFqIj3_lsjypmjTogH5qQ4yfHp-0liOMFAaa7wGO4/edit?usp=sharing",
     "Amount": "N.A",
     "participantno": "4(max)",
@@ -220,10 +272,17 @@ const events = [
       "round2": [{ "date": "20th March", "time": "11:00 AM onwards", "venue": "Offline" }],
       "round3": [{ "date": "20th March", "time": "2:00 PM onwards", "venue": "Offline" }],
     },
-    "coordinators": [
+    
+
+    "coordinators": {
+      students: [
       { "name": "Ishan Pardeshi", "phone": "9922597249" },
       { "name": "Sahil Hirve", "phone": "7447329700" }
-    ],
+      ],
+      faculty: ["Ms. Madhura Kalbhor"]
+
+    },
+
     "rulebook": "https://drive.google.com/file/d/1pf2fVRQfU0b_fwiYr7oEPeDJVuYL_pz8/view?usp=sharing",
     "Amount": "₹30/-",
     "participantno": "1",
@@ -239,10 +298,17 @@ const events = [
       "round1": [{ "date": "19th March", "time": "11:00 AM - 1:00 PM", "venue": "6208, 6209, 6218, 6219" }],
       "round2": [{ "date": "19th March", "time": "3:00 PM - 6:00 PM", "venue": "6208, 6209" }],
     },
-    "coordinators": [
+    
+
+    "coordinators": {
+      students: [
       { "name": "Omkar Pote", "phone": "9324040823" },
       { "name": "Deep Dhakate", "phone": "9022244068" }
-    ],
+      ],
+      faculty: ["Mrs. Geetanjali Sharma"]
+
+    },
+
     "rulebook": "https://drive.google.com/drive/folders/1hN_-SAjz3Rvh3hC5fCIZwgl0vnL_ep72",
     "Amount": "₹50/-",
     "participantno": "200",
@@ -261,10 +327,15 @@ const events = [
       "round3": [{ "date": "20th March", "time": "3:00 PM - 5:00 PM", "venue": "PCCOE Campus" }],
     },
 
-    "coordinators": [
+
+    "coordinators": {
+      students: [
       { "name": "Visesh Chauhan", "phone": "7620767941" },
       { "name": "Mrunal Chopade", "phone": "8080059264" }
-    ],
+      ],
+      faculty: ["Mr. Ganesh Kadam"]
+    },
+
     "rulebook": "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
     "Amount": "₹80/-",
     "participantno": "2",

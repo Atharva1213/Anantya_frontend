@@ -308,7 +308,13 @@ const EventDetails = () => {
                 <a>
                   <button
                     type="button"
-                    onClick={togglePopup}
+                    onClick={() => {
+                      if (!event.website) {
+                        togglePopup();
+                      } else {
+                        window.open(event.website, "_blank");
+                      }
+                    }}
                     className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                   >
                     Register Here
@@ -332,8 +338,10 @@ const EventDetails = () => {
               <h4 className="text-1xl font-bold font-headings md:text-2xl">
                 Rules and Regulations
               </h4>
-              <a 
-                href={event.RulebookLink} target="_blank" rel="noopener noreferrer"v
+              <a
+                href={event.rulebook}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <button
                   type="button"
@@ -362,11 +370,12 @@ const EventDetails = () => {
                   Faculty Coordinators
                 </h4>
                 <div className="space-y-2 mt-3">
-                  {event.coordinators.faculty && event.coordinators.faculty.map((item, index) => (
-                    <p className="lg:p-2 text-justify lg:ml-10" key={index}>
-                      Prof. {item}
-                    </p>
-                  ))}
+                  {event.coordinators.faculty &&
+                    event.coordinators.faculty.map((item, index) => (
+                      <p className="lg:p-2 text-justify lg:ml-10" key={index}>
+                        Prof. {item}
+                      </p>
+                    ))}
                 </div>
               </div>
             </div>
@@ -393,7 +402,7 @@ const EventDetails = () => {
                   width: "100%",
                   display: "flex",
                   justifyContent: "flex-end",
-                  padding:"1vh"
+                  padding: "1vh",
                 }}
               >
                 <div style={{ width: "90%" }}>
@@ -404,87 +413,88 @@ const EventDetails = () => {
                 </span>
               </div>
               {paymentStep === 1 && (
-             <div className="paymentFormStep">
-             <div className="paymentform">
-               <h2 className="font-bold">Payment Instructions</h2>
-               <p>Payment process includes a three-step process:</p>
-               <p>
-                 <span className="font-bold">Step - 1: </span>Scan the QR code (for payment).
-               </p>
-               <p>
-                 <span className="font-bold">Step - 2: </span>Send the screenshot of
-                 successful payment to the given WhatsApp link following the provided
-                 template for the WhatsApp message.
-               </p>
-               <p>
-                 <span className="font-bold">Step - 3: </span>Click on the "Payment Complete"
-                 button for registration. After that, you will receive an email for payment
-                 initiation. Once the verification is completed by the Anatya24 team, you
-                 will receive a payment successful email.
-               </p>
-             </div>
-             <div style={{ display: "flex", justifyContent: "center" }}>
-               <button
-                 type="button"
-                 onClick={() => {
-                   setpaymentStep(2);
-                 }}
-                 className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-               >
-                 Way To Payment
-               </button>
-             </div>
-             <div className="paymentform">
-               <h2 className="font-bold">WhatsApp Message:</h2>
-               <pre>
-                 EventName - (event name) <br />
-                 Name - (payment holder) <br />
-                 Amount - (amount) <br />
-                 Screenshot - (photo) <br />
-               </pre>
-             </div>
-           </div>
-           
-              )}
-              {paymentStep === 2 && (
-               <div className="paymentFormStep">
-               <div className="paymentQR">
-                 <span>
-                   Rs. {event.Amount} - Registration fee for non-PCCOEian to Practicate
-                 </span>
-                 <Image src={Qr} alt="error" className="QrImage" />
-                 <button
-                   type="button"
-                   onClick={() => {
-                     setpaymentStep(3);
-                   }}
-                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                 >
-                   Payment Complete
-                 </button>
-               </div>
-             </div>
-             
-              )}
-              {paymentStep === 3 && (
                 <div className="paymentFormStep">
-                <div>
-                  <div className="paymentQR">
-                    <h3>WhatsApp Message</h3>
-                    <Image src={whatslink} alt="error" className="QrImage" />
+                  <div className="paymentform">
+                    <h2 className="font-bold">Payment Instructions</h2>
+                    <p>Payment process includes a three-step process:</p>
+                    <p>
+                      <span className="font-bold">Step - 1: </span>Scan the QR
+                      code (for payment).
+                    </p>
+                    <p>
+                      <span className="font-bold">Step - 2: </span>Send the
+                      screenshot of successful payment to the given WhatsApp
+                      link following the provided template for the WhatsApp
+                      message.
+                    </p>
+                    <p>
+                      <span className="font-bold">Step - 3: </span>Click on the
+                      "Payment Complete" button for registration. After that,
+                      you will receive an email for payment initiation. Once the
+                      verification is completed by the Anatya24 team, you will
+                      receive a payment successful email.
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
                     <button
                       type="button"
                       onClick={() => {
-                        registerEventApiCall();
+                        setpaymentStep(2);
                       }}
                       className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                     >
-                      Register Here
+                      Way To Payment
+                    </button>
+                  </div>
+                  <div className="paymentform">
+                    <h2 className="font-bold">WhatsApp Message:</h2>
+                    <pre>
+                      EventName - (event name) <br />
+                      Name - (payment holder) <br />
+                      Amount - (amount) <br />
+                      Screenshot - (photo) <br />
+                    </pre>
+                  </div>
+                </div>
+              )}
+              {paymentStep === 2 && (
+                <div className="paymentFormStep">
+                  <div className="paymentQR">
+                    <span>
+                      Rs. {event.Amount} - Registration fee for non-PCCOEian to
+                      Practicate
+                    </span>
+                    <Image src={Qr} alt="error" className="QrImage" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setpaymentStep(3);
+                      }}
+                      className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                    >
+                      Payment Complete
                     </button>
                   </div>
                 </div>
-              </div>
-              
+              )}
+              {paymentStep === 3 && (
+                <div className="paymentFormStep">
+                  <div>
+                    <div className="paymentQR">
+                      <h3>WhatsApp Message</h3>
+                      <Image src={whatslink} alt="error" className="QrImage" />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          registerEventApiCall();
+                        }}
+                        className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                      >
+                        Register Here
+                      </button>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </div>
@@ -508,56 +518,55 @@ const EventDetails = () => {
           </div>
         )}
         {finalResult && (
-         <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
-         <div
-           className="Loadingdiv bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
-           style={{
-             display: "flex",
-             gap: "1vh",
-             padding: "1vh 0.4vh",
-             flexDirection: "column",
-           }}
-         >
-           <div
-             style={{
-               width: "100%",
-               display: "flex",
-               justifyContent: "flex-end",
-             }}
-           >
-             <div style={{ width: "90%" }}>
-               <h2 className="text-center font-bold">Final Confirmation </h2>
-             </div>
-             <span className="text-right" onClick={closeRegsitrationHanlder}>
-               <Image src={close} alt="error" />
-             </span>
-           </div>
-           <div className="LoadingDiv">
-             <div className="FinalDiv">
-               <p>Team List :</p>
-               {users &&
-                 users.map((item, index) =>
-                   item ? (
-                     <div key={index} className="liststype">
-                       <span>{item.name}</span>
-                       <span>{item.collegeName}</span>
-                     </div>
-                   ) : null
-                 )}
-             </div>
-             <div className="text-center">
-               <button
-                 type="button"
-                 className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                 onClick={handleButtonClick}
-               >
-                 Way to Registration
-               </button>
-             </div>
-           </div>
-         </div>
-       </div>
-       
+          <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+            <div
+              className="Loadingdiv bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+              style={{
+                display: "flex",
+                gap: "1vh",
+                padding: "1vh 0.4vh",
+                flexDirection: "column",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <div style={{ width: "90%" }}>
+                  <h2 className="text-center font-bold">Final Confirmation </h2>
+                </div>
+                <span className="text-right" onClick={closeRegsitrationHanlder}>
+                  <Image src={close} alt="error" />
+                </span>
+              </div>
+              <div className="LoadingDiv">
+                <div className="FinalDiv">
+                  <p>Team List :</p>
+                  {users &&
+                    users.map((item, index) =>
+                      item ? (
+                        <div key={index} className="liststype">
+                          <span>{item.name}</span>
+                          <span>{item.collegeName}</span>
+                        </div>
+                      ) : null
+                    )}
+                </div>
+                <div className="text-center">
+                  <button
+                    type="button"
+                    className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                    onClick={handleButtonClick}
+                  >
+                    Way to Registration
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
       {showPopup && (
@@ -570,7 +579,11 @@ const EventDetails = () => {
                   <ImCross onClick={togglePopup} />
                 </div>
                 <br />
-                {currentParticipant + 1 === 1   ? <div>Group Leader </div>  : <div>Member: {currentParticipant + 1} </div>}
+                {currentParticipant + 1 === 1 ? (
+                  <div>Group Leader </div>
+                ) : (
+                  <div>Member: {currentParticipant + 1} </div>
+                )}
               </div>
               <br />
               <form>
