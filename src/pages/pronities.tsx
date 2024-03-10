@@ -3,7 +3,7 @@ import { Slide, Fade } from "react-awesome-reveal";
 import Image, { StaticImageData } from "next/image";
 import { gallery1 } from "../images/gallery";
 import Link from "next/link";
-import eventposter from "../images/poster/eventposter.jpeg";
+import codigo from "../images/poster/1_CODIGO.png";
 
 interface CardData {
   id: number;
@@ -16,21 +16,21 @@ interface CardData {
 const CardsData: CardData[] = [
   {
     id: 1,
-    img: eventposter,
+    img: codigo,
     title: "Codigo",
     alias: "Reel Making",
     desc: "Each character will appear one by one",
   },
   {
     id: 2,
-    img: eventposter,
+    img: codigo,
     title: "Webbit",
     alias: "Reel Making",
     desc: "Each character will appear one by one",
   },
   {
     id: 3,
-    img: eventposter,
+    img: codigo,
     title: "Movie Trivia",
     alias: "Reel Making",
     desc: "Each character will appear one by one",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { events } from "../eventDetails";
+import events from "../eventDetails";
 import NavMenu from "@/components/NavMenu";
 
 const Events = ({ headerShown }: { headerShown: any }) => {
