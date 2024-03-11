@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { events } from "../../eventDetails";
+import events from "../../eventDetails";
 import Image from "next/image";
 import LottieAnimation from "../../components/LottieAnimation";
 import NavMenu from "@/components/NavMenu";
@@ -16,13 +16,11 @@ const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([{
-    name:"Atharva lende"
-  }]);
+  const [users, setUsers] = useState([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [finalResult, setfinalResut] = useState(true);
+  const [finalResult, setfinalResut] = useState(false);
   const [currentParticipantData, setCurrentParticipantData] = useState({
     name: "",
     email: "",
@@ -55,6 +53,9 @@ const EventDetails = () => {
             : "Other",
           ownermail: "lendeatharva30@gmail.com",
           ownerpassword: "gafr smei xpte xbsn",
+          eventCoordinatorName:event.coordinators.students[0].name,
+          eventCoordinatorPhone:event.coordinators.students[0].phone,
+          eventName:event.name
         }
       );
       closeHanlder();
@@ -229,7 +230,7 @@ const EventDetails = () => {
         <article className="col-span-9 mt-12 justify-center flex">
           <div className="">
             <div>
-              <h1 className="text-white font-bold text-4xl md:text-5xl xl:text-6xl">
+              <h1 className="text-white text-center font-bold text-4xl md:text-5xl xl:text-6xl">
                 {event.name}
                 <span className="text-primary text-[#EACD69]">.</span>
               </h1>
@@ -249,7 +250,7 @@ const EventDetails = () => {
                 alt={"article cover"}
                 priority
               />
-              <div className="mt-6 flex justify-between ">
+              {/* <div className="mt-6 flex justify-between ">
                 <p className="flex items-center  text-gray-500">
                   <svg
                     style={{ color: "white", marginRight: 10 }}
@@ -305,12 +306,18 @@ const EventDetails = () => {
                   </svg>
                   {event.schedule.venue}
                 </p>
-              </div>
+              </div> */}
               <div className="lg:w-2/3 md:text-center mx-auto flex justify-center mt-7">
                 <a>
                   <button
                     type="button"
-                    onClick={togglePopup}
+                    onClick={() => {
+                      if (!event.website) {
+                        togglePopup();
+                      } else {
+                        window.open(event.website, "_blank");
+                      }
+                    }}
                     className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                   >
                     Register Here
@@ -334,7 +341,11 @@ const EventDetails = () => {
               <h4 className="text-1xl font-bold font-headings md:text-2xl">
                 Rules and Regulations
               </h4>
-              <a>
+              <a
+                href={event.rulebook}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button
                   type="button"
                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-3 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
@@ -362,11 +373,12 @@ const EventDetails = () => {
                   Faculty Coordinators
                 </h4>
                 <div className="space-y-2 mt-3">
-                  {event.coordinators.faculty.map((item, index) => (
-                    <p className="lg:p-2 text-justify lg:ml-10" key={index}>
-                      Prof. {item}
-                    </p>
-                  ))}
+                  {event.coordinators.faculty &&
+                    event.coordinators.faculty.map((item, index) => (
+                      <p className="lg:p-2 text-justify lg:ml-10" key={index}>
+                        Prof. {item}
+                      </p>
+                    ))}
                 </div>
               </div>
             </div>
@@ -384,7 +396,7 @@ const EventDetails = () => {
               style={{
                 display: "flex",
                 gap: "2vh",
-                padding: "1vh 0.4vh",
+                padding: "1vh 2vh",
                 flexDirection: "column",
               }}
             >
@@ -393,6 +405,7 @@ const EventDetails = () => {
                   width: "100%",
                   display: "flex",
                   justifyContent: "flex-end",
+                  padding: "1vh",
                 }}
               >
                 <div style={{ width: "90%" }}>
@@ -405,23 +418,24 @@ const EventDetails = () => {
               {paymentStep === 1 && (
                 <div className="paymentFormStep">
                   <div className="paymentform">
-                    <h2 className="font-bold">Payment Instruction</h2>
-                    <p>Payment Process include three Step Process:</p>
+                    <h2 className="font-bold">Payment Instructions</h2>
+                    <p>Payment process includes a three-step process:</p>
                     <p>
-                      <span className="font-bold">Step -1 : </span>Scan The QR -
-                      (For Payment)
+                      <span className="font-bold">Step - 1: </span>Scan the QR
+                      code (for payment).
                     </p>
                     <p>
-                      <span className="font-bold">Step -2 : </span>Send The
-                      ScreenShot of Successfully Payment on Give whataspp Link
-                      follows the give template for whats app message{" "}
+                      <span className="font-bold">Step - 2: </span>Send the
+                      screenshot of successful payment to the given WhatsApp
+                      link following the provided template for the WhatsApp
+                      message.
                     </p>
                     <p>
-                      <span className="font-bold">Step -3 : </span>Click on
-                      payment compelete button for registeation and after its
-                      you recicve mail of payment initaztion and after compinete
-                      verficaton done by anatya24 team then you recview payment
-                      Successfully mail.
+                      <span className="font-bold">Step - 3: </span>Click on the
+                      "Payment Complete" button for registration. After that,
+                      you will receive an email for payment initiation. Once the
+                      verification is completed by the Anatya24 team, you will
+                      receive a payment successful email.
                     </p>
                   </div>
                   <div style={{ display: "flex", justifyContent: "center" }}>
@@ -436,11 +450,11 @@ const EventDetails = () => {
                     </button>
                   </div>
                   <div className="paymentform">
-                    <h2 className="font-bold">Whatsapp Message : </h2>
+                    <h2 className="font-bold">WhatsApp Message:</h2>
                     <pre>
                       EventName - (event name) <br />
                       Name - (payment holder) <br />
-                      Amount -(amount) <br />
+                      Amount - (amount) <br />
                       Screenshot - (photo) <br />
                     </pre>
                   </div>
@@ -451,7 +465,7 @@ const EventDetails = () => {
                   <div className="paymentQR">
                     <span>
                       Rs. {event.Amount} - Registration fee for non-PCCOEian to
-                      Practicated{" "}
+                      Practicate
                     </span>
                     <Image src={Qr} alt="error" className="QrImage" />
                     <button
@@ -470,7 +484,7 @@ const EventDetails = () => {
                 <div className="paymentFormStep">
                   <div>
                     <div className="paymentQR">
-                      <h3>Whatsapp Message</h3>
+                      <h3>WhatsApp Message</h3>
                       <Image src={whatslink} alt="error" className="QrImage" />
                       <button
                         type="button"
@@ -479,7 +493,7 @@ const EventDetails = () => {
                         }}
                         className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                       >
-                        Regsiter Here
+                        Register Here
                       </button>
                     </div>
                   </div>
@@ -525,7 +539,7 @@ const EventDetails = () => {
                 }}
               >
                 <div style={{ width: "90%" }}>
-                  <h2 className="text-center font-bold">Final Confiramtion </h2>
+                  <h2 className="text-center font-bold">Final Confirmation </h2>
                 </div>
                 <span className="text-right" onClick={closeRegsitrationHanlder}>
                   <Image src={close} alt="error" />
@@ -533,17 +547,26 @@ const EventDetails = () => {
               </div>
               <div className="LoadingDiv">
                 <div className="FinalDiv">
-                  <p>Practiced link :</p>
-                  {users.map(
-                    (item,index) =>
-                      item && (
-                        <div key={index}>
-                          <p>{item.name}</p>
+                  <p>Team List :</p>
+                  {users &&
+                    users.map((item, index) =>
+                      item ? (
+                        <div key={index} className="liststype">
+                          <span>{item.name}</span>
+                          <span>{item.collegeName}</span>
                         </div>
-                      )
-                  )}
+                      ) : null
+                    )}
                 </div>
-                <button onClick={handleButtonClick}>way to registration</button>
+                <div className="text-center">
+                  <button
+                    type="button"
+                    className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                    onClick={handleButtonClick}
+                  >
+                    Way to Registration
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -559,7 +582,11 @@ const EventDetails = () => {
                   <ImCross onClick={togglePopup} />
                 </div>
                 <br />
-                <div>Member: {currentParticipant + 1}</div>
+                {currentParticipant + 1 === 1 ? (
+                  <div>Group Leader </div>
+                ) : (
+                  <div>Member: {currentParticipant + 1} </div>
+                )}
               </div>
               <br />
               <form>
