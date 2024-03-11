@@ -1,53 +1,115 @@
 import React, { useEffect, useState } from "react";
-import { gallery1 } from "../images/gallery";
+
+import p1 from "../images/gallery/p1.jpg";
+import p2 from "../images/gallery/p2.jpg";
+import p3 from "../images/gallery/p3.jpg";
+import p4 from "../images/gallery/p4.jpg";
+import p5 from "../images/gallery/p5.jpg";
+import p6 from "../images/gallery/p6.jpg";
+import p7 from "../images/gallery/p7.jpg";
+import p8 from "../images/gallery/p8.jpg";
+import p9 from "../images/gallery/p9.jpg";
+import p10 from "../images/gallery/p10.jpg";
+import p11 from "../images/gallery/p11.jpg";
+import p12 from "../images/gallery/p12.jpg";
+import p13 from "../images/gallery/p13.jpg";
+import p14 from "../images/gallery/p14.jpg";
+import p15 from "../images/gallery/p15.jpg";
+import p16 from "../images/gallery/p16.jpg";
+import p17 from "../images/gallery/p17.jpg";
+import p18 from "../images/gallery/p18.jpg";
+import p20 from "../images/gallery/p20.jpg";
+import p21 from "../images/gallery/p21.jpg";
+import p22 from "../images/gallery/p22.jpg";
+import p23 from "../images/gallery/p23.jpg";
+import p24 from "../images/gallery/p24.jpg";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import NavMenu from "@/components/NavMenu";
 const images = [
   {
-    image: gallery1,
+    image: p1,
     className: "",
   },
   {
-    image: gallery1,
+    image:p2,
     className: "",
   },
   {
-    image: gallery1,
+    image: p3,
     className: "",
   },
   {
-    image: gallery1,
+    image: p4,
     className: "",
   },
   {
-    image: gallery1,
+    image: p5,
     className: "",
   },
   {
-    image: gallery1,
+    image: p6,
     className: "",
   },
   {
-    image: gallery1,
+    image: p7,
     className: "",
   },
   {
-    image: gallery1,
+    image: p8,
     className: "",
   },
   {
-    image: gallery1,
+    image: p9,
     className: "",
   },
   {
-    image: gallery1,
+    image: p10,
     className: "",
   },
   {
-    image: gallery1,
+    image: p11,
     className: "",
   },
+  {
+    image: p12,
+    className: "",
+  }, {
+    image: p13,
+    className: "",
+  }, {
+    image: p14,
+    className: "",
+  }, {
+    image: p15,
+    className: "",
+  }, {
+    image: p16,
+    className: "",
+  }, {
+    image: p17,
+    className: "",
+  }, {
+    image: p18,
+    className: "",
+  },  {
+    image: p20,
+    className: "",
+  }, {
+    image: p21,
+    className: "",
+  }, {
+    image: p22,
+    className: "",
+  }, {
+    image: p23,
+    className: "",
+  }, {
+    image: p24,
+    className: "",
+  }, 
+  
 ];
 
 const Gallery = () => {

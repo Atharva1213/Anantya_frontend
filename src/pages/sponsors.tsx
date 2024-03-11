@@ -1,27 +1,13 @@
 import React from 'react'
-import { sponsor1} from '../images/sponsors'
+import  redbull from '../images/sponsors/redbull.jpg'
 import Image from 'next/image'
 import NavMenu from '@/components/NavMenu'
 import { useRouter } from 'next/router'
 const eventSponsors = [
     {
-        image: sponsor1
+        image: redbull
     },
-    {
-        image: sponsor1
-    },
-    {
-        image: sponsor1
-    },
-    {
-        image: sponsor1
-    },
-    {
-        image: sponsor1
-    },
-    {
-        image: sponsor1
-    },
+    
     
 
 ]
