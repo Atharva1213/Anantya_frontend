@@ -53,6 +53,9 @@ const EventDetails = () => {
             : "Other",
           ownermail: "lendeatharva30@gmail.com",
           ownerpassword: "gafr smei xpte xbsn",
+          eventCoordinatorName:event.coordinators.students[0].name,
+          eventCoordinatorPhone:event.coordinators.students[0].phone,
+          eventName:event.name
         }
       );
       closeHanlder();
