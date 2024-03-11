@@ -1,6 +1,5 @@
 import React from 'react'
 import {atharvaLende,tarunRathod,Kriti,wafiya, omkar} from '../images/team'
-
 import Image from 'next/image'
 import { instagram, linkedin, github } from '../images/icons';
 import NavMenu from '@/components/NavMenu';

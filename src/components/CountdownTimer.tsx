@@ -40,22 +40,22 @@ const CountdownTimer: React.FC = () => {
       <p className="countdown p-4 md:p-4 border-4 border-gray-800 rounded-3xl bg-rgb-187-141-58 shadow-md text-yellow-300 text-3xl md:text-5xl lg:text-6xl" style={{paddingTop:"5vh"}}>
         <span id="dayElement" className="inline-block w-full md:w-32 h-20 text-center mb-2 md:mb-0" >
           {days}
-          <span className="block text-xs text-gray-500">DAYS</span>
+          <span className="block text-xl text-gray-500 font-bold">DAYS</span>
         </span>
         <span className="inline-block w-full md:w-32 h-20 text-center">:</span>
         <span id="hourElement" className="inline-block w-full md:w-32 h-20 text-center mb-2 md:mb-0">
           {hours}
-          <span className="block text-xs text-gray-500">HOURS</span>
+          <span className="block text-xl text-gray-500 font-bold">HOURS</span>
         </span>
         <span className="inline-block w-full md:w-32 h-20 text-center">:</span>
         <span id="minElement" className="inline-block w-full md:w-32 h-20 text-center mb-2 md:mb-0">
           {minutes}
-          <span className="block text-xs text-gray-500">MINS</span>
+          <span className="block text-xl text-gray-500 font-bold">MINS</span>
         </span>
         <span className="inline-block w-full md:w-32 h-20 text-center">:</span>
         <span id="secElement" className="inline-block w-full md:w-32 h-20 text-center">
           {seconds}
-          <span className="block text-xs text-gray-500">SECS</span>
+          <span className="block text-xl text-gray-500 font-bold">SECS</span>
         </span>
       </p>
     </div>
