@@ -38,11 +38,11 @@ const NavMenu = () => {
   return (
     <div className=" text-white">
       <div className="flex items-center justify-between max-w-6xl lg:max-w-[72rem] xl:max-w-6xl px-4 py-6 mx-auto sm:px-6">
-        <div className="flex justify-start lg:w-0  transition whitespace-nowrap hover:transition duration-300 text-2xl font-bold cursor-pointer  ">
+        <div className="flex justify-start lg:w-0  transition whitespace-nowrap hover:transition duration-300 text-xl font-bold cursor-pointer  ">
           <span className="sr-only">Logo</span>
           <NextLink href="/" passHref>
             <span className=" opacity-100 hover:text-lightGreen dark:hover:text-lightGreen ">
-              Anantya
+              Anantya-2k24
             </span>
           </NextLink>
         </div>
