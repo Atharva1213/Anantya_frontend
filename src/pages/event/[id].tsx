@@ -99,7 +99,7 @@ const EventDetails = () => {
       return;
     }
     setfinalResut(false);
-    const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user.email));
+    const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user['email']));
     if (areAllPCCOEEmails) {
       registerEventApiCall();
     } else {
