@@ -33,7 +33,7 @@ const CardsData: CardData[] = [
     img: iplAuction,
     title: "IPL Auction",
     alias: "IPL Auction",
-    desc: "The IPL Auction Simulation invites participants to engage in a strategic team-building experience mirroring the official IPL auction process. Phase 1: Qualifying Test - Demonstrate your cricket acumen through a comprehensive knowledge assessment. Phase 2: Buzzer Round - Employ quick thinking and strategic bidding in a fast-paced auction environment. Phase 3: Live Auction - Participate in a simulated live auction, utilizing a set budget to construct your ideal IPL franchise. This event is designed to test your cricket knowledge, strategic decision-making, and auction room prowess.",
+    desc: "The IPL Auction Simulation invites participants to engage in a strategic team-building experience mirroring the official IPL auction process.1: Qualifying Test - Demonstrate your cricket acumen through a comprehensive knowledge assessment.2: Buzzer Round - Employ quick thinking and strategic bidding in a fast-paced auction environment.3: Live Auction - Participate in a simulated live auction, utilizing a set budget to construct your ideal IPL franchise. This event is designed to test knowledge, decision-making, and auction room prowess.",
   }
 ];
 
