@@ -36,7 +36,7 @@ const EventDetails = () => {
   if (!event) {
     return <div>Event not found</div>;
   }
-  const isPCCOEEmail = (email) => {
+  const isPCCOEEmail = (email:string) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
     return emailRegex.test(email);
   };
@@ -65,7 +65,7 @@ const EventDetails = () => {
       handleApiError();
     }
   };
-  const handleApiResponse = (data) => {
+  const handleApiResponse = (data:any) => {
     setloading(false);
     if (data.message !== "401") {
       setregisterUser(true);
