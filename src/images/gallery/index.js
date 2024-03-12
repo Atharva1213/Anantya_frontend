@@ -1,4 +1,4 @@
-import gallery1 from './gallery1.jpg';
+import gallery1 from '../QR.jpeg';
 
 
 export {
