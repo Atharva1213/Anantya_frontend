@@ -16,9 +16,6 @@ const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
-  type users = {
-    email: string;
-};
   const [users, setUsers] = useState([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
@@ -51,7 +48,7 @@ const EventDetails = () => {
         {
           user: users,
           eventId: event.id,
-          type: users.every((user) => isPCCOEEmail(user.email))
+          type: users.every((user) => isPCCOEEmail(user['email']))
             ? "PCCOE"
             : "Other",
           ownermail: "anantyapccoe@gmail.com",
@@ -192,7 +189,7 @@ const EventDetails = () => {
     if (!isValid) {
       return;
     }
-    if (currentParticipant + 1 <= event.participantno) {
+    if ((currentParticipant + 1).toString() <= event['participantno']) {
       setCurrentParticipant(currentParticipant + 1);
       setUsers([...users, currentParticipantData]);
       setCurrentParticipantData({
