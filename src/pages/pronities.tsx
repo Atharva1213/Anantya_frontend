@@ -2,9 +2,9 @@ import React from "react";
 import { Slide, Fade } from "react-awesome-reveal";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import codigo from "../images/poster/1_CODIGO.png";
-import iplAuction from "../images/poster/4_IPL_AUCTION.png";
-import alphaByte from "../images/poster/2_ALPHA_BYTE.png";
+import codigo from "../images/poster/1_CODIGO.svg";
+import iplAuction from "../images/poster/4_IPL_AUCTION.svg";
+import alphaByte from "../images/poster/2_ALPHA_BYTE.svg";
 interface CardData {
   id: number;
   img: StaticImageData;
