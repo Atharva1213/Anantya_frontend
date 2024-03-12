@@ -16,6 +16,9 @@ const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
+  type users = {
+    email: string;
+};
   const [users, setUsers] = useState([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
