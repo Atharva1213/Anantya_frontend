@@ -1,15 +1,15 @@
-import codigo from "./images/poster/1_CODIGO.png";
-import alphaByte from "./images/poster/2_ALPHA_BYTE.png";
-import cat from "./images/poster/3_CAT.png";
-import iplAuction from "./images/poster/4_IPL_AUCTION.png";
-import actionReply from "./images/poster/5_ACTION_REPLY.png";
-import codeInTheDark from "./images/poster/6_CODE_IN_THE_DARK.png";
-import mindMatrix from "./images/poster/7_MIND_MATRIX.png";
-import projectCompletion from "./images/poster/8_PROJECT_COMPLETION.png";
-import posterPresentation from "./images/poster/9_POSTER_PRESENTATION.png";
-import chronoclash from "./images/poster/10_CHRONOCLASH.png";
-import byteMe from "./images/poster/11_BYTE_ME.png";
-import sherlock from "./images/poster/12_SHERLOCK.png";
+import codigo from "./images/poster/1_CODIGO.svg";
+import alphaByte from "./images/poster/2_ALPHA_BYTE.svg";
+import cat from "./images/poster/3_CAT.svg";
+import iplAuction from "./images/poster/4_IPL_AUCTION.svg";
+import actionReply from "./images/poster/5_ACTION_REPLAY.svg";
+import codeInTheDark from "./images/poster/6_CODE_IN_THE_DARK.svg";
+import mindMatrix from "./images/poster/7_MIND_MATRIX.svg";
+import projectCompletion from "./images/poster/8_PROJECT_COMPLETION.svg";
+import posterPresentation from "./images/poster/9_POSTER_PRESENTATION.svg";
+import chronoclash from "./images/poster/10_CHRONO_CLASH.svg";
+import byteMe from "./images/poster/11_BYTE_ME.svg";
+import sherlock from "./images/poster/12_SHERLOCK.svg";
 
 const events = [
   { 
@@ -64,7 +64,9 @@ const events = [
     "rulebook": "https://drive.google.com/drive/folders/1IJ6fgqE-DhG306Vi65KkJ6Qfz4Hi02tU",
     "Amount": "₹50",
     "participantno": "4",
-    "website": "https://alphabyte2024.tech/"
+    "website": "https://alphabyte2024.tech/",
+    "whatsappLink":"https://chat.whatsapp.com/DeFcU9hqa2z5mbESsbY3kr",
+
   },
   {
     "name": "CAT 2.0",
@@ -91,7 +93,7 @@ const events = [
     "rulebook": "https://drive.google.com/file/d/1xIqe1hGl92WI4LVcz2zaxIqdLdOHEx9y/view?usp=sharing",
     "Amount": "₹50",
     "participantno": "1",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/BloLWczOFo04NEv5Eedand",
   },
   {
     "name": "IPL Auction",
@@ -118,7 +120,7 @@ const events = [
     "rulebook": "https://drive.google.com/file/d/1BHY54sRmMKCkUhbWhQ3f3q8R9eogTuzJ/view?usp=sharing",
     "Amount": "₹160",
     "participantno": "4",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/EkC0KikZ7C7AncbcbakmtZ",
   },
   {
     "name": "Action Replay",
@@ -147,7 +149,7 @@ const events = [
     "rulebook": "https://drive.google.com/drive/folders/1XlOtpxs0xfe6FjvrQW4pD8PqBFgQOURy?usp=sharing",
     "Amount": "₹60",
     "participantno": "2",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/D7U0hVfH2M56CQdA1cGHFe",
   },
   {
     "name": "Code In The Dark",
@@ -172,7 +174,7 @@ const events = [
     "rulebook": "",
     "Amount": "₹50",
     "participantno": "2",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
   },
   {
     "name": "Mind Matrix",
@@ -201,7 +203,7 @@ const events = [
     "rulebook": "https://drive.google.com/file/d/1-sxvfIxuFr_lbAHU0zHFXMXzneJopKRA/view?usp=drivesdk",
     "Amount": "₹50",
     "participantno": "2",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/EQuNyByNyJ4CglepsIAp4h",
   },
   
   {
@@ -255,7 +257,7 @@ const events = [
     "rulebook": "https://docs.google.com/document/d/1QqLFqIj3_lsjypmjTogH5qQ4yfHp-0liOMFAaa7wGO4/edit?usp=sharing",
     "Amount": "N.A",
     "participantno": "4",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/GCJAojgtUVv16hVSQHTiHL",
   },
 
   {
@@ -285,7 +287,7 @@ const events = [
     "rulebook": "https://drive.google.com/file/d/1pf2fVRQfU0b_fwiYr7oEPeDJVuYL_pz8/view?usp=sharing",
     "Amount": "₹30",
     "participantno": "1",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/FzSZY4CDWSA27PnAmaZHlE",
   },
   {
     "name": "Byte Me",
@@ -339,7 +341,7 @@ const events = [
     "rulebook": "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
     "Amount": "₹80",
     "participantno": "2",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid ",
   }
 ];
 
