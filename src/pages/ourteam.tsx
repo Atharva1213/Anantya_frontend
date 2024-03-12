@@ -19,9 +19,9 @@ const teamDetails = [
         name: 'Tarun Rathod',
         image: tarunRathod,
         year: "3rd year CSE",
-        linkedin: 'https://www.linkedin.com/in/atharva-lende/',
-        github: 'https://github.com/Atharva1213',
-        instagram: 'https://www.instagram.com/_shreelende_/',
+        linkedin: 'https://www.linkedin.com/in/tarun-rathod-aa7ab7223/',
+        github: 'https://github.com/tarunnnrathoddd',
+        instagram: 'https://www.instagram.com/_.tarunnn.rathoddd._/',
     },
     {
         name: 'Wafiya Mulla',
