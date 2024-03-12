@@ -109,11 +109,18 @@ const EventDetails = () => {
       return;
     }
     setfinalResut(false);
+    if(event.name==='Poster Presentation' || event.name==="Project Completion")
+    {
+      registerEventApiCall();
+    }
+    else
+    {
     const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user['email']));
     if (areAllPCCOEEmails) {
       registerEventApiCall();
     } else {
       setpaymentmode(true);
+    }
     }
   };
   const closeHanlder = () => {

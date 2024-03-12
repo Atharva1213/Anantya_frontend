@@ -18,7 +18,7 @@ const events = [
     "id": "1",
     "image": codigo,
     "aboutEvent": "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
-    "participantno":1,
+    "participantno":2,
     "coordinators": {
       "students": [
         { "name": "Mithilesh Rajput", "phone": "9579283970 " },
@@ -39,9 +39,8 @@ const events = [
     },
     "Amount": "₹100",
     "rulebook": "https://drive.google.com/file/d/19Aiwcbz0wO5lmiaJ1rberwSQkmo6aCHc/view?usp=sharing",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/FMZXL67AisAEgAnUaOeli5",
   },
-
   {
     "name": "AlphaByte",
     "alias": "AlphaByte",
@@ -63,11 +62,10 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/drive/folders/1IJ6fgqE-DhG306Vi65KkJ6Qfz4Hi02tU",
-    "Amount": "₹50/-",
+    "Amount": "₹50",
     "participantno": "4",
     "website": "https://alphabyte2024.tech/"
   },
-
   {
     "name": "CAT 2.0",
     "alias": "CAT 2.0",
@@ -91,10 +89,10 @@ const events = [
   },
 
     "rulebook": "https://drive.google.com/file/d/1xIqe1hGl92WI4LVcz2zaxIqdLdOHEx9y/view?usp=sharing",
-    "Amount": "₹50/-",
+    "Amount": "₹50",
     "participantno": "1",
+    "whatsappLink":"link",
   },
-
   {
     "name": "IPL Auction",
     "alias": "IPL Auction",
@@ -107,8 +105,6 @@ const events = [
       "round2": [{ "date": "18th March", "time": "2:00 PM - 4:00 PM", "venue": "Offline" }],
       "round3": [{ "date": "19th March", "time": "9:00 AM - 6:00 PM", "venue": "Offline" }],
     },
-  
-
     "coordinators": {
       students: [
       { "name": "Nitin Pandita", "phone": "9667026988" },
@@ -120,10 +116,10 @@ const events = [
 
 
     "rulebook": "https://drive.google.com/file/d/1BHY54sRmMKCkUhbWhQ3f3q8R9eogTuzJ/view?usp=sharing",
-    "Amount": "₹160/-",
+    "Amount": "₹160",
     "participantno": "4",
+    "whatsappLink":"link",
   },
-
   {
     "name": "Action Replay",
     "alias": "Action Replay",
@@ -149,10 +145,10 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/drive/folders/1XlOtpxs0xfe6FjvrQW4pD8PqBFgQOURy?usp=sharing",
-    "Amount": "₹60/-",
+    "Amount": "₹60",
     "participantno": "2",
+    "whatsappLink":"link",
   },
-
   {
     "name": "Code In The Dark",
     "alias": "Code In The Dark",
@@ -173,11 +169,11 @@ const events = [
       faculty: [ "Mr. Pankaj Devre"]
 
     },
-    "rulebook": " ",
-    "Amount": "₹50/-",
+    "rulebook": "",
+    "Amount": "₹50",
     "participantno": "2",
+    "whatsappLink":"link",
   },
-
   {
     "name": "Mind Matrix",
     "alias": "Mind Matrix",
@@ -203,8 +199,9 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/file/d/1-sxvfIxuFr_lbAHU0zHFXMXzneJopKRA/view?usp=drivesdk",
-    "Amount": "₹50/- (25 per participant)",
+    "Amount": "₹50",
     "participantno": "2",
+    "whatsappLink":"link",
   },
   
   {
@@ -231,6 +228,7 @@ const events = [
     "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
     "Amount": "N.A.",
     "participantno": "4",
+    "whatsappLink":"link",
   },  
   
   {
@@ -257,6 +255,7 @@ const events = [
     "rulebook": "https://docs.google.com/document/d/1QqLFqIj3_lsjypmjTogH5qQ4yfHp-0liOMFAaa7wGO4/edit?usp=sharing",
     "Amount": "N.A",
     "participantno": "4",
+    "whatsappLink":"link",
   },
 
   {
@@ -284,10 +283,10 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/file/d/1pf2fVRQfU0b_fwiYr7oEPeDJVuYL_pz8/view?usp=sharing",
-    "Amount": "₹30/-",
+    "Amount": "₹30",
     "participantno": "1",
+    "whatsappLink":"link",
   },
-
   {
     "name": "Byte Me",
     "alias": "Byte Me",
@@ -310,10 +309,11 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/drive/folders/1hN_-SAjz3Rvh3hC5fCIZwgl0vnL_ep72",
-    "Amount": "₹50/-",
+    "Amount": "₹50",
     "participantno": "2",
-  },
-  
+    "whatsappLink":"link",
+    "website":"https://Owasppccoe.vercel.app",
+  },  
   {
     "name": "Sherlock",
     "alias": "Sherlock",
@@ -337,8 +337,9 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
-    "Amount": "₹80/-",
+    "Amount": "₹80",
     "participantno": "2",
+    "whatsappLink":"link",
   }
 ];
 
