@@ -16,12 +16,22 @@ const EventDetails = () => {
   const [currentParticipant, setCurrentParticipant] = useState(0);
   const [registerUser, setregisterUser] = useState(false);
   const [paymentmode, setpaymentmode] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<Participant[]>([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [finalResult, setfinalResut] = useState(false);
-  const [currentParticipantData, setCurrentParticipantData] = useState({
+  type Participant = {
+    name: string;
+    email: string;
+    contact: string;
+    collegeName: string;
+    division: string;
+    department: string;
+    year: string;
+  };
+
+  const [currentParticipantData, setCurrentParticipantData] = useState<Participant>({
     name: "",
     email: "",
     contact: "",
@@ -191,7 +201,7 @@ const EventDetails = () => {
     }
     if ((currentParticipant + 1).toString() <= event['participantno']) {
       setCurrentParticipant(currentParticipant + 1);
-      setUsers([...users, currentParticipantData]);
+      setUsers([...users,currentParticipantData]);
       setCurrentParticipantData({
         name: "",
         email: "",
