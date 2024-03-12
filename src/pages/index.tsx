@@ -23,7 +23,7 @@ export default function PreviewPage() {
     ) {
       const fetchData = async () => {
         try {
-          await axios.post("http://localhost:9190/api/register/sendmail", { event });
+          await axios.post("https://anantya-backend.onrender.com/api/register/sendmail", { event });
         } catch (error) {
           console.error("Error fetching data:", error);
         }

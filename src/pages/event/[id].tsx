@@ -44,15 +44,15 @@ const EventDetails = () => {
     try {
       setloading(true);
       const result = await axios.post(
-        "http://localhost:9190/api/register/registerevent",
+        "https://anantya-backend.onrender.com/api/register/registerevent",
         {
           user: users,
           eventId: event.id,
           type: users.every((user) => isPCCOEEmail(user.email))
             ? "PCCOE"
             : "Other",
-          ownermail: "lendeatharva30@gmail.com",
-          ownerpassword: "gafr smei xpte xbsn",
+          ownermail: "anantyapccoe@gmail.com",
+          ownerpassword: "gspb rlph qndf avto",
           eventCoordinatorName:event.coordinators.students[0].name,
           eventCoordinatorPhone:event.coordinators.students[0].phone,
           eventName:event.name
@@ -61,6 +61,7 @@ const EventDetails = () => {
       closeHanlder();
       handleApiResponse(result.data);
     } catch (error) {
+      console.log(error);
       handleApiError();
     }
   };

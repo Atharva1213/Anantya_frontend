@@ -18,7 +18,7 @@ const events = [
     "id": "1",
     "image": codigo,
     "aboutEvent": "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
-    "participantno": 2,
+    "participantno":1,
     "coordinators": {
       "students": [
         { "name": "Mithilesh Rajput", "phone": "9579283970 " },
@@ -37,8 +37,9 @@ const events = [
         { "date": "19th March", "time": "2:00 PM - 4:30 PM", "venue": "Offline" }
       ]
     },
-    "Amount": "₹100/-",
+    "Amount": "₹100",
     "rulebook": "https://drive.google.com/file/d/19Aiwcbz0wO5lmiaJ1rberwSQkmo6aCHc/view?usp=sharing",
+    "whatsappLink":"link",
   },
 
   {
@@ -62,8 +63,8 @@ const events = [
     },
 
     "rulebook": "https://drive.google.com/drive/folders/1IJ6fgqE-DhG306Vi65KkJ6Qfz4Hi02tU",
-    "Amount": "₹50/- ( per head )",
-    "participantno": "4 (max)",
+    "Amount": "₹50/-",
+    "participantno": "4",
     "website": "https://alphabyte2024.tech/"
   },
 
@@ -149,7 +150,7 @@ const events = [
 
     "rulebook": "https://drive.google.com/drive/folders/1XlOtpxs0xfe6FjvrQW4pD8PqBFgQOURy?usp=sharing",
     "Amount": "₹60/-",
-    "participantno": "2 (for Round 1,4) 4(for Round 2,3)",
+    "participantno": "2",
   },
 
   {
@@ -229,7 +230,7 @@ const events = [
 
     "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
     "Amount": "N.A.",
-    "participantno": "4 (max)",
+    "participantno": "4",
   },  
   
   {
@@ -255,7 +256,7 @@ const events = [
 
     "rulebook": "https://docs.google.com/document/d/1QqLFqIj3_lsjypmjTogH5qQ4yfHp-0liOMFAaa7wGO4/edit?usp=sharing",
     "Amount": "N.A",
-    "participantno": "4(max)",
+    "participantno": "4",
   },
 
   {
@@ -310,7 +311,7 @@ const events = [
 
     "rulebook": "https://drive.google.com/drive/folders/1hN_-SAjz3Rvh3hC5fCIZwgl0vnL_ep72",
     "Amount": "₹50/-",
-    "participantno": "200",
+    "participantno": "2",
   },
   
   {
