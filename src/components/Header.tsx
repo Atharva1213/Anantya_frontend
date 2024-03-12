@@ -22,7 +22,7 @@ const Header = () => {
               opacity: 0.3,
             }}
           >
-            <source src="/bgvideo1.mp4" type="video/mp4" />
+            {/* <source src="/bgvideo1.mp4" type="video/mp4" /> */}
           </video>
         </div>
         <div className="flex items-center justify-center">
