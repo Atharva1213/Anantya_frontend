@@ -7,6 +7,7 @@ const imageUrls = [
   "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250978/p13_2_tf2x8l.jpg",
   "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710248497/Anantya_2024/x5xxjxchvurk6z5dwsbf.jpg",
   "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250688/p11_xfhkwc.jpg",
+  "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710262298/Anantya_2024/mahima_bf3nip.jpg",
   "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710248510/Anantya_2024/mihchr5rfnhkdsbkd5es.jpg",
   "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710248510/Anantya_2024/hea7ctnpromltlsccon3.jpg",
   "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710248510/Anantya_2024/y0jqjaec8rvo5fofnl4c.jpg",
