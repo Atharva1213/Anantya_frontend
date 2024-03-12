@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {gallery1} from "../images/gallery/index";
+import {gallery1} from "../images/gallery";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import NavMenu from "@/components/NavMenu";
