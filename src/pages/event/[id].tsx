@@ -268,63 +268,6 @@ const EventDetails = () => {
                 alt={"article cover"}
                 priority
               />
-              {/* <div className="mt-6 flex justify-between ">
-                <p className="flex items-center  text-gray-500">
-                  <svg
-                    style={{ color: "white", marginRight: 10 }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    fill="currentColor"
-                    className="bi bi-calendar-day"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path
-                      d="M4.684 11.523v-2.3h2.261v-.61H4.684V6.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V8.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105zm2.805-5.093c0 .238.192.425.43.425a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43zm.094 5.093h.672V7.418h-.672v4.105z"
-                      fill="white"
-                    ></path>{" "}
-                    <path
-                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
-                      fill="white"
-                    ></path>{" "}
-                  </svg>
-                  {event.schedule.day}
-                </p>
-                <p className="flex items-center text-gray-500">
-                  <svg
-                    style={{ color: "white", marginRight: 10 }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    fill="currentColor"
-                    className="bi bi-clock-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path
-                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-                      fill="white"
-                    ></path>{" "}
-                  </svg>
-                  {event.schedule.time}
-                </p>
-                <p className="flex items-center text-gray-500">
-                  <svg
-                    style={{ color: "white", marginRight: 10 }}
-                    width="25"
-                    height="25"
-                    viewBox="0 0 1024 1024"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill="white"
-                      d="M512 928c23.936 0 117.504-68.352 192.064-153.152C803.456 661.888 864 535.808 864 416c0-189.632-155.84-320-352-320S160 226.368 160 416c0 120.32 60.544 246.4 159.936 359.232C394.432 859.84 488 928 512 928zm0-435.2a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 140.8a204.8 204.8 0 1 1 0-409.6 204.8 204.8 0 0 1 0 409.6z"
-                    ></path>
-                  </svg>
-                  {event.schedule.venue}
-                </p>
-              </div> */}
               <div className="lg:w-2/3 md:text-center mx-auto flex justify-center mt-7">
                 <a>
                   <button
@@ -345,63 +288,64 @@ const EventDetails = () => {
             </div>
           </div>
         </article>
-        <div className="mx-auto flex flex-col gap-3 text-center w-82 p-4 rounded-xl ring-2 ring-offset-2 hover:ring-offset-4">
-          <div className="flex flex-col gap-3">
-            <div className="w-100 flex flex-col gap-1">
-              <h2 className="text-1xl font-bold font-headings md:text-2xl">
-                About Event.
-              </h2>{" "}
-              <p className="md:p-4 text-justify mt-2">{event.aboutEvent}</p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-5">
-            <div className="w-100 flex flex-col gap-3">
-              <h4 className="text-1xl font-bold font-headings md:text-2xl">
-                Rules and Regulations
-              </h4>
-              <a
-                href={event.rulebook}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button
-                  type="button"
-                  className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-3 py-3 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
-                >
-                  RuleBook Here
-                </button>
-              </a>
-            </div>
-            <div className="w-full flex gap-1.7 text-center items-center justify-evenly">
-              <div>
-                <h4 className="text-1xl font-bold font-headings sm:text-xl md:text-2xl">
-                  Student Coordinators
-                </h4>
-                <div className="space-y-2 mt-3">
-                  {event.coordinators.students.map((item, index) => (
-                    <p className="lg:p-2 lg:ml-10 text-justify" key={index}>
-                      {item.name} (
-                      <a href={`tel:${item.phone}`}>{item.phone}</a>)
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="text-1xl font-bold font-headings md:text-2xl">
-                  Faculty Coordinators
-                </h4>
-                <div className="space-y-2 mt-3">
-                  {event.coordinators.faculty &&
-                    event.coordinators.faculty.map((item, index) => (
-                      <p className="lg:p-2 text-justify lg:ml-10" key={index}>
-                        Prof. {item}
-                      </p>
-                    ))}
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto px-4 md:px-0 max-w-7xl flex flex-col gap-6">
+  <div className="flex flex-col gap-6">
+    <div>
+      <h2 className="text-2xl font-bold md:text-3xl">
+        About Event
+      </h2>
+      <p className="md:text-lg text-justify mt-2">{event.aboutEvent}</p>
+    </div>
+  </div>
+  <div className="flex flex-col gap-6">
+    <div>
+      <h4 className="text-2xl font-bold md:text-3xl">
+        Rules and Regulations
+      </h4>
+      <a
+        href={event.rulebook}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button
+          type="button"
+          className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3 text-center"
+        >
+          RuleBook Here
+        </button>
+      </a>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h4 className="text-2xl font-bold md:text-3xl">
+          Student Coordinators
+        </h4>
+        <div className="space-y-2 mt-3">
+          {event.coordinators.students.map((item, index) => (
+            <p className="text-lg lg:pl-6" key={index}>
+              {item.name} (
+              <a href={`tel:${item.phone}`}>{item.phone}</a>)
+            </p>
+          ))}
         </div>
+      </div>
+      <div>
+        <h4 className="text-2xl font-bold md:text-3xl">
+          Faculty Coordinators
+        </h4>
+        <div className="space-y-2 mt-3">
+          {event.coordinators.faculty &&
+            event.coordinators.faculty.map((item, index) => (
+              <p className="text-lg lg:pl-6" key={index}>
+                Prof. {item}
+              </p>
+            ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
         {registerUser && (
           <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
             <LottieAnimation />
