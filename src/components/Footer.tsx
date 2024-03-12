@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer aria-label="Site Footer" className="bg-[#151515]">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex justify-center text-white">
-          <h1 className="text-4xl">Pimpri Chinchwad College Of Engineering </h1>
+        <div className="flex justify-center text-white ">
+          <h1 className="text-md font-bold text-center">Pimpri Chinchwad College Of Engineering </h1>
         </div>
 
         <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
