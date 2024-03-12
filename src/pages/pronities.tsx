@@ -15,6 +15,13 @@ interface CardData {
 
 const CardsData: CardData[] = [
   {
+    id: 3,
+    img: alphaByte,
+    title: "Alpha Byte",
+    alias: "Alpha Byte",
+    desc: "AlphaByte 1.0 is a National Level Hackathon organized by GDSC x Anantya 2024, in collaboration with the Computer Engineering Students Association (CESA). It is a flagship event of Anantya 2024, aimed at bringing together the brightest minds in the field of technology from across the country.",
+  },
+  {
     id: 1,
     img: codigo,
     title: "Codigo",
@@ -27,14 +34,7 @@ const CardsData: CardData[] = [
     title: "IPL Auction",
     alias: "IPL Auction",
     desc: "The IPL Auction Simulation invites participants to engage in a strategic team-building experience mirroring the official IPL auction process. Phase 1: Qualifying Test - Demonstrate your cricket acumen through a comprehensive knowledge assessment. Phase 2: Buzzer Round - Employ quick thinking and strategic bidding in a fast-paced auction environment. Phase 3: Live Auction - Participate in a simulated live auction, utilizing a set budget to construct your ideal IPL franchise. This event is designed to test your cricket knowledge, strategic decision-making, and auction room prowess.",
-  },
-  {
-    id: 3,
-    img: alphaByte,
-    title: "Alpha Byte",
-    alias: "Alpha Byte",
-    desc: "AlphaByte 1.0 is a National Level Hackathon organized by GDSC x Anantya 2024, in collaboration with the Computer Engineering Students Association (CESA). It is a flagship event of Anantya 2024, aimed at bringing together the brightest minds in the field of technology from across the country.",
-  },
+  }
 ];
 
 const Pronities: React.FC = () => {

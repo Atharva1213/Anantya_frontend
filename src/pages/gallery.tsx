@@ -1,17 +1,91 @@
 import React, { useEffect, useState } from "react";
-import {gallery1} from "../images/gallery";
+import {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p20,p21,p22,p23,p24} from "../images/gallery";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import NavMenu from "@/components/NavMenu";
 const images = [
   {
-    image: gallery1,
+    image: p1,
     className: "",
   },
   {
-    image:gallery1,
+    image:p2,
+    className: "",
+  },
+  {
+    image: p3,
+    className: "",
+  },
+  {
+    image: p4,
+    className: "",
+  },
+  {
+    image: p5,
+    className: "",
+  },
+  {
+    image: p6,
+    className: "",
+  },
+  {
+    image: p7,
+    className: "",
+  },
+  {
+    image: p8,
+    className: "",
+  },
+  {
+    image: p9,
+    className: "",
+  },
+  {
+    image: p10,
+    className: "",
+  },
+  {
+    image: p11,
+    className: "",
+  },
+  {
+    image: p12,
+    className: "",
+  }, {
+    image: p13,
+    className: "",
+  }, {
+    image: p14,
+    className: "",
+  }, {
+    image: p15,
+    className: "",
+  }, {
+    image: p16,
+    className: "",
+  }, {
+    image: p17,
+    className: "",
+  }, {
+    image: p18,
+    className: "",
+  },  {
+    image: p20,
+    className: "",
+  }, {
+    image: p21,
+    className: "",
+  }, {
+    image: p22,
+    className: "",
+  }, {
+    image: p23,
+    className: "",
+  }, {
+    image: p24,
     className: "",
   }, 
+  
 ];
 
 const Gallery = () => {
