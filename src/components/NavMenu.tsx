@@ -42,7 +42,7 @@ const NavMenu = () => {
           <span className="sr-only">Logo</span>
           <NextLink href="/" passHref>
             <span className=" opacity-100 hover:text-lightGreen dark:hover:text-lightGreen ">
-              Anantya-2k24
+              ANANTYA-2k24
             </span>
           </NextLink>
         </div>
