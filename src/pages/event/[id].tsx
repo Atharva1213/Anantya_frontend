@@ -573,7 +573,7 @@ const EventDetails = () => {
                   />
                 </div>
                 <div>
-                  <span style={{fontSize:"0.8vh"}}>Please Enter College Email only  ..</span>
+                  <span style={{fontSize:"1.2vh",color:"#fff"}}>Please Enter College Email only  ..</span>
                   <label>Email:</label>
                   <input
                     type="email"
