@@ -298,6 +298,7 @@ const EventDetails = () => {
               <p className="md:text-lg text-justify mt-2">{event.aboutEvent}</p>
             </div>
           </div>
+          <div className="flex flex-col gap-6">
           <div className="flex  text-center flex-col gap-6">
             <div>
               <h4 className="text-2xl font-bold md:text-3xl">
@@ -310,6 +311,7 @@ const EventDetails = () => {
               >
                 <button
                   type="button"
+
                   style={{ marginTop: "1.2vh" }}
                   className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3 text-center"
                 >
@@ -658,6 +660,7 @@ const EventDetails = () => {
                     <option value="Mechanical">Mechanical</option>
                     <option value="ENTC">ENTC</option>
                     <option value="Civil">Civil</option>
+                    <option value="AiML">AiML</option>{" "}
                   </select>
                 </div>
 
