@@ -1,15 +1,15 @@
-import codigo from "./images/1_CODIGO.svg";
-import alphaByte from "./images/1_CODIGO.svg";
-import cat from "./images/1_CODIGO.svg";
-import iplAuction from "./images/1_CODIGO.svg";
-import actionReply from "./images/1_CODIGO.svg";
-import codeInTheDark from "./images/1_CODIGO.svg";
-import mindMatrix from "./images/1_CODIGO.svg";
-import projectCompletion from "./images/1_CODIGO.svg";
-import posterPresentation from "./images/1_CODIGO.svg";
-import chronoclash from "./images/1_CODIGO.svg";
-import byteMe from "./images/1_CODIGO.svg";
-import sherlock from "./images/1_CODIGO.svg";
+const codigo ="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710340431/codigo_lvculd.jpg";
+const alphaByte = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341575/alphabyteposter_nkzve2.png";
+const cat ="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/3_CAT_qghzbr.png";
+const iplAuction = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/4_IPL_AUCTION_grx4vf.png";
+const actionReply = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341041/5_ACTION_REPLY_cx9q8z.png";
+const codeInTheDark = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/6_CODE_IN_THE_DARK_dnaoly.png";
+const mindMatrix = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341039/7_MIND_MATRIX_pkmcpf.png";
+const projectCompletion = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341036/8_PROJECT_COMPLETION_s1dpyf.png";
+const posterPresentation="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341040/9_POSTER_PRESENTATION_zzj0h1.png";
+const chronoclash = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341036/10_CHRONOCLASH_nj4k5x.png";
+const byteMe = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341041/11_BYTE_ME_hqt7a2.png";
+const sherlock = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341041/12_SHERLOCK_mgainr.png";
 
 const events = [
   {
@@ -266,7 +266,7 @@ const events = [
     id: "8",
     image: projectCompletion,
     aboutEvent:
-      "The competition offers teams a platform to showcase their research projects or ideas via concise and visually captivating posters. Participants are encouraged to utilize graphics, images, and succinct text to convey the core aspects of their research or project effectively. Emphasizing the importance of communicating to a diverse audience, achieving a balance between visual appeal and informative content is key. Best of luck to all participants in the competition!",
+      "The competition offers teams a platform to showcase their research projects or ideas via concise and visually captivating posters. Participants are encouraged to utilize graphics, images, and succinct text to convey the core aspects of their research or project effectively. Emphasizing the constance of communicating to a diverse audience, achieving a balance between visual appeal and informative content is key. Best of luck to all participants in the competition!",
     schedule: {
       round1: [
         {
