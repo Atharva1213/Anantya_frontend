@@ -16,9 +16,9 @@ interface CardData {
 const CardsData: CardData[] = [
   {
     id: 3,
-    img: alphaByte,
+    img: "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250978/p13_2_tf2x8l.jpg",
     title: "Alpha Byte",
-    alias: "Alpha Byte",
+    alias: "AlphaByte",
     desc: "AlphaByte 1.0 is a National Level Hackathon organized by GDSC x Anantya 2024, in collaboration with the Computer Engineering Students Association (CESA). It is a flagship event of Anantya 2024, aimed at bringing together the brightest minds in the field of technology from across the country.",
   },
   {
