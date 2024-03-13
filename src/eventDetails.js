@@ -201,7 +201,6 @@ const events = [
     image: codeInTheDark,
     aboutEvent:
       "This coding competition containing two rounds : First Round - Bhailang Coding Competition : In this part, teams of two work together to solve coding problems. It's called Bhailang to emphasize that it's challenging and competitive. The focus is on solving problems using Bhai coding language and coding skills. The teams with the best scores or performance move on to the next round. Bhai coding language is normally a funny coding language with simple and funny syntax. Also at the time of round 1 we will provide some documentation about bhailang for your guidance. Second Round - Blind Coding : This round is different. One member of each team can't see the computer screen; they're blindfolded. The blindfolded person does the coding based only on what their teammate tells them. The other teammate guides them by giving instructions and explanations. The blindfolded person has to translate these instructions into code without seeing anything. This round tests how well teams communicate, work together, trust each other, and handle pressure.",
-
     schedule: {
       round1: [{ date: "20th March", time: "", venue: "" }],
     },
@@ -213,12 +212,6 @@ const events = [
       ],
       faculty: ["Mr. Pankaj Devre"],
     },
-
-    rulebook: "",
-    Amount: "₹50",
-    participantno: "2",
-    whatsappLink: "https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
-
     "rulebook": "https://docs.google.com/document/d/131kbtNx_gWRRvSS4jHmBYmy7J8DtrfHYuFiN6u9grCY/edit?usp=drivesdk",
     "Amount": "₹50",
     "participantno": "2",
@@ -292,14 +285,6 @@ const events = [
       ],
       faculty: ["Mrs. Tanya Shruti"],
     },
-
-    rulebook:
-      "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
-    Amount: "N.A.",
-    participantno: "4",
-    whatsappLink: "link",
-  },
-
     "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
     "Amount": "N.A.",
     "participantno": "4",
@@ -443,19 +428,12 @@ const events = [
       ],
       faculty: ["Mr. Ganesh Kadam"],
     },
-
-    rulebook:
-      "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
-    Amount: "₹80",
-    participantno: "2",
-    whatsappLink: "https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid ",
-  },
     "rulebook": "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
     "Amount": "₹80",
     "participantno": "2",
     "website":"https://Owasppccoe.vercel.app",
     "whatsappLink":"https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid ",
-  }
+  },
 ];
 
 export default events;
