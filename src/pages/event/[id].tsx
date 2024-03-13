@@ -273,6 +273,9 @@ const EventDetails = () => {
                 alt={"article cover"}
                 priority
               />
+              <div>
+                 <h2>participantno Count  - {event.participantno}</h2>
+              </div>
               <div className="lg:w-2/3 md:text-center mx-auto flex justify-center mt-7">
                 <a>
                   <button
