@@ -19,7 +19,7 @@ const events = [
     image: codigo,
     aboutEvent:
       "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
-    participantno: 2,
+    participantno:"2",
     coordinators: {
       students: [
         { name: "Mithilesh Rajput", phone: "9579283970 " },
@@ -212,10 +212,10 @@ const events = [
       ],
       faculty: ["Mr. Pankaj Devre"],
     },
-    "rulebook": "https://docs.google.com/document/d/131kbtNx_gWRRvSS4jHmBYmy7J8DtrfHYuFiN6u9grCY/edit?usp=drivesdk",
-    "Amount": "₹50",
-    "participantno": "2",
-    "whatsappLink":"https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
+     rulebook: "https://docs.google.com/document/d/131kbtNx_gWRRvSS4jHmBYmy7J8DtrfHYuFiN6u9grCY/edit?usp=drivesdk",
+     Amount: "₹50",
+     participantno: "2",
+     whatsappLink:"https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
   },
   {
     name: "Mind Matrix",
