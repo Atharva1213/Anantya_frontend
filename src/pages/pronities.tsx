@@ -7,7 +7,7 @@ import iplAuction from "../images/1_CODIGO.svg";
 import alphaByte from "../images/1_CODIGO.svg";
 interface CardData {
   id: number;
-  img: StaticImageData;
+  img:string;
   title: string;
   desc: string;
   alias:string;
@@ -16,21 +16,21 @@ interface CardData {
 const CardsData: CardData[] = [
   {
     id: 3,
-    img: "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250978/p13_2_tf2x8l.jpg",
+    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250978/p13_2_tf2x8l.jpg",
     title: "Alpha Byte",
     alias: "AlphaByte",
     desc: "AlphaByte 1.0 is a National Level Hackathon organized by GDSC x Anantya 2024, in collaboration with the Computer Engineering Students Association (CESA). It is a flagship event of Anantya 2024, aimed at bringing together the brightest minds in the field of technology from across the country.",
   },
   {
     id: 1,
-    img: codigo,
+    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250978/p13_2_tf2x8l.jpg",
     title: "Codigo",
     alias: "Codigo",
     desc: "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
   },
   {
     id: 2,
-    img: iplAuction,
+    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710250978/p13_2_tf2x8l.jpg",
     title: "IPL Auction",
     alias: "IPL Auction",
     desc: "The IPL Auction Simulation invites participants to engage in a strategic team-building experience mirroring the official IPL auction process.1: Qualifying Test - Demonstrate your cricket acumen through a comprehensive knowledge assessment.2: Buzzer Round - Employ quick thinking and strategic bidding in a fast-paced auction environment.3: Live Auction - Participate in a simulated live auction, utilizing a set budget to construct your ideal IPL franchise. This event is designed to test knowledge, decision-making, and auction room prowess.",
@@ -62,7 +62,7 @@ const Pronities: React.FC<Props> = ({ isMobile }) => {
                 <div className="relative group overflow-hidden rounded-lg">
                   <Image
                     className="rounded-lg"
-                    src={img.src}
+                    src={img}
                     width={100}
                     height={400}
                     alt=""
