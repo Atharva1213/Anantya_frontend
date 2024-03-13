@@ -26,7 +26,7 @@ const Gallery = () => {
           <div className="relative pt-36 ">
             <div className="lg:w-2/3 md:text-center  mx-auto">
               <p className="text-white font-bold text-4xl md:text-3xl xl:text-4xl">
-                Event Calender Is Disclose Soon ...
+                Event Calender To Be Disclosed Soon ...
               </p>
             </div>
           </div>
