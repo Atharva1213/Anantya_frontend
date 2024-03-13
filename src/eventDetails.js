@@ -1,15 +1,15 @@
-import codigo from "./images/logo_text.png";
-import alphaByte from "./images/logo_text.png";
-import cat from "./images/logo_text.png";
-import iplAuction from "./images/logo_text.png";
-import actionReply from "./images/logo_text.png";
-import codeInTheDark from "./images/logo_text.png";
-import mindMatrix from "./images/logo_text.png";
-import projectCompletion from "./images/logo_text.png";
-import posterPresentation from "./images/logo_text.png";
-import chronoclash from "./images/logo_text.png";
-import byteMe from "./images/logo_text.png";
-import sherlock from "./images/logo_text.png";
+import codigo from "./images/1_CODIGO.svg";
+import alphaByte from "./images/1_CODIGO.svg";
+import cat from "./images/1_CODIGO.svg";
+import iplAuction from "./images/1_CODIGO.svg";
+import actionReply from "./images/1_CODIGO.svg";
+import codeInTheDark from "./images/1_CODIGO.svg";
+import mindMatrix from "./images/1_CODIGO.svg";
+import projectCompletion from "./images/1_CODIGO.svg";
+import posterPresentation from "./images/1_CODIGO.svg";
+import chronoclash from "./images/1_CODIGO.svg";
+import byteMe from "./images/1_CODIGO.svg";
+import sherlock from "./images/1_CODIGO.svg";
 
 const events = [
   {

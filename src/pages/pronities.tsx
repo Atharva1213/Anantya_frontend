@@ -2,9 +2,9 @@ import React from "react";
 import { Slide, Fade } from "react-awesome-reveal";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import codigo from "../images/logo_text.png";
-import iplAuction from "../images/logo_text.png";
-import alphaByte from "../images/logo_text.png";
+import codigo from "../images/1_CODIGO.svg";
+import iplAuction from "../images/1_CODIGO.svg";
+import alphaByte from "../images/1_CODIGO.svg";
 interface CardData {
   id: number;
   img: StaticImageData;
@@ -12,8 +12,6 @@ interface CardData {
   desc: string;
   alias:string;
 }
-
-
 
 const CardsData: CardData[] = [
   {
@@ -40,7 +38,7 @@ const CardsData: CardData[] = [
 ];
 
 interface Props {
-  isMobile: boolean; // Assuming isMobile should be a boolean
+  isMobile: boolean; 
 }
 
 const Pronities: React.FC<Props> = ({ isMobile }) => {
