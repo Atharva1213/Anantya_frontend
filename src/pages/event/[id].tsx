@@ -74,6 +74,7 @@ const EventDetails = () => {
       handleApiResponse(result.data);
     } catch (error) {
       console.log(error);
+      closeHanlder();
       handleApiError();
     }
   };
