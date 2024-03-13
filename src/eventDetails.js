@@ -279,8 +279,8 @@ const events = [
 
     coordinators: {
       students: [
-        { name: "Sejal Rokade", phone: "8625814185" },
-        { name: "Anushka Pardeshi", phone: "9404737603" },
+        { name: "Asmita Mahamuni", phone: "9561674756" },
+        { name: "Ronak Dagale", phone: "9561307404" },
       ],
       faculty: ["Mrs. Tanya Shruti"],
     },
@@ -308,8 +308,8 @@ const events = [
 
     coordinators: {
       students: [
-        { name: "Asmita Mahamuni", phone: "9561674756" },
-        { name: "Ronak Dagale", phone: "9561307404" },
+        { name: "Sejal Rokade", phone: "8625814185" },
+        { name: "Anushka Pardeshi", phone: "9404737603" },
       ],
       faculty: ["Mrs. S. Vispute", "Mrs. M. Pathan"],
     },
