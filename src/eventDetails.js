@@ -259,7 +259,6 @@ const events = [
     participantno: "2",
     whatsappLink: "https://chat.whatsapp.com/EQuNyByNyJ4CglepsIAp4h",
   },
-
   {
     name: "Project Completion",
     alias: "Project Completion",

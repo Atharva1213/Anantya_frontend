@@ -687,7 +687,7 @@ const EventDetails = () => {
                 </div>
 
                 <div className="form-flexbtn">
-                  {event.participantno === 1 ||
+                  {event.participantno === "1" ||
                   event.participantno ===
                     (currentParticipant + 1).toString() ? (
                     <>
