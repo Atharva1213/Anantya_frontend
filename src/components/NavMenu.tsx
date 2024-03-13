@@ -26,6 +26,10 @@ export const navItems = [
     href: "/sponsors",
     text: "Sponsors",
   },
+  {
+    href: "/developer",
+    text: "developer",
+  },
 ];
 
 const NavMenu = () => {
@@ -50,9 +54,10 @@ const NavMenu = () => {
           <MobileMenu />
         </div>
         <nav className="hidden space-x-6 text-lg justify-center lg:flex ">
-          {navItems.map(({ href, text }, index) => (
-            <NavItem href={href} text={text} />
-          ))}
+        {navItems.slice(0, 4).map(({ href, text }, index) => (
+  <NavItem key={index} href={href} text={text} />
+))}
+
         </nav>
       </div>
       {isOpen && (
@@ -84,7 +89,7 @@ const NavMenu = () => {
               </svg>
             </button>
             <ul className="space-y-6">
-              {navItems.map(({ href, text }) => (
+              {navItems.slice(0, 4).map(({ href, text }) => (
                 <li>
                   <NextLink
                     href={{

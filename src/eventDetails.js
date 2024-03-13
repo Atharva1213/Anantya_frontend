@@ -9,7 +9,7 @@ import projectCompletion from "./images/poster/8_PROJECT_COMPLETION.svg";
 import posterPresentation from "./images/poster/9_POSTER_PRESENTATION.svg";
 import chronoclash from "./images/poster/10_CHRONO_CLASH.svg";
 import byteMe from "./images/poster/11_BYTE_ME.svg";
-import sherlock from "./images/poster/12_SHERLOCK.svg";
+import sherlock from "./images/poster/12_SherLOCK.svg";
 
 const events = [
   {
@@ -213,10 +213,16 @@ const events = [
       ],
       faculty: ["Mr. Pankaj Devre"],
     },
+
     rulebook: "",
     Amount: "₹50",
     participantno: "2",
     whatsappLink: "https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
+
+    "rulebook": "https://docs.google.com/document/d/131kbtNx_gWRRvSS4jHmBYmy7J8DtrfHYuFiN6u9grCY/edit?usp=drivesdk",
+    "Amount": "₹50",
+    "participantno": "2",
+    "whatsappLink":"https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
   },
   {
     name: "Mind Matrix",
@@ -294,6 +300,11 @@ const events = [
     whatsappLink: "link",
   },
 
+    "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
+    "Amount": "N.A.",
+    "participantno": "4",
+    "whatsappLink":"https://chat.whatsapp.com/GflyISHWsw0K6j8wECuFz3",
+  },  
   {
     name: "Poster Presentation",
     alias: "Poster Presentation",
@@ -325,7 +336,6 @@ const events = [
     participantno: "4",
     whatsappLink: "https://chat.whatsapp.com/GCJAojgtUVv16hVSQHTiHL",
   },
-
   {
     name: "Chronoclash",
     alias: "Chronoclash",
@@ -440,6 +450,12 @@ const events = [
     participantno: "2",
     whatsappLink: "https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid ",
   },
+    "rulebook": "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
+    "Amount": "₹80",
+    "participantno": "2",
+    "website":"https://Owasppccoe.vercel.app",
+    "whatsappLink":"https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid ",
+  }
 ];
 
 export default events;

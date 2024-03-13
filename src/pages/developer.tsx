@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NavMenu from "@/components/NavMenu";
+import axios from "axios";
+import event from "../eventDetails";
 
 const Gallery = () => {
   const router = useRouter();
@@ -18,6 +20,18 @@ const Gallery = () => {
       window.removeEventListener("popstate", handlePopstate);
     };
   }, []);
+
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await axios.post("https://anantya-backend.onrender.com/api/register/sendmail", { event });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+},[]); 
   return (
     <>
       {isShowNav && <NavMenu />}
@@ -26,8 +40,7 @@ const Gallery = () => {
           <div className="relative pt-36 ">
             <div className="lg:w-2/3 md:text-center  mx-auto">
               <p className="text-white font-bold text-4xl md:text-3xl xl:text-4xl">
-                Event Calender To Be Disclosed Soon ...
-                
+              welcome to developer tools                
               </p>
             </div>
           </div>

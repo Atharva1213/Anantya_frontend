@@ -13,6 +13,8 @@ interface CardData {
   alias:string;
 }
 
+
+
 const CardsData: CardData[] = [
   {
     id: 3,
@@ -37,7 +39,11 @@ const CardsData: CardData[] = [
   }
 ];
 
-const Pronities: React.FC = () => {
+interface Props {
+  isMobile: boolean; // Assuming isMobile should be a boolean
+}
+
+const Pronities: React.FC<Props> = ({ isMobile }) => {
   return (
     <section>
       <div className="md:px-12 xl:px-6">
@@ -67,9 +73,10 @@ const Pronities: React.FC = () => {
                     <div className="space-y-4">
                       <Slide cascade duration={200}>
                         <h1 className="text-3xl font-bold">{title}</h1>
-                        <Fade cascade damping={0.05} duration={200}>
+                         {!isMobile &&<Fade cascade damping={0.05} duration={200}>
                           <p>{desc}</p>
                         </Fade>
+                         }
                         <div>
                         <Link href={{ pathname: `/event/${alias}` }}>
                           <button className="px-4 py-2 rounded-lg hover:bg-black/20 duration-100 ">
