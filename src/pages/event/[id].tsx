@@ -358,7 +358,7 @@ const EventDetails = () => {
         {paymentmode && (
           <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center overflow-auto">
             <div
-              className="wholpayment bg-white rounded-lg shadow-lg text-black overflow-hidden backdrop-filter backdrop-blur-lg"
+              className="wholpayment bg-white rounded-lg shadow-lg text-black overflow-auto backdrop-filter backdrop-blur-lg "
               style={{
                 display: "flex",
                 gap: "2vh",
