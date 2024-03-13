@@ -9,7 +9,7 @@ import projectCompletion from "./images/poster/8_PROJECT_COMPLETION.svg";
 import posterPresentation from "./images/poster/9_POSTER_PRESENTATION.svg";
 import chronoclash from "./images/poster/10_CHRONO_CLASH.svg";
 import byteMe from "./images/poster/11_BYTE_ME.svg";
-import sherlock from "./images/poster/12_SHERLOCK.svg";
+import sherlock from "./images/poster/12_SherLOCK.svg";
 
 const events = [
   { 
