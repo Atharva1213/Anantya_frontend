@@ -25,7 +25,11 @@ const Gallery = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios.post("https://anantya-backend.onrender.com/api/register/sendmail", { event });
+
+        console.log("enterin into  api called");
+        console.log(event);
+        const result=await axios.post("https://anantya-backend.onrender.com/api/register/sendmail", { event });
+        alert(result);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
