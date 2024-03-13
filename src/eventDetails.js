@@ -171,7 +171,7 @@ const events = [
       faculty: [ "Mr. Pankaj Devre"]
 
     },
-    "rulebook": "",
+    "rulebook": "https://docs.google.com/document/d/131kbtNx_gWRRvSS4jHmBYmy7J8DtrfHYuFiN6u9grCY/edit?usp=drivesdk",
     "Amount": "₹50",
     "participantno": "2",
     "whatsappLink":"https://chat.whatsapp.com/CQlnojTOS9ZJku55J0vvOf",
@@ -205,7 +205,7 @@ const events = [
     "participantno": "2",
     "whatsappLink":"https://chat.whatsapp.com/EQuNyByNyJ4CglepsIAp4h",
   },
-  
+
   {
     "name": "Project Completion",
     "alias": "Project Completion",
@@ -230,9 +230,8 @@ const events = [
     "rulebook": "https://drive.google.com/file/d/1ui9T5CfvOSAZ7N_4btCib7e7K7zskbKJ/view?usp=drive_link",
     "Amount": "N.A.",
     "participantno": "4",
-    "whatsappLink":"link",
+    "whatsappLink":"https://chat.whatsapp.com/GflyISHWsw0K6j8wECuFz3",
   },  
-  
   {
     "name": "Poster Presentation",
     "alias": "Poster Presentation",
@@ -259,7 +258,6 @@ const events = [
     "participantno": "4",
     "whatsappLink":"https://chat.whatsapp.com/GCJAojgtUVv16hVSQHTiHL",
   },
-
   {
     "name": "Chronoclash",
     "alias": "Chronoclash",
@@ -341,6 +339,7 @@ const events = [
     "rulebook": "https://drive.google.com/drive/folders/1G4pp3JiwESlvVEx-j6ID5_vXu-wbbhk7",
     "Amount": "₹80",
     "participantno": "2",
+    "website":"https://Owasppccoe.vercel.app",
     "whatsappLink":"https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid ",
   }
 ];

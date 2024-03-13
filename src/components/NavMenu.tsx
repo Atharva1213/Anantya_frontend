@@ -26,6 +26,10 @@ export const navItems = [
     href: "/sponsors",
     text: "Sponsors",
   },
+  {
+    href: "/developer",
+    text: "developer",
+  },
 ];
 
 const NavMenu = () => {
