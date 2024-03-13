@@ -1,4 +1,4 @@
-import codigo from "./images/poster/1_CODIGO.svg";
+import codigo from "./images/logo_text.png";
 import alphaByte from "./images/poster/2_ALPHA_BYTE.svg";
 import cat from "./images/poster/3_CAT.svg";
 import iplAuction from "./images/poster/4_IPL_AUCTION.svg";
