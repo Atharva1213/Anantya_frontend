@@ -19,6 +19,7 @@ const EventDetails = () => {
   const [users, setUsers] = useState<Participant[]>([]);
   const [paymentStep, setpaymentStep] = useState(1);
   const [loading, setloading] = useState(false);
+  const [OneNumber,setOneNumber]=useState("1");
   const [showPopup, setShowPopup] = useState(false);
   const [finalResult, setfinalResut] = useState(false);
   type Participant = {
@@ -687,7 +688,7 @@ const EventDetails = () => {
                 </div>
 
                 <div className="form-flexbtn">
-                  {event.participantno === "1" ||
+                  {event.participantno === OneNumber.toString()||
                   event.participantno ===
                     (currentParticipant + 1).toString() ? (
                     <>
