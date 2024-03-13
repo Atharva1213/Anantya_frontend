@@ -260,8 +260,8 @@ const events = [
     whatsappLink: "https://chat.whatsapp.com/EQuNyByNyJ4CglepsIAp4h",
   },
   {
-    name: "Project Completion",
-    alias: "Project Completion",
+    name: "Project Competition",
+    alias: "Project Competition",
     id: "8",
     image: projectCompletion,
     aboutEvent:
