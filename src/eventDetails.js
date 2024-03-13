@@ -1,15 +1,15 @@
 import codigo from "./images/logo_text.png";
-import alphaByte from "./images/poster/2_ALPHA_BYTE.svg";
-import cat from "./images/poster/3_CAT.svg";
-import iplAuction from "./images/poster/4_IPL_AUCTION.svg";
-import actionReply from "./images/poster/5_ACTION_REPLAY.svg";
-import codeInTheDark from "./images/poster/6_CODE_IN_THE_DARK.svg";
-import mindMatrix from "./images/poster/7_MIND_MATRIX.svg";
-import projectCompletion from "./images/poster/8_PROJECT_COMPLETION.svg";
-import posterPresentation from "./images/poster/9_POSTER_PRESENTATION.svg";
-import chronoclash from "./images/poster/10_CHRONO_CLASH.svg";
-import byteMe from "./images/poster/11_BYTE_ME.svg";
-import sherlock from "./images/poster/12_SherLOCK.svg";
+import alphaByte from "./images/logo_text.png";
+import cat from "./images/logo_text.png";
+import iplAuction from "./images/logo_text.png";
+import actionReply from "./images/logo_text.png";
+import codeInTheDark from "./images/logo_text.png";
+import mindMatrix from "./images/logo_text.png";
+import projectCompletion from "./images/logo_text.png";
+import posterPresentation from "./images/logo_text.png";
+import chronoclash from "./images/logo_text.png";
+import byteMe from "./images/logo_text.png";
+import sherlock from "./images/logo_text.png";
 
 const events = [
   {
