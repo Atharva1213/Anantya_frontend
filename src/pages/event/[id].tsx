@@ -31,22 +31,23 @@ const EventDetails = () => {
     year: string;
   };
 
-  const [currentParticipantData, setCurrentParticipantData] = useState<Participant>({
-    name: "",
-    email: "",
-    contact: "",
-    collegeName: "",
-    division: "A",
-    department: "Computer",
-    year: "1st",
-  });
+  const [currentParticipantData, setCurrentParticipantData] =
+    useState<Participant>({
+      name: "",
+      email: "",
+      contact: "",
+      collegeName: "",
+      division: "A",
+      department: "Computer",
+      year: "1st",
+    });
   const router = useRouter();
   const { id } = router.query;
   const event = events.find((event) => event.alias === id);
   if (!event) {
     return <div>Event not found</div>;
   }
-  const isPCCOEEmail = (email:string) => {
+  const isPCCOEEmail = (email: string) => {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@pccoepune\.org\b/;
     return emailRegex.test(email);
   };
@@ -58,14 +59,14 @@ const EventDetails = () => {
         {
           user: users,
           eventId: event.id,
-          type: users.every((user) => isPCCOEEmail(user['email']))
+          type: users.every((user) => isPCCOEEmail(user["email"]))
             ? "PCCOE"
             : "Other",
           ownermail: "anantyapccoe@gmail.com",
           ownerpassword: "gspb rlph qndf avto",
-          eventCoordinatorName:event.coordinators.students[0].name,
-          eventCoordinatorPhone:event.coordinators.students[0].phone,
-          eventName:event.name
+          eventCoordinatorName: event.coordinators.students[0].name,
+          eventCoordinatorPhone: event.coordinators.students[0].phone,
+          eventName: event.name,
         }
       );
       closeHanlder();
@@ -75,7 +76,7 @@ const EventDetails = () => {
       handleApiError();
     }
   };
-  const handleApiResponse = (data:any) => {
+  const handleApiResponse = (data: any) => {
     setloading(false);
     if (data.message !== "401") {
       setregisterUser(true);
@@ -109,18 +110,20 @@ const EventDetails = () => {
       return;
     }
     setfinalResut(false);
-    if(event.name==='Poster Presentation' || event.name==="Project Completion")
-    {
-      registerEventApiCall();
-    }
-    else
-    {
-    const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user['email']));
-    if (areAllPCCOEEmails) {
+    if (
+      event.name === "Poster Presentation" ||
+      event.name === "Project Completion"
+    ) {
       registerEventApiCall();
     } else {
-      setpaymentmode(true);
-    }
+      const areAllPCCOEEmails = users.every((user) =>
+        isPCCOEEmail(user["email"])
+      );
+      if (areAllPCCOEEmails) {
+        registerEventApiCall();
+      } else {
+        setpaymentmode(true);
+      }
     }
   };
   const closeHanlder = () => {
@@ -206,9 +209,9 @@ const EventDetails = () => {
     if (!isValid) {
       return;
     }
-    if ((currentParticipant + 1).toString() <= event['participantno']) {
+    if ((currentParticipant + 1).toString() <= event["participantno"]) {
       setCurrentParticipant(currentParticipant + 1);
-      setUsers([...users,currentParticipantData]);
+      setUsers([...users, currentParticipantData]);
       setCurrentParticipantData({
         name: "",
         email: "",
@@ -289,62 +292,60 @@ const EventDetails = () => {
           </div>
         </article>
         <div className="mx-auto px-4 md:px-0 max-w-7xl flex flex-col gap-6">
-  <div className="flex flex-col gap-6">
-    <div>
-      <h2 className="text-2xl font-bold md:text-3xl">
-        About Event
-      </h2>
-      <p className="md:text-lg text-justify mt-2">{event.aboutEvent}</p>
-    </div>
-  </div>
-  <div className="flex flex-col gap-6">
-    <div>
-      <h4 className="text-2xl font-bold md:text-3xl">
-        Rules and Regulations
-      </h4>
-      <a
-        href={event.rulebook}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <button
-          type="button"
-          className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3 text-center"
-        >
-          RuleBook Here
-        </button>
-      </a>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
-        <h4 className="text-2xl font-bold md:text-3xl">
-          Student Coordinators
-        </h4>
-        <div className="space-y-2 mt-3">
-          {event.coordinators.students.map((item, index) => (
-            <p className="text-lg lg:pl-6" key={index}>
-              {item.name} (
-              <a href={`tel:${item.phone}`}>{item.phone}</a>)
-            </p>
-          ))}
+          <div className="flex flex-col gap-6">
+            <div>
+              <h2 className="text-2xl font-bold md:text-3xl">About Event</h2>
+              <p className="md:text-lg text-justify mt-2">{event.aboutEvent}</p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-6">
+            <div>
+              <h4 className="text-2xl font-bold md:text-3xl">
+                Rules and Regulations
+              </h4>
+              <a
+                href={event.rulebook}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button
+                  type="button"
+                  className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-base px-6 py-3 text-center"
+                >
+                  RuleBook Here
+                </button>
+              </a>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-2xl font-bold md:text-3xl">
+                  Student Coordinators
+                </h4>
+                <div className="space-y-2 mt-3">
+                  {event.coordinators.students.map((item, index) => (
+                    <p className="text-lg lg:pl-6" key={index}>
+                      {item.name} (
+                      <a href={`tel:${item.phone}`}>{item.phone}</a>)
+                    </p>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-2xl font-bold md:text-3xl">
+                  Faculty Coordinators
+                </h4>
+                <div className="space-y-2 mt-3">
+                  {event.coordinators.faculty &&
+                    event.coordinators.faculty.map((item, index) => (
+                      <p className="text-lg lg:pl-6" key={index}>
+                        Prof. {item}
+                      </p>
+                    ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div>
-        <h4 className="text-2xl font-bold md:text-3xl">
-          Faculty Coordinators
-        </h4>
-        <div className="space-y-2 mt-3">
-          {event.coordinators.faculty &&
-            event.coordinators.faculty.map((item, index) => (
-              <p className="text-lg lg:pl-6" key={index}>
-                Prof. {item}
-              </p>
-            ))}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
         {registerUser && (
           <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
@@ -656,6 +657,7 @@ const EventDetails = () => {
                     <option value="Mechanical">Mechanical</option>
                     <option value="ENTC">ENTC</option>
                     <option value="Civil">Civil</option>
+                    <option value="AiML">AiML</option>{" "}
                   </select>
                 </div>
 
