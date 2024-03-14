@@ -63,8 +63,8 @@ const EventDetails = () => {
           type: users.every((user) => isPCCOEEmail(user["email"]))
             ? "PCCOE"
             : "Other",
-          ownermail: "pccoeanantya@gmail.com",
-          ownerpassword: "qznl issw ahpu ngpm",
+          ownermail: "anantyapccoe@gmail.com",
+          ownerpassword: "ladj jhsf utad keqi",
           eventCoordinatorName: event.coordinators.students[0].name,
           eventCoordinatorPhone: event.coordinators.students[0].phone,
           eventName: event.name,
