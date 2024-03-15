@@ -99,7 +99,7 @@ const EventDetails = () => {
       setTimeout(() => {
         setregisterUser(false);
         window.location.href = "/";
-      },15000);
+      },7000);
       toast.success(data.message, {
         autoClose:4000,
         position: "top-center",
@@ -147,7 +147,7 @@ const EventDetails = () => {
       });
       setTimeout(() => {
         window.location.href="/signup";
-      },10000);  
+      },6000);  
       setloading(false);
       return;
     }

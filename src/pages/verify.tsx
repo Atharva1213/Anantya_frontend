@@ -13,7 +13,9 @@ const MyComponent = () => {
         autoClose: 2000,
         position: "top-center",
       });
-      window.location.href = "/";
+      setTimeout(() => {
+        window.location.href = "/";
+      },4000);
     } else {
       if (data.title !== "") {
         toast.error(data.title, {

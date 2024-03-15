@@ -42,9 +42,6 @@ const Gallery = () => {
     };
   }, []);
 
-  useEffect(() => {
-    setIsShowNav(router.query.showNav === "true");
-  }, [router.query.showNav]);
   const validateParticipantData = () => {
     const isAllFieldsFilled = Object.values(currentParticipantData).every(
       (value) => value.trim() !== ""
@@ -108,7 +105,7 @@ const Gallery = () => {
       });
       setTimeout(() => {
          window.location.href="/";
-      },10000);
+      },6000);
     } else {
       toast.error(data.title, {
         autoClose: 6000,
@@ -116,7 +113,7 @@ const Gallery = () => {
       });
       setTimeout(() => {
         window.location.href="/signup";
-     },10000);
+     },6000);
     }
   };
   const handleApiError = () => {
