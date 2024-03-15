@@ -239,6 +239,15 @@ section .container > * {
     justify-content: center;
   }
   
+
+   
+  .popup1 {
+        background: rgba(0, 0, 0, 0.292);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:47vh;
+  }
   .popup-content {
     padding: 20px;
     border-radius: 8px;
@@ -401,6 +410,30 @@ section .container > * {
     background: linear-gradient(90deg, transparent, #f4d003);
     animation: btn-anim1 1s linear infinite;
   }
+
+  .normalbutton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Start with a transparent border */
+    transition: border-color 0.3s ease; /* Smooth transition for border color change */
+  }
+  
+  .normalbutton:hover {
+    border-color: #ffffff; /* Change border color on hover */
+    background-color: #45a049; /* Darker green */
+  }
+  
+  .normalbutton:active {
+    background-color: #3e8e41;
+  }
+  
   
   @keyframes btn-anim1 {
     0% {

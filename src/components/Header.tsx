@@ -41,7 +41,7 @@ const Header = () => {
               </div>
               <div>
                 <Image
-                  src={logo1}
+                  src="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710490385/posters/logo1_tmaatv.webp"
                   alt="logo"
                   className="absolute inset-0 w-full h-full object-contain"
                 />
