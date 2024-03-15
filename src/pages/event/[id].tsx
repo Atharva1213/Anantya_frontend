@@ -51,8 +51,8 @@ const EventDetails = () => {
           type: users.every((user) => isPCCOEEmail(user["email"]))
             ? "PCCOE"
             : "Other",
-          ownermail: "pccoeanantya62@gmail.com",
-          ownerpassword: "rvcl roua nwpb fsax",
+          ownermail: "pccoeanantya705@gmail.com",
+          ownerpassword: "tlzx fwli pgeg zizs",
           eventCoordinatorName: event.coordinators.students[0].name,
           eventCoordinatorPhone: event.coordinators.students[0].phone,
           eventName: event.name,
@@ -160,9 +160,9 @@ const EventDetails = () => {
       setloading(false);
       return;
     }
-    if (event.name === "Poster Presentation" || event.name === "Project Completion") {
+    if (event.name === "Poster Presentation") {
       registerEventApiCall();
-    } else {
+    }else {
       const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user.email));
       if (areAllPCCOEEmails) {
         registerEventApiCall();
@@ -183,12 +183,18 @@ const EventDetails = () => {
     });
   };
   const togglePopup = () => {
-    setShowPopup(!showPopup);
-    setCurrentParticipant(0);
-    setCurrentParticipantData({
-      email: "",
-    });
-    setUsers([]);
+    if (event.name === "Project Competition") {
+      toast.warning("Registraton is Full", {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      return;
+    } else {
+      setShowPopup(!showPopup);
+      setCurrentParticipant(0);
+      setCurrentParticipantData({ email: "" });
+      setUsers([]);
+    }
   };
   const validateParticipantData = () => {
     const isAllFieldsFilled = Object.values(currentParticipantData).every(
