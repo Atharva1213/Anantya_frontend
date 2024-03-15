@@ -74,6 +74,7 @@ const EventDetails = () => {
           user: data,
         }
       );
+      console.log(result);
       return result.data.message  === "yes" ? true : false;
     } catch (error) {
     }
@@ -141,7 +142,7 @@ const EventDetails = () => {
     setloading(true);
     const result = await allregisteremail(users); 
     if (!result) {
-      toast.warning("Team Member Should Sign up", {
+      toast.warning("Team Member Should Sign up and Verified" , {
         autoClose: 6000,
         position: "top-center",
       });
