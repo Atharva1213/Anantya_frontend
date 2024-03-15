@@ -13,21 +13,21 @@ interface CardData {
 const CardsData: CardData[] = [
   {
     id: 3,
-    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341575/alphabyteposter_nkzve2.png",
+    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710488019/posters/alphabyteposter_a5ly4z.webp",
     title: "Alpha Byte",
     alias: "AlphaByte",
     desc: "AlphaByte 1.0 is a National Level Hackathon organized by GDSC x Anantya 2024, in collaboration with the Computer Engineering Students Association (CESA). It is a flagship event of Anantya 2024, aimed at bringing together the brightest minds in the field of technology from across the country.",
   },
   {
     id: 1,
-    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710340431/codigo_lvculd.jpg",
+    img:"",
     title: "Codigo",
     alias: "Codigo",
     desc: "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
   },
   {
     id: 2,
-    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/4_IPL_AUCTION_grx4vf.png",
+    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487324/posters/4_IPL_AUCTION_jip0uo.webp",
     title: "IPL Auction",
     alias: "IPL Auction",
     desc: "The IPL Auction Simulation invites participants to engage in a strategic team-building experience mirroring the official IPL auction process.1: Qualifying Test - Demonstrate your cricket acumen through a comprehensive knowledge assessment.2: Buzzer Round - Employ quick thinking and strategic bidding in a fast-paced auction environment.3: Live Auction - Participate in a simulated live auction, utilizing a set budget to construct your ideal IPL franchise. This event is designed to test knowledge, decision-making, and auction room prowess.",

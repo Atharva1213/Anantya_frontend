@@ -35,14 +35,14 @@ const Header = () => {
               <div>
                 <Image
                   src={bglogo1}
-                  alt="logo"
+                  alt="logo"            
                   className="absolute inset-0 w-full h-full object-contain opacity-50 animate-spin-slow"
                 />
               </div>
               <div>
                 <Image
-                  src={logo1}
-                  alt="logo"
+                  src="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710490385/posters/logo1_tmaatv.webp"
+                  alt="logo"      
                   className="absolute inset-0 w-full h-full object-contain"
                 />
               </div>

@@ -7,7 +7,7 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "prod":"next prod"
+    "prod": "next prod"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -17,6 +17,8 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.6.7",
     "caniuse-lite": "^1.0.30001591",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "lottie-react": "^2.4.0",
     "next": "^13.5.6",
     "postcss": "8.4.23",

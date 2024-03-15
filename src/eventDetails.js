@@ -1,15 +1,15 @@
-const codigo ="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710340431/codigo_lvculd.jpg";
-const alphaByte = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341575/alphabyteposter_nkzve2.png";
-const cat ="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/3_CAT_qghzbr.png";
-const iplAuction = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/4_IPL_AUCTION_grx4vf.png";
-const actionReply = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341041/5_ACTION_REPLY_cx9q8z.png";
-const codeInTheDark = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341037/6_CODE_IN_THE_DARK_dnaoly.png";
-const mindMatrix = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341039/7_MIND_MATRIX_pkmcpf.png";
-const projectCompletion = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341036/8_PROJECT_COMPLETION_s1dpyf.png";
-const posterPresentation="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341040/9_POSTER_PRESENTATION_zzj0h1.png";
-const chronoclash = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341036/10_CHRONOCLASH_nj4k5x.png";
-const byteMe = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341041/11_BYTE_ME_hqt7a2.png";
-const sherlock = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710341041/12_SHERLOCK_mgainr.png";
+const codigo ="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710489888/posters/1_CODIGO_1_ssickh.webp";
+const alphaByte = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710488019/posters/alphabyteposter_a5ly4z.webp";
+const cat ="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487325/posters/3_CAT_gqkvra.webp";
+const iplAuction = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487324/posters/4_IPL_AUCTION_jip0uo.webp";
+const actionReply = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487327/posters/5_ACTION_REPLY_vxtnjm.webp";
+const codeInTheDark = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487324/posters/6_CODE_IN_THE_DARK_pyiuco.webp";
+const mindMatrix = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487326/posters/7_MIND_MATRIX_ugjuba.webp";
+const projectCompletion = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487723/posters/8_PROJECT_COMPLETION_x5qkhu.webp";
+const posterPresentation="https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487789/posters/9_POSTER_PRESENTATION_gnyyar.webp";
+const chronoclash = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487718/posters/10_CHRONOCLASH_t9o51d.webp";
+const byteMe = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487818/posters/11_BYTE_ME_ez4qgr.webp";
+const sherlock = "https://res.cloudinary.com/drpj8yeqp/image/upload/v1710487769/posters/12_SHERLOCK_pkxnyx.webp";
 
 const events = [
   {

@@ -23,24 +23,12 @@ const EventDetails = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [finalResult, setfinalResut] = useState(false);
   type Participant = {
-    name: string;
     email: string;
-    contact: string;
-    collegeName: string;
-    division: string;
-    department: string;
-    year: string;
   };
 
   const [currentParticipantData, setCurrentParticipantData] =
     useState<Participant>({
-      name: "",
-      email: "",
-      contact: "",
-      collegeName: "",
-      division: "A",
-      department: "Computer",
-      year: "1st",
+      email: ""
     });
   const router = useRouter();
   const { id } = router.query;
@@ -56,7 +44,7 @@ const EventDetails = () => {
     try {
       setloading(true);
       const result = await axios.post(
-        "https://anantya-backend.onrender.com/api/register/registerevent",
+        "https://anantya-backend-1.onrender.com/api/register/registerevent",
         {
           user: users,
           eventId: event.id,
@@ -73,11 +61,38 @@ const EventDetails = () => {
       closeHanlder();
       handleApiResponse(result.data);
     } catch (error) {
-      console.log(error);
       closeHanlder();
       handleApiError();
     }
   };
+
+  const allregisteremail=async(data:any)=>{
+    try {
+      const result = await axios.post(
+        "https://anantya-backend-1.onrender.com/api/register/validemail",
+        {
+          user: data,
+        }
+      );
+      console.log(result);
+      return result.data.message  === "yes" ? true : false;
+    } catch (error) {
+    }
+  }
+  const allregisteremailevent=async(data:any)=>{
+    try {
+      const result = await axios.post(
+        "https://anantya-backend-1.onrender.com/api/register/validemailevent",
+        {
+          user: data,
+          eventId: event.id,
+        }
+      );
+      return result.data.message  === "yes" ? true : false;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const handleApiResponse = (data: any) => {
     setloading(false);
     if (data.message !== "401") {
@@ -111,20 +126,49 @@ const EventDetails = () => {
       });
       return;
     }
+    const uniqueEmails = new Set();
+    for (const user of users) {
+      if (uniqueEmails.has(user.email)) {
+        toast.warning("Duplicate emails found, please ensure each user has a unique email", {
+          autoClose: 6000,
+          position: "top-center",
+        });
+        setfinalResut(false);
+        return;
+      }
+      uniqueEmails.add(user.email);
+    }
     setfinalResut(false);
-    if (
-      event.name === "Poster Presentation" ||
-      event.name === "Project Completion"
-    ) {
+    setloading(true);
+    const result = await allregisteremail(users); 
+    if (!result) {
+      toast.warning("Team Member Should Sign up and Verified" , {
+        autoClose: 6000,
+        position: "top-center",
+      });
+      
+      setloading(false);
+      window.location.href="/signup";
+      return;
+    }
+    const result1 = await allregisteremailevent(users); 
+    if (!result1) {
+      toast.warning("Already registered for this event", {
+        autoClose: 6000,
+        position: "top-center",
+      }); 
+      setloading(false);
+      return;
+    }
+    if (event.name === "Poster Presentation" || event.name === "Project Completion") {
       registerEventApiCall();
     } else {
-      const areAllPCCOEEmails = users.every((user) =>
-        isPCCOEEmail(user["email"])
-      );
+      const areAllPCCOEEmails = users.every((user) => isPCCOEEmail(user.email));
       if (areAllPCCOEEmails) {
         registerEventApiCall();
       } else {
         setpaymentmode(true);
+        setloading(false);
       }
     }
   };
@@ -135,26 +179,14 @@ const EventDetails = () => {
     setpaymentStep(1);
     setCurrentParticipant(0);
     setCurrentParticipantData({
-      name: "",
-      email: "",
-      contact: "",
-      collegeName: "",
-      division: "A",
-      department: "Computer",
-      year: "1st",
+      email: ""
     });
   };
   const togglePopup = () => {
     setShowPopup(!showPopup);
     setCurrentParticipant(0);
     setCurrentParticipantData({
-      name: "",
       email: "",
-      contact: "",
-      collegeName: "",
-      division: "A",
-      department: "Computer",
-      year: "1st",
     });
     setUsers([]);
   };
@@ -170,16 +202,6 @@ const EventDetails = () => {
       });
       return false;
     }
-
-    const nameRegex = /^[A-Za-z\s]{1,}$/;
-    if (!nameRegex.test(currentParticipantData.name)) {
-      toast.warning("Please enter a valid name.", {
-        autoClose: 6000,
-        position: "top-center",
-      });
-      return false;
-    }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(currentParticipantData.email)) {
       toast.warning("Please enter a valid email address.", {
@@ -188,22 +210,6 @@ const EventDetails = () => {
       });
       return false;
     }
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(currentParticipantData.contact)) {
-      toast.warning("Please enter a valid 10-digit phone number.", {
-        autoClose: 6000,
-        position: "top-center",
-      });
-      return false;
-    }
-    if (!nameRegex.test(currentParticipantData.collegeName)) {
-      toast.warning("Please enter a valid College name.", {
-        autoClose: 6000,
-        position: "top-center",
-      });
-      return false;
-    }
-
     return true;
   };
   const handleNextOrSubmit = () => {
@@ -215,13 +221,7 @@ const EventDetails = () => {
       setCurrentParticipant(currentParticipant + 1);
       setUsers([...users, currentParticipantData]);
       setCurrentParticipantData({
-        name: "",
-        email: "",
-        contact: "",
-        collegeName: "",
-        division: "A",
-        department: "Computer",
-        year: "1st",
+        email: ""
       });
     }
     if ((currentParticipant + 1).toString() === event.participantno) {
@@ -234,13 +234,7 @@ const EventDetails = () => {
     setfinalResut(false);
     setCurrentParticipant(0);
     setCurrentParticipantData({
-      name: "",
-      email: "",
-      contact: "",
-      collegeName: "",
-      division: "A",
-      department: "Computer",
-      year: "1st",
+      email: ""
     });
     setUsers([]);
   };
@@ -257,12 +251,6 @@ const EventDetails = () => {
                 {event.name}
                 <span className="text-primary text-[#EACD69]">.</span>
               </h1>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2 space-x-2 text-lg">
-                  <p className="m-0 text-lg md:text-xl">{event.alias}</p>
-                  <p className="m-0">•</p>
-                </div>
-              </div>
             </div>
             <div className="my-12">
               <Image
@@ -522,8 +510,7 @@ const EventDetails = () => {
                     users.map((item, index) =>
                       item ? (
                         <div key={index} className="liststype">
-                          <span>{item.name}</span>
-                          <span>{item.collegeName}</span>
+                          <span>{item.email}</span>
                         </div>
                       ) : null
                     )}
@@ -546,7 +533,7 @@ const EventDetails = () => {
       {showPopup && (
         <div className="popup bg-black bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg">
           <div className="popup-content">
-            <div className="login-box">
+            <div className="login-box" style={{height:"50vh",overflow:"hidden"}}>
               <div className="text-white">
                 <div className="cross">
                   <h1>Event Registration</h1>
@@ -561,22 +548,6 @@ const EventDetails = () => {
               </div>
               <br />
               <form>
-                <div>
-                  <label>Name:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="name"
-                    value={currentParticipantData.name}
-                    onChange={(e) =>
-                      setCurrentParticipantData({
-                        ...currentParticipantData,
-                        name: e.target.value,
-                      })
-                    }
-                    required
-                  />
-                </div>
                 <div>
                   <span style={{fontSize:"1.2vh",color:"#fff"}}>Please Enter College Email only  ..</span>
                   <label>Email:</label>
@@ -594,103 +565,6 @@ const EventDetails = () => {
                     required
                   />
                 </div>
-                <div>
-                  <label>Contact Number</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="contact"
-                    value={currentParticipantData.contact}
-                    onChange={(e) =>
-                      setCurrentParticipantData({
-                        ...currentParticipantData,
-                        contact: e.target.value,
-                      })
-                    }
-                    required
-                  />
-                </div>
-                <div>
-                  <label>College Name:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="collegename"
-                    value={currentParticipantData.collegeName}
-                    onChange={(e) =>
-                      setCurrentParticipantData({
-                        ...currentParticipantData,
-                        collegeName: e.target.value,
-                      })
-                    }
-                    required
-                  />
-                </div>
-                <div>
-                  <label>Division: </label>
-                  <select
-                    className="form-control"
-                    name="division"
-                    value={currentParticipantData.division}
-                    onChange={(e) =>
-                      setCurrentParticipantData({
-                        ...currentParticipantData,
-                        division: e.target.value,
-                      })
-                    }
-                    required
-                  >
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                  </select>
-                </div>
-                <div>
-                  <label>Department: </label>
-                  <select
-                    className="form-control"
-                    name="department"
-                    value={currentParticipantData.department}
-                    onChange={(e) =>
-                      setCurrentParticipantData({
-                        ...currentParticipantData,
-                        department: e.target.value,
-                      })
-                    }
-                    required
-                  >
-                    <option value="Computer">Computer</option>
-                    <option value="IT">IT</option>
-                    <option value="Mechanical">Mechanical</option>
-                    <option value="ENTC">ENTC</option>
-                    <option value="Civil">Civil</option>
-                    <option value="AiML">AiML</option>{" "}
-                  </select>
-                </div>
-
-                <div>
-                  <label>Year:</label>
-                  <select
-                    className="form-control"
-                    name="year"
-                    value={currentParticipantData.year}
-                    onChange={(e) =>
-                      setCurrentParticipantData({
-                        ...currentParticipantData,
-                        year: e.target.value,
-                      })
-                    }
-                    required
-                  >
-                    <option value="1st">1st</option>
-                    <option value="2nd">2nd</option>
-                    <option value="3rd">3rd</option>
-                    <option value="4th">4th</option>
-                  </select>
-                </div>
-
                 <div className="form-flexbtn">
                   {event.participantno === OneNumber.toString()||
                   event.participantno ===
