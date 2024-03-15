@@ -130,8 +130,8 @@ const Gallery = () => {
         "https://anantya-backend-1.onrender.com/api/register/signupmail",
         {
           user: currentParticipantData,
-          ownermail: "lendeatharva30@gmail.com",
-          ownerpassword: "njzk cgcu crpo uigb",
+          ownermail: "pccoeanantya705@gmail.com",
+          ownerpassword: "tlzx fwli pgeg zizs",
         }
       );
       setloading(false);
