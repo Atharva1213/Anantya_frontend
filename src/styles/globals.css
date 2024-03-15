@@ -218,10 +218,6 @@ section .container > * {
     .grid-wrapper {
         grid-template-columns: 1fr; /* Display one box in smaller screens */
     }
-    .popup1
-    {
-      margin-top:90vh;
-    }
 }
 
 
@@ -542,8 +538,12 @@ section .container > * {
 { 
     width:90%;
 }
+.popup1
+{
+  margin-top:90vh;
+}
 .login-box {
-  width:90%;
+  width:95%;
   height:90vh;
   margin-bottom:20px;
 }
