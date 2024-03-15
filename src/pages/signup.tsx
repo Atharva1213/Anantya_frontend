@@ -106,14 +106,17 @@ const Gallery = () => {
         autoClose: 2000,
         position: "top-center",
       });
+      setimeout(()=>{ 
       window.location.href = "/";
+      },1200);
     } else {
       toast.error(data.title, {
         autoClose: 6000,
         position: "top-center",
       });
+         setimeout(()=>{ 
       window.location.href = "/signup";
-
+      },1200);
     }
   };
   const handleApiError = () => {
