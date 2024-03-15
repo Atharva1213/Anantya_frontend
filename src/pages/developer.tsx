@@ -21,17 +21,19 @@ const Gallery = () => {
     };
   }, []);
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios.post("https://anantya-backend.onrender.com/api/register/sendmail", { event });
+        await axios.post(
+          "https://anantya-backend.onrender.com/api/register/sendmail",
+          { event }
+        );
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
-},[]); 
+  }, []);
   return (
     <>
       {isShowNav && <NavMenu />}
@@ -40,7 +42,7 @@ const Gallery = () => {
           <div className="relative pt-36 ">
             <div className="lg:w-2/3 md:text-center  mx-auto">
               <p className="text-white font-bold text-4xl md:text-3xl xl:text-4xl">
-              welcome to developer tools                
+                welcome to developer tools
               </p>
             </div>
           </div>

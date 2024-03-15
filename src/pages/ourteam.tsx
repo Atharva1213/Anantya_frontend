@@ -5,10 +5,10 @@ import {
   Kriti,
   wafiya,
   omkar,
-  madhura
+  madhura,
 } from "../images/team";
 import Image from "next/image";
-import { instagram, linkedin, github} from "../images/icons";
+import { instagram, linkedin, github } from "../images/icons";
 import NavMenu from "@/components/NavMenu";
 import { useRouter } from "next/router";
 
@@ -33,7 +33,8 @@ const teamDetails = [
     name: "Wafiya Mulla",
     image: wafiya,
     year: "3rd year CSE",
-    linkedin: "https://www.linkedin.com/in/wafiya-mulla-628b2724b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    linkedin:
+      "https://www.linkedin.com/in/wafiya-mulla-628b2724b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     github: " https://github.com/Wafmulla",
     instagram: "https://www.instagram.com/_shreelende_/",
   },
@@ -57,7 +58,8 @@ const teamDetails = [
     name: "Madhura Abnave",
     image: madhura,
     year: "3rd year CSE",
-    linkedin: "https://www.linkedin.com/in/madhura-abnave-0400b322a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    linkedin:
+      "https://www.linkedin.com/in/madhura-abnave-0400b322a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     github: "https://github.com/madhuraabnave",
     instagram: "https://www.instagram.com/omkarcoolkarni7",
   },

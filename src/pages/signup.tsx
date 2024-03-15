@@ -49,7 +49,7 @@ const Gallery = () => {
 
     if (!isAllFieldsFilled) {
       toast.warning("Please fill all the fields before proceeding.", {
-        autoClose:6000,
+        autoClose: 6000,
         position: "top-center",
       });
       return false;
@@ -58,7 +58,7 @@ const Gallery = () => {
     const nameRegex = /^[A-Za-z\s]{1,}$/;
     if (!nameRegex.test(currentParticipantData.name)) {
       toast.warning("Please enter a valid name.", {
-        autoClose:6000,
+        autoClose: 6000,
         position: "top-center",
       });
       return false;
@@ -104,16 +104,16 @@ const Gallery = () => {
         position: "top-center",
       });
       setTimeout(() => {
-         window.location.href="/";
-      },2000);
+        window.location.href = "/";
+      }, 2000);
     } else {
       toast.error(data.title, {
-        autoClose:2000,
+        autoClose: 2000,
         position: "top-center",
       });
       setTimeout(() => {
-        window.location.href="/signup";
-     },2000);
+        window.location.href = "/signup";
+      }, 2000);
     }
   };
   const handleApiError = () => {

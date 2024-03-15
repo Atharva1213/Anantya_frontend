@@ -15,7 +15,7 @@ const MyComponent = () => {
       });
       setTimeout(() => {
         window.location.href = "/";
-      },4000);
+      }, 4000);
     } else {
       if (data.title !== "") {
         toast.error(data.title, {

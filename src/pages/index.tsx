@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "@/components/Header";
 
@@ -9,7 +9,7 @@ import Events from "./events";
 import { useRouter } from "next/router";
 export default function PreviewPage() {
   const router = useRouter();
-  const [ismobile,setMobile]=useState(false);
+  const [ismobile, setMobile] = useState(false);
   const showNav = router.query.showNav;
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function PreviewPage() {
       <Container>
         <Header />
         <div>
-          {!ismobile &&<Gallery />}
+          {!ismobile && <Gallery />}
           <Pronities isMobile={ismobile} />
           <Events headerShown={false} />
         </div>
