@@ -218,6 +218,10 @@ section .container > * {
     .grid-wrapper {
         grid-template-columns: 1fr; /* Display one box in smaller screens */
     }
+    .popup1
+    {
+      margin-top:60px;
+    }
 }
 
 
