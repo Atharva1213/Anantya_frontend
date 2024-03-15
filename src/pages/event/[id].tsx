@@ -99,28 +99,28 @@ const EventDetails = () => {
       setTimeout(() => {
         setregisterUser(false);
         window.location.href = "/";
-      },7000);
+      },3000);
       toast.success(data.message, {
-        autoClose:4000,
+        autoClose:3000,
         position: "top-center",
       });
     } else {
       toast.error(data.title, {
-        autoClose: 6000,
+        autoClose:3000,
         position: "top-center",
       });
     }
   };
   const handleApiError = () => {
     toast.error("An error occurred while processing your request", {
-      autoClose: 6000,
+      autoClose:3000,
       position: "top-center",
     });
   };
   const handleButtonClick = async () => {
     if (!users || users.length === 0) {
       toast.warning("No users to check", {
-        autoClose: 6000,
+        autoClose:3000,
         position: "top-center",
       });
       return;
@@ -129,7 +129,7 @@ const EventDetails = () => {
     for (const user of users) {
       if (uniqueEmails.has(user.email)) {
         toast.warning("Duplicate emails found, please ensure each user has a unique email", {
-          autoClose:6000,
+          autoClose:3000,
           position: "top-center",
         });
         setfinalResut(false);
@@ -142,19 +142,19 @@ const EventDetails = () => {
     const result = await allregisteremail(users); 
     if (!result) {
       toast.warning("Team Member Should Sign up and Verified" , {
-        autoClose:6000,
+        autoClose:3000,
         position: "top-center",
       });
       setTimeout(() => {
         window.location.href="/signup";
-      },6000);  
+      },3000);  
       setloading(false);
       return;
     }
     const result1 = await allregisteremailevent(users); 
     if (!result1) {
       toast.warning("Already registered for this event", {
-        autoClose: 6000,
+        autoClose:3000,
         position: "top-center",
       }); 
       setloading(false);
@@ -185,7 +185,7 @@ const EventDetails = () => {
   const togglePopup = () => {
     if (event.name === "Project Competition") {
       toast.warning("Registraton is Full", {
-        autoClose: 6000,
+        autoClose:3000,
         position: "top-center",
       });
       return;
