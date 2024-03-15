@@ -20,7 +20,7 @@ const CardsData: CardData[] = [
   },
   {
     id: 1,
-    img:"",
+    img:"https://res.cloudinary.com/drpj8yeqp/image/upload/v1710489888/posters/1_CODIGO_1_ssickh.webp",
     title: "Codigo",
     alias: "Codigo",
     desc: "Get ready for the ultimate coding extravaganza with CODIGO! Dive into a world of innovation, challenge, and excitement as you compete against the best and brightest. With twists and surprises around every corner, CODIGO promises an exhilarating journey for all skill levels. Join us for a chance to showcase your coding prowess, make new friends, and experience the thrill of victory. Register today and prepare to embark on an unforgettable coding adventure!",
