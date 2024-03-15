@@ -74,7 +74,6 @@ const EventDetails = () => {
           user: data,
         }
       );
-      console.log(result);
       return result.data.message  === "yes" ? true : false;
     } catch (error) {
     }
@@ -100,9 +99,9 @@ const EventDetails = () => {
       setTimeout(() => {
         setregisterUser(false);
         window.location.href = "/";
-      }, 2000);
+      },15000);
       toast.success(data.message, {
-        autoClose: 2000,
+        autoClose:4000,
         position: "top-center",
       });
     } else {
@@ -130,7 +129,7 @@ const EventDetails = () => {
     for (const user of users) {
       if (uniqueEmails.has(user.email)) {
         toast.warning("Duplicate emails found, please ensure each user has a unique email", {
-          autoClose: 6000,
+          autoClose:6000,
           position: "top-center",
         });
         setfinalResut(false);
@@ -143,12 +142,13 @@ const EventDetails = () => {
     const result = await allregisteremail(users); 
     if (!result) {
       toast.warning("Team Member Should Sign up and Verified" , {
-        autoClose: 6000,
+        autoClose:6000,
         position: "top-center",
       });
-      
+      setTimeout(() => {
+        window.location.href="/signup";
+      },10000);  
       setloading(false);
-      window.location.href="/signup";
       return;
     }
     const result1 = await allregisteremailevent(users); 
