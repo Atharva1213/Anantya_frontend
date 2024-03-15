@@ -127,7 +127,7 @@ const Gallery = () => {
     try {
       setloading(true);
       const result = await axios.post(
-        "http://localhost:9190/api/register/signupmail",
+        "https://anantya-backend-1.onrender.com/api/register/signupmail",
         {
           user: currentParticipantData,
           ownermail: "lendeatharva30@gmail.com",

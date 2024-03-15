@@ -44,7 +44,7 @@ const EventDetails = () => {
     try {
       setloading(true);
       const result = await axios.post(
-        "http://localhost:9190/api/register/registerevent",
+        "https://anantya-backend-1.onrender.com/api/register/registerevent",
         {
           user: users,
           eventId: event.id,
@@ -69,7 +69,7 @@ const EventDetails = () => {
   const allregisteremail=async(data:any)=>{
     try {
       const result = await axios.post(
-        "http://localhost:9190/api/register/validemail",
+        "https://anantya-backend-1.onrender.com/api/register/validemail",
         {
           user: data,
         }
@@ -81,7 +81,7 @@ const EventDetails = () => {
   const allregisteremailevent=async(data:any)=>{
     try {
       const result = await axios.post(
-        "http://localhost:9190/api/register/validemailevent",
+        "https://anantya-backend-1.onrender.com/api/register/validemailevent",
         {
           user: data,
           eventId: event.id,

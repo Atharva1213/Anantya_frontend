@@ -35,7 +35,7 @@ const MyComponent = () => {
     try {
       setloading(true);
       const result = await axios.post(
-        "http://localhost:9190/api/register/updated",
+        "https://anantya-backend-1.onrender.com/api/register/updated",
         { token: token }
       );
       setloading(false);
