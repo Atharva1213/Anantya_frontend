@@ -146,7 +146,9 @@ const EventDetails = () => {
         autoClose: 6000,
         position: "top-center",
       });
+      
       setloading(false);
+      window.location.href="/signup";
       return;
     }
     const result1 = await allregisteremailevent(users); 
