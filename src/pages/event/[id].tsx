@@ -183,7 +183,7 @@ const EventDetails = () => {
     });
   };
   const togglePopup = () => {
-    if (event.name === "Project Competition") {
+    if (event.name === "Project Competition" || event.name==="IPL Auction") {
       toast.warning("Registraton is Full", {
         autoClose:3000,
         position: "top-center",
