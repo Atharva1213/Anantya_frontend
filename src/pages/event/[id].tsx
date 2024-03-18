@@ -183,7 +183,7 @@ const EventDetails = () => {
     });
   };
   const togglePopup = () => {
-    if (event.name === "Project Competition" || event.name==="IPL Auction" || event.name === "Code In The Dark") {
+    if (event.name === "Project Competition" || event.name==="IPL Auction" || event.name === "Code In The Dark" || event.name  ===  "CAT 2.0") {
       toast.warning("Registraton is Full", {
         autoClose:3000,
         position: "top-center",
